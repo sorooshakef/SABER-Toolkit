@@ -40,7 +40,19 @@ def download_models(stanza=True, spacy=True):
         stanza_lib.download(STANZA_LANG, processors=STANZA_PROCESSORS)
 
     if spacy:
-        import spacy as spacy_lib
+        try:
+            import spacy as spacy_lib
+        except ModuleNotFoundError as exc:
+            # spaCy's top-level __init__ imports its CLI, which pulls in click
+            # (via typer). Those arrive with spaCy in a clean install but are
+            # sometimes absent in mixed conda/pip environments, where the
+            # failure reads as a SABER bug rather than a missing dependency.
+            raise ModuleNotFoundError(
+                f"Importing spaCy failed: no module named {exc.name!r}. This is an "
+                f"incomplete spaCy installation, not a SABER problem -- {exc.name} is "
+                "one of spaCy's own dependencies. Reinstall SABER's requirements into "
+                'the active environment with: pip install --force-reinstall "spacy==3.8.7"'
+            ) from exc
 
         if spacy_lib.util.is_package(SPACY_MODEL):
             logger.info("spaCy pipeline %s is already installed", SPACY_MODEL)
