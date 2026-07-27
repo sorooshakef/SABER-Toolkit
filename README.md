@@ -34,7 +34,7 @@ filter by group, category, CEFR level, or individual structure.
 
 ## Installation
 
-Python 3.9 or newer.
+Python 3.9 or newer, but not above 3.14.
 
 From a clone:
 
