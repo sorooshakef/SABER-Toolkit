@@ -39,7 +39,7 @@ from saber.registry import (
     missing_labels,
 )
 
-__version__ = "0.1.0"
+__version__ = "0.5.4"
 
 __all__ = [
     "Analysis",
