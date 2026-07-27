@@ -1,0 +1,3785 @@
+# Grammatical structure tests for SABER
+# Format:
+# matcher_function_name:
+#   positive: [list of sentences that should match]
+#   negative: [list of sentences that should NOT match]
+
+# A1.1-6: género - masculinos terminados em -ão, e.g. irmão
+a1d1_6:
+  positive:
+    - O meu irmão é alto.
+    - Ele comprou um cão.
+    - O pão está fresco.
+    - O capitão deu a ordem.
+    - O balão subiu ao céu.
+  negative:
+    - O espécime apresentava uma mão com sindactilia congénita.
+    - O tribunal deliberou sobre a questão da competência jurisdicional.
+    - A ação corretiva mitigou os riscos operacionais identificados.
+    - A patologia é endémica nesta região geográfica específica.
+    - A estação orbital mantém uma trajetória geossíncrona estável.
+
+# A1.1-7: género - masculinos terminados em -a, e.g. dia, cinema, problema
+a1d1_7:
+  positive:
+    - O dia está bonito.
+    - Foi um grande problema.
+    - O cinema estava cheio.
+    - O sistema falhou.
+    - Este tema é interessante.
+  negative:
+    - A cadeira partiu.
+    - Esta é a minha casa.
+    - A menina correu.
+    - As casas são brancas.
+    - O gato é preto.
+
+# A1.1-8: género - nomes invariáveis quanto ao género, e.g. o/a estudante; o/a artista; a criança; a pessoa
+a1d1_8:
+  positive:
+    - O colega de equipa identificou o deadlock no sistema.
+    - O especialista em bases de dados otimizou a query.
+    - A pessoa responsável pelo projeto de IA foi premiada.
+    - O guia do centro de dados explicou a topologia da rede.
+    - A estudante terminou o teste.
+  negative:
+    - O engenheiro de software documentou a API.
+    - A programadora corrigiu o bug de interface.
+    - O instrutor de formação técnica é certificado.
+    - A mestre em linguística computacional lidera o grupo.
+    - A menina canta.
+
+# A1.1-9: número - masculinos terminados em -ão, e.g. leão, leões; pão, pães; irmão, irmãos
+a1d1_9:
+  positive:
+    - Os leões são fortes.
+    - Os pães estão quentes.
+    - Os meus irmãos moram aqui.
+    - Os aviões são grandes.
+    - Vi dois cães no parque.
+  negative:
+    - O leão é forte.
+    - O pão está quente.
+    - O meu irmão mora aqui.
+    - As mãos estão sujas.
+    - A lição foi difícil.
+
+# A1.1-10: número - nomes invariáveis quanto ao número, e.g. o/os lápis; os óculos; as calças;
+a1d1_10:
+  positive:
+    - O meu lápis partiu.
+    - Os meus óculos estão sujos.
+    - As calças são azuis.
+    - Comprei um lápis novo.
+    - Onde estão os meus óculos?
+  negative:
+    - O carro é novo.
+    - A casa é grande.
+    - Os livros são pesados.
+    - O sapato é preto.
+    - A camisa é branca.
+
+# A1.1-11: género - outros casos de flexão - e.g. europeu, europeia; ator, atriz; crocodilo macho; crocodilo fêmea
+a1d1_11:
+  positive:
+    - O ator fez um bom papel.
+    - A atriz ganhou o prémio.
+    - O crocodilo macho é grande.
+    - A baleia fêmea cuida do filhote.
+    - Ele é um cidadão europeu.
+  negative:
+    - O gato é pequeno.
+    - A casa é bonita.
+    - O professor é simpático.
+    - A mesa é redonda.
+    - O livro é interessante.
+
+# A1.1-13: número - plural de nomes compostos - e.g. girassóis; navios-escola; porta-vozes; pães-de-ló; amores-perfeitos
+a1d1_13:
+  positive:
+    - Os girassóis cresceram muito.
+    - Os navios-escola partiram ontem.
+    - Ouvimos os porta-vozes do governo.
+    - Comemos pães-de-ló deliciosos.
+    - Vi muitos amores-perfeitos no jardim.
+  negative:
+    - O girassol é amarelo.
+    - O navio-escola partiu.
+    - O porta-voz falou.
+    - O pão-de-ló é doce.
+    - O amor-perfeito é bonito.
+
+# A1.1-14: grau - diminutivos e aumentaivos frequentes (-inho, -ito, -zinho, -zito) - e.g.,carrinho/carrito, irmãozinho/irmãozito; carrão, casarão
+a1d1_14:
+  positive:
+    - O carrinho é azul.
+    - O meu irmãozinho é engraçado.
+    - Que casarão enorme!
+    - O cachorrão correu muito.
+    - O peixão saltou da água.
+  negative:
+    - O vinho apresenta uma oxidação prematura.
+    - O vizinho detetou uma anomalia estrutural.
+    - O apito emitiu um sinal acústico de alta frequência.
+    - O coração exibe um ritmo sinusal estável.
+    - A cozinha cumpre as normas de segurança alimentar.
+
+# A2.1-4: género - adjetivos invariáveis quanto ao género - e.g., pobre, amável, jovem, simples, feliz
+a2d1_4:
+  positive:
+    - O rapaz é jovem.
+    - A rapariga é jovem.
+    - Ele é um homem amável.
+    - Ela é uma mulher amável.
+    - O problema é simples.
+  negative:
+    - O rapaz é alto.
+    - A rapariga é alta.
+    - O homem é bom.
+    - A mulher é boa.
+    - O livro é novo.
+
+# A2.1-5: número - adjetivos invariáveis quanto ao número - e.g., simples, piegas
+a2d1_5:
+  positive:
+    - Estes exercícios são simples.
+    - Ele é um rapaz piegas.
+    - Eles são uns rapazes piegas.
+    - As tarefas são simples.
+    - O teste foi simples.
+  negative:
+    - Estes exercícios são fáceis.
+    - Ele é um rapaz alto.
+    - Eles são uns rapazes altos.
+    - As tarefas são longas.
+    - O teste foi difícil.
+
+# A2.1-6: grau - comparativo - e.g., mais alto (do) que; tão alto como / quanto; menos alto (do) que
+a2d1_6:
+  positive:
+    - O relatório é mais detalhado do que o sumário.
+    - A nova turbina é menos ruidosa que a anterior.
+    - O procedimento é tão seguro como o protocolo padrão.
+    - O sucessor foi mais audaz que o predecessor.
+    - A amostra B é tão volátil quanto a amostra A.
+  negative:
+    - A pressão era tão elevada que a válvula cedeu.
+    - Quanto mais pressão aplicamos, mais calor é gerado.
+    - Este é o mais eficiente dos sistemas testados.
+    - A intervenção está mais ou menos programada.
+    - Não existem mais dados disponíveis para análise.
+
+# A2.1-7: grau - superlativo relativo - e.g., o mais alto de; o menos alto de
+a2d1_7:
+  positive:
+    - O azoto é o componente mais abundante da atmosfera.
+    - Este é o protocolo menos oneroso do projeto.
+    - A equipa A foi a mais proficiente do trimestre.
+    - O setor primário é o menos resiliente da economia.
+    - A fibra ótica é o meio mais eficaz de transmissão.
+  negative:
+    - O investimento é mais rentável do que a poupança.
+    - O investigador recolheu mais provas do fenómeno.
+    - A medição deve ser o mais exata possível.
+    - O sistema é menos complexo do que se previa.
+    - Exigiu-se mais rigor do pessoal técnico.
+
+# A2.1-8: grau - comparativos e superlativos irregulares frequentes - bom, mau, grande, pequeno, alto, baixo; Este livro é bom / melhor (*mais bom) / ótimo.
+a2d1_8:
+  positive:
+    - Este livro é melhor que o outro.
+    - A situação está pior agora.
+    - Ele é o maior jogador de sempre.
+    - A probabilidade de colisão de hashes é menor neste algoritmo.
+    - A largura de banda disponível é superior à latência do barramento.
+  negative:
+    - Este livro é muito bom.
+    - A situação está má.
+    - Ele é um grande jogador.
+    - O meu carro é pequeno.
+    - Esta comida está boa.
+
+# A2.1-9: género - feminino de adjetivos compostos - e.g. luso-africano, luso-africana
+a2d1_9:
+  positive:
+    - Ela é uma escritora luso-africana.
+    - A relação luso-brasileira é forte.
+    - A cultura greco-romana é fascinante.
+    - Uma equipa luso-francesa venceu.
+    - A aliança anglo-portuguesa é antiga.
+  negative:
+    - Ele é um escritor luso-africano.
+    - O acordo luso-brasileiro foi assinado.
+    - O império greco-romano caiu.
+    - Um jogador luso-francês marcou.
+    - O tratado anglo-português existe.
+
+# A2.1-10: número - plural de adjetivos compostos - verde-claro, verde-claros
+a2d1_10:
+  positive:
+    - Comprei uns olhos verde-claros.
+    - Eles são luso-descendentes.
+    - As camisas azul-escuras são giras.
+    - Foram criados novos centros sócio-culturais.
+    - Os conflitos político-sociais continuam.
+  negative:
+    - Comprei um casaco verde-claro.
+    - Ele é luso-descendente.
+    - A camisa azul-escura é gira.
+    - Foi criado um novo centro sócio-cultural.
+    - O conflito político-social terminou.
+
+# A2.1-11: grua - superlativo (-íssimo) - e.g., altíssimo
+a2d1_11:
+  positive:
+    - O parecer técnico é claríssimo quanto aos riscos.
+    - A arquitetura do sistema é complexíssima.
+    - O procedimento laboratorial é facílimo de executar.
+    - O resultado da auditoria foi positivíssimo.
+    - A intervenção cirúrgica foi utilíssima para a recuperação.
+  negative:
+    - O mecanismo de redundância evitou a falha do sistema.
+    - O metabolismo celular consome energia química.
+    - O vigésimo capítulo aborda a termodinâmica aplicada.
+    - O próximo passo é a validação estatística dos dados.
+    - O otimismo dos investidores impulsionou o mercado.
+
+# A2.1-12: grau - outros processos - e.g., um rapaz deveras inteligente; uma festa super animada; a casa toda desarrumada
+a2d1_12:
+  positive:
+    - O novo algoritmo é super eficiente.
+    - O relatório técnico ficou todo detalhado.
+    - A descoberta é imensamente relevante para a área.
+    - O clima político está deveras instável.
+    - A equipa de investigação ficou extremamente satisfeita.
+  negative:
+    - O superavit comercial superou as expectativas.
+    - Todo o protocolo de segurança foi ignorado.
+    - O impacto ambiental da exploração foi imenso.
+    - A extremidade do condutor elétrico está isolada.
+    - O cientista procedeu conscientemente durante o teste.
+
+# A3.1-11: pretérito perfeito simples do indicativo - forma - verbos regulares [-ar, -er -ir]
+a3d1_11:
+  positive:
+      - Eu participei na conferência internacional.
+      - Tu respondeste ao inquérito técnico.
+      - O sistema faliu devido a um erro crítico.
+      - Nós analisámos os dados estatísticos.
+      - Eles decidiram suspender o protocolo.
+  negative:
+      - Nós analisamos os dados sistematicamente.
+      - Os peritos analisarão a estrutura amanhã.
+      - O elevado contraste dificulta a leitura.
+      - Eles viram a notificação no painel.
+      - Se nós decidirmos o plano, avançamos.
+
+# A3.1-12: pretérito perfeito simples do indicativo - forma - verbos irregulares [-ar, -er -ir]
+a3d1_12:
+  positive:
+    - O técnico pôs o sistema em regime de redundância.
+    - Eles trouxeram as métricas de desempenho trimestral.
+    - A equipa quis implementar um novo algoritmo de compressão.
+    - O supervisor soube da falha através do log de eventos.
+    - Nós pudemos verificar a integridade estrutural do protótipo.
+  negative:
+    - O poder de processamento é insuficiente para esta carga.
+    - Caso ele fizer a calibração, o erro será mitigado.
+    - O trazer de amostras requer um protocolo de biossegurança.
+    - Eles virem as notificações é essencial para a operação.
+    - O aprendiz de eletrónica estuda o manual de diretrizes.
+
+# A3.1-14: pretérito imperfeito do indicativo - forma - verbos regulares [-ar, -er -ir]
+a3d1_14:
+  positive:
+    - A equipa colaborava no desenvolvimento do protótipo.
+    - O sistema emitia alertas de segurança em tempo real.
+    - Os investigadores resolviam problemas de lógica complexos.
+    - Nós partilhávamos os recursos do servidor central.
+    - Tu monitorizavas o fluxo de tráfego na rede.
+  negative:
+    - A garantia do equipamento expirou no mês passado.
+    - O gestor tinha total autonomia sobre o orçamento.
+    - O algoritmo operaria melhor sob condições ideais.
+    - A bacia hidrográfica apresenta elevados níveis de sedimentação.
+    - O software era a solução mais viável para o projeto.
+  
+# A3.1-15: pretérito imperfeito do indicativo - forma - verbos irregulares
+a3d1_15:
+  positive:
+    - O cenário era favorável à expansão comercial.
+    - O reator tinha uma fissura no revestimento primário.
+    - Os pacotes de dados vinham encriptados por defeito.
+    - O consultor punha em causa a viabilidade do plano.
+    - A estrutura mantinha a estabilidade sob carga máxima.
+  negative:
+    - A linha de montagem interrompeu o ciclo produtivo.
+    - A testemunha presenciou o incidente técnico.
+    - Ele fizera o diagnóstico antes da falha sistémica.
+    - A esfera de influência geopolítica sofreu alterações.
+    - O sistema emitia radiação eletromagnética constante.
+
+# A3.1-28: particípio passado - forma - particípios regulares
+a3d1_28:
+  positive:
+    - O engenheiro tinha detetado uma falha na infraestrutura.
+    - A administração tinha deferido o requerimento de patente.
+    - O sistema tinha emitido um relatório de erro crítico.
+    - O técnico tinha substituído os componentes obsoletos.
+    - A empresa tinha fornecido os insumos necessários para a obra.
+  negative:
+    - O resultado da análise laboratorial foi inconclusivo.
+    - O agente líquido estabilizou a reação exotérmica.
+    - O marido da investigadora assinou o termo de responsabilidade.
+    - O conselho tinha aberto um inquérito de natureza disciplinar.
+    - O paciente apresentava um quadro clínico pálido e letárgico.
+
+# A3.1-29: particípio passado - forma - particípios irregulares (frequentes)
+a3d1_29:
+  positive:
+    - O script de automação tinha escrito os resultados no log de auditoria.
+    - O tribunal tinha aceite o recurso apresentado pela defesa.
+    - O administrador de sistemas tinha aberto a porta 8080 no firewall.
+    - O arquiteto de software tinha dito que a API seria retrocompatível.
+    - O auditor de segurança tinha visto a vulnerabilidade no código-fonte.
+  negative:
+    - O gestor de projeto tinha concluído o planeamento da migração.
+    - A equipa de QA tinha instalado o ambiente de testes na cloud.
+    - O servidor de base de dados tinha processado todos os pedidos pendentes.
+    - O sistema operativo tinha executado a rotina de limpeza de memória.
+    - O departamento de TI tinha publicado a nova política de segurança.
+
+# A3.1-31: particípio passado - forma - auxiliar ter no imperfeito do indicativo + particípio passado do verbo principal
+a3d1_31:
+  positive:
+    - O algoritmo tinha processado o volume total de dados.
+    - A equipa de engenharia tinha resolvido a vulnerabilidade.
+    - Nós tínhamos obtido os resultados antes da conferência.
+    - O tribunal tinha proferido a sentença na semana anterior.
+    - O software tinha assumido o controlo de forma automática.
+  negative:
+    - O microscópio eletrónico tinha a lente embaciada.
+    - O diagnóstico clínico revelou um caso de tinha capitis.
+    - O gestor tinha o orçamento limitado para este projeto.
+    - O técnico tinha o cuidado de verificar as ligações.
+    - O dispositivo tinha o certificado de calibração válido.
+
+# A3.1-34: pretérito perfeito composto do indicativo - forma - auxiliar ter no presente do indicativo + particípio passado do verbo principal
+a3d1_34:
+  positive:
+    - O laboratório tem monitorizado a atividade sísmica continuamente.
+    - As autoridades têm implementado novas medidas de cibersegurança.
+    - Temos verificado uma oscilação térmica nos condutores.
+    - Tens analisado o impacto ambiental desta exploração?
+    - A administração tem proferido decisões favoráveis ao projeto.
+  negative:
+    - As têmporas do paciente apresentam sinais de inflamação.
+    - O gestor tem o relatório concluído na sua secretária.
+    - O dispositivo teme a exposição prolongada a radiação UV.
+    - Temos o dever de reportar qualquer anomalia sistémica.
+    - Tens o nível de tensão regulado de acordo com a norma?
+
+# A3.1-36: infinitivo pessoal simples - forma - [-ar, -er -ir]
+a3d1_36:
+  positive:
+    - É essencial concluírem a calibração antes do ensaio.
+    - Para acederes ao servidor central, necessitas de autorização.
+    - Ao transferirmos os ficheiros, detetámos uma latência na rede.
+    - Sem compreenderdes a arquitetura, não podereis otimizar o código.
+    - O facto de eles intervirem no processo mitigou os riscos.
+  negative:
+    - Se eles trouxerem o protótipo, faremos a demonstração técnica.
+    - O regime de tributação varia conforme o setor de atividade.
+    - Os sensores medem a pressão atmosférica em Pascal.
+    - Esta paragem inesperada comprometeu o fluxo de produção.
+    - Nós verificamos a estanqueidade da válvula sistematicamente.
+
+# A3.1-38: futuro simples do indicativo - forma - verbos regulares [-ar, -er -ir]
+a3d1_38:
+  positive:
+    - O consultor analisará o impacto financeiro da medida.
+    - As variáveis dependerão da estabilidade do mercado cambial.
+    - Nós concluiremos a auditoria no final do semestre.
+    - Tu imprimirás os relatórios para a reunião de direção.
+    - A equipa verificará a conformidade dos novos protocolos.
+  negative:
+    - Eles analisaram as métricas durante a sessão anterior.
+    - O alvará de licenciamento aguarda homologação superior.
+    - Os peritos dirão a verdade durante o depoimento oficial.
+    - O acórdão do Supremo Tribunal foi publicado hoje.
+    - Para eles decidirem, é necessário consultar o regulamento.
+
+# A3.1-39: futuro simples do indicativo - forma - verbos irregulares
+a3d1_39:
+  positive:
+    - O perito refará o cálculo da resistência de materiais.
+    - Estes dados trarão maior precisão ao modelo preditivo.
+    - Eu contradirei as evidências apresentadas no relatório.
+    - Nós faremos a manutenção preventiva dos servidores.
+    - Tu dirás se o sistema cumpre os requisitos de segurança.
+  negative:
+    - Se o técnico fizer a calibração, o erro será eliminado.
+    - O alvará de habitabilidade foi deferido pela autarquia.
+    - A nova lei obrigará a uma revisão do contrato de trabalho.
+    - O acórdão do tribunal foi favorável à pretensão da empresa.
+    - É importante trazer os documentos para a reunião de hoje.
+
+# A3.1-42: condicional simples - forma - verbos regulares [-ar, -er -ir]
+a3d1_42:
+  positive:
+    - O dispositivo operaria em condições extremas com o isolamento adequado.
+    - Estes protocolos assegurariam a proteção contra ataques de negação de serviço.
+    - Nós procederíamos à substituição dos componentes em caso de avaria.
+    - Tu monitorizarias o consumo energético se o sensor estivesse ativo.
+    - A nova diretriz permitiria uma redução dos custos operacionais.
+  negative:
+    - O perito traria o relatório se a análise estivesse concluída.
+    - A engenharia de software exige um domínio de padrões de desenho.
+    - O sistema admitia a existência de redundâncias na base de dados.
+    - Todavia, os resultados não confirmam a hipótese inicial.
+    - A garantia do fabricante cobre defeitos de fabrico por dois anos.
+
+# A3.1-43: condicional simples - forma - verbos irregulares
+a3d1_43:
+  positive:
+    - O novo software refaria o processamento em caso de interrupção.
+    - Estes sensores trariam maior precisão à monitorização remota.
+    - Nós satisfaríamos a procura se a linha de montagem estivesse ativa.
+    - O consultor diria a verdade sobre o passivo da empresa.
+    - Tu farias a calibração se tivesses o equipamento necessário.
+  negative:
+    - A maquinaria pesada requer uma inspeção técnica trimestral.
+    - O engenheiro partiria o componente se aplicasse força excessiva.
+    - O técnico fazia a manutenção quando detetou a anomalia.
+    - A biometria assegura a integridade do controlo de acessos.
+    - Se o perito fizer a perícia, o relatório será conclusivo.
+
+# A3.1-46: presente do conjuntivo - forma - verbos regulares [-ar, -er -ir]
+a3d1_46:
+  positive:
+    - É provável que o sistema analise os pacotes de dados.
+    - É fundamental que tu cumpras o regulamento interno.
+    - Embora nós discutamos o orçamento, a decisão é da administração.
+    - Caso eles recolham as evidências, o processo avançará.
+    - Desejo que vós concluais o relatório técnico amanhã.
+  negative:
+    - A análise laboratorial revelou uma contaminação bacteriana.
+    - Nós verificamos a estanqueidade dos circuitos diariamente.
+    - É necessário que o diretor tenha acesso às credenciais.
+    - A margem de erro estatístico é de dois pontos percentuais.
+    - O debate sobre a inteligência artificial é de cariz ético.
+
+# A3.1-47: presente do conjuntivo - forma - alternância vocálica na 1.ª pessoa de alguns verbos
+a3d1_47:
+  positive:
+    - É recomendável que o sistema prefira o protocolo de encriptação mais robusto.
+    - Duvido que a estrutura sinta o impacto da vibração mecânica.
+    - É necessário que a aplicação peça autorização ao administrador.
+    - Caso o sensor repita a leitura errática, deve ser substituído.
+    - Espero que este modelo de simulação sirva para o teste de carga.
+  negative:
+    - Eu prefiro analisar os dados brutos antes de emitir o parecer.
+    - A cinta de segurança deve estar devidamente ajustada ao operador.
+    - A peça sobresselente foi instalada no compartimento do motor.
+    - A vista explodida do componente facilita a montagem do protótipo.
+    - É provável que o técnico insista na revisão dos parâmetros.
+
+# A3.1-48: presente do conjuntivo - forma - verbos irregulares [-ar, -er -ir] não formados a partir da 1.ª pessoa sing. do presente do indicativo
+a3d1_48:
+  positive:
+    - É imperativo que a solução seja escalável horizontalmente.
+    - É necessário que o operador saiba interpretar a telemetria.
+    - Embora haja redundância, a monitorização deve ser constante.
+    - Caso o fluxo de dados vá para o servidor secundário, a latência subirá.
+    - É improvável que a equipa esteja disponível para a migração hoje.
+  negative:
+    - O ser humano apresenta limitações em ambientes de alta pressão.
+    - O engenheiro faça o que fizer, o erro de sistema persiste.
+    - O consultor age em conformidade com as normas ISO vigentes.
+    - A vaga de calor comprometeu o arrefecimento do centro de dados.
+    - O valor de pH da amostra deve ser medido com precisão.
+
+# A3.1-57: particípio passado - forma - forma irregular de particípio (particípios duplos), com variação em género e número
+a3d1_57:
+  positive:
+    - O protocolo de segurança foi aceite pela administração.
+    - As faturas de exportação já estão pagas.
+    - O processo de auditoria foi suspenso por tempo indeterminado.
+    - As métricas de desempenho foram impressas para análise.
+    - Os ativos da empresa foram gastos em investimento de capital.
+  negative:
+    - O aceite da proposta comercial foi enviado por correio.
+    - O departamento paga as contribuições à segurança social.
+    - Ocorreu um gasto excessivo de recursos no último trimestre.
+    - O acesso ao servidor exige credenciais de administrador.
+    - Esta medida suspende a aplicação do artigo anterior.
+
+# A3.1-60: futuro simples do indicativo - uso/valor - possibilidade (construção condicional)
+a3d1_60:
+  positive:
+    - Se a volatilidade do mercado persistir, os investidores retirarão o capital.
+    - Se o algoritmo detetar uma intrusão, o sistema bloqueará o acesso externo.
+    - Caso a amostra apresente impurezas, o técnico refará o ensaio químico.
+    - Se a equipa otimizar o código, a latência de processamento diminuirá.
+    - Se o rácio de liquidez cair abaixo do limite, a administração reverá o plano.
+  negative:
+    - O alvará de licenciamento ambiental é renovado anualmente.
+    - Se o software encontra um erro, ele gera um relatório automaticamente.
+    - O acórdão do tribunal arbitral determinou a suspensão dos trabalhos.
+    - Sempre que a pressão aumenta, a válvula de segurança liberta o vapor.
+    - Se o perito fizer a análise hoje, os resultados são comunicados amanhã.
+
+# A3.1-61: condicional simples - uso/valor - ação dependente de uma condição que, no momento, não se concretiza ou é pouco provável (estrutura condicional)
+a3d1_61:
+  positive:
+    - Se a infraestrutura suportasse a carga, o sistema operaria sem latência.
+    - Se o gestor tivesse autonomia, aplicaria uma estratégia de mercado mais agressiva.
+    - Caso o perito identificasse o erro, procederia à correção imediata do módulo.
+    - Se nós estivéssemos em conformidade, obteríamos a certificação ISO este mês.
+    - Se a administração soubesse do passivo, proporia uma reestruturação financeira.
+  negative:
+    - A engenharia reversa exige um elevado grau de especialização técnica.
+    - Se o software detetar uma falha, o sistema bloqueará o acesso externo.
+    - O técnico fazia a manutenção preventiva quando ocorreu o curto-circuito.
+    - A garantia do equipamento expira no final do presente ano civil.
+    - Todavia, os resultados obtidos não validam a hipótese laboratorial.
+
+# A3.1-62: condicional simples - uso/valor - ação posterior ao momento da fala/escrita
+a3d1_62:
+  positive:
+    - O relatório de auditoria previu que a receita aumentaria no próximo semestre.
+    - A equipa técnica garantiu que a migração de dados não comprometeria o sistema.
+    - O consultor jurídico afirmou que a fusão beneficiaria os acionistas minoritários.
+    - Os peritos estimaram que o tempo de resposta do servidor diminuiria após o patch.
+    - Ficou acordado em ata que a conferência de imprensa ocorreria no auditório.
+  negative:
+    - O administrador afirma categoricamente que a receita aumentará este mês.
+    - A estratégia de expansão internacional requer um investimento de capital avultado.
+    - O software respondia aos comandos com uma latência superior a duzentos milissegundos.
+    - Todavia, os indicadores de desempenho não validaram a projeção inicial.
+    - A viagem de prospeção de mercado foi agendada para a última semana de maio.
+
+# A3.1-64: pretérito imperfeito do conjuntivo - forma - verbos regulares [-ar, -er -ir]
+a3d1_64:
+  positive:
+    - Se a equipa colaborasse na redação do projeto, o prazo seria cumprido.
+    - Caso o sistema procedesse à cópia de segurança, os dados estariam salvaguardados.
+    - Se o tribunal admitisse o recurso, a sentença seria reavaliada.
+    - Seria preferível que nós verificássemos a estanqueidade dos tanques semanalmente.
+    - Se os sensores imprimissem os gráficos em tempo real, a análise seria célere.
+  negative:
+    - O gestor de conta tomou posse do cargo durante a assembleia geral.
+    - Os auditores analisaram o balanço financeiro no encerramento do exercício.
+    - Seria ideal que o software tivesse uma interface mais intuitiva para o utilizador.
+    - A crise de liquidez afetou severamente os investimentos em infraestrutura.
+    - O passe de acesso ao laboratório de biometria expirou na passada sexta-feira.
+
+# A3.1-65: pretérito imperfeito do conjuntivo - forma - verbos irregulares [-ar, -er -ir]
+a3d1_65:
+  positive:
+    - Se o perito dissesse que o material é instável, suspenderíamos a obra.
+    - Se o servidor tivesse largura de banda suficiente, não haveria latência.
+    - Se a equipa fizesse o levantamento de requisitos, o erro seria evitado.
+    - Caso a remessa viesse acompanhada da guia de transporte, seria aceite.
+    - Se a administração pusesse em prática o plano, os lucros subiriam.
+  negative:
+    - O interesse estratégico da empresa reside na expansão para novos mercados.
+    - Se o técnico instalasse o software hoje, o sistema ficaria operacional.
+    - O viés cognitivo do analista comprometeu o resultado da investigação.
+    - Quando o gestor fizer a auditoria, detetará a discrepância orçamental.
+    - A benesse fiscal concedida pelo Estado aumentou a liquidez da tesouraria.
+
+# A3.1-72: futuro simples do conjuntivo - forma - verbos regulares [-ar, -er -ir]
+a3d1_72:
+  positive:
+    - Quando o algoritmo processar os metadados, o relatório será gerado.
+    - Se a auditoria detetar uma inconformidade, o processo será suspenso.
+    - Assim que nós concluirmos a implementação, iniciaremos os testes.
+    - Logo que os técnicos instalarem o hardware, a rede ficará ativa.
+    - Se tu limitares o tráfego de saída, a segurança será reforçada.
+  negative:
+    - O alvará de exploração foi revogado pela autoridade competente.
+    - É necessário os técnicos instalarem o hardware para validar o sistema.
+    - Se a gerência fizer a análise de custos, o orçamento será aprovado.
+    - A margem de lucro operacional estabilizou no último trimestre.
+    - Nós concluímos o relatório de sustentabilidade na semana passada.
+
+# A3.1-73: futuro simples do conjuntivo - forma - verbos irregulares [-ar, -er -ir]
+a3d1_73:
+  positive:
+    - Se o administrador de rede disser que a porta está bloqueada, abortaremos a operação.
+    - Quando tu tiveres acesso às credenciais de nível três, poderás auditar os ficheiros.
+    - Se a equipa de engenharia fizer a manutenção preventiva hoje, evitaremos quebras.
+    - Logo que a nova arquitetura trouxer melhorias de latência, atualizaremos os clientes.
+    - Assim que o perito em cibersegurança vier ao centro de dados, iniciaremos a análise.
+  negative:
+    - O administrador de rede disse que a porta estava bloqueada ontem à tarde.
+    - Tu tiveste acesso às credenciais de nível três durante a fase de testes.
+    - Se a equipa de engenharia implementar o patch hoje, evitaremos vulnerabilidades.
+    - A nova arquitetura de rede traz melhorias significativas de latência.
+    - Seria ideal que o perito em cibersegurança viesse ao centro de dados amanhã.
+
+# A3.1-78: mais-que-perfeito composto do conjuntivo - forma - auxiliar ter no imperfeito do conjuntivo + particípio passado do verbo principal
+a3d1_78:
+  positive:
+    - Se o sistema tivesse implementado o protocolo de redundância, a falha seria mitigada.
+    - Caso a auditoria tivesse detetado a discrepância orçamental, o desvio seria corrigido.
+    - Se a equipa tivesse validado os requisitos técnicos, o projeto teria tido sucesso.
+    - Embora os acionistas tivessem aprovado a fusão, a execução foi adiada.
+    - Se tu tivesses analisado a telemetria, terias identificado o pico de tensão.
+  negative:
+    - O administrador tomou posse do cargo perante o conselho de administração.
+    - O interesse público deve prevalecer sobre os interesses particulares da empresa.
+    - A equipa validou os requisitos técnicos durante a fase de planeamento.
+    - Os acionistas aprovaram a fusão na assembleia geral extraordinária.
+    - A telemetria revelou um pico de tensão no barramento principal.
+
+# A3.1-81: condicional composto - forma - auxiliar ter no condicional simples + particípio passado do verbo principal
+a3d1_81:
+  positive:
+    - O algoritmo teria processado o volume de dados se a memória fosse suficiente.
+    - Os peritos teriam identificado a falha estrutural antes do incidente.
+    - Nós teríamos obtido o alvará se a documentação estivesse completa.
+    - A administração teria aprovado a fusão se o parecer fosse favorável.
+    - Tu terias detetado a intrusão se o firewall estivesse ativo.
+  negative:
+    - A auditoria teria como objetivo principal a verificação de contas.
+    - A estratégia de expansão internacional requer um investimento avultado.
+    - O sistema previa uma margem de erro inferior a dois pontos percentuais.
+    - A garantia do fornecedor cobre apenas danos de fabrico.
+    - Teriam eles a gentileza de facultar o acesso ao servidor de teste?
+
+# A3.1-83: infinitivo impessoal composto - forma - auxiliar ter no infinitivo impessoal simples + particípio passado do verbo principal
+a3d1_83:
+  positive:
+    - Ter procedido à migração de dados garantiu a continuidade do serviço.
+    - O facto de ter assegurado o backup evitou a perda de informação crítica.
+    - Ter omitido a cláusula de rescisão invalidou a eficácia do contrato.
+    - É gratificante ter verificado a conformidade total com as normas ISO.
+    - Ter cumprido o orçamento planeado permitiu a atribuição de bónus.
+  negative:
+    - O termo de responsabilidade deve ser assinado pelo diretor técnico.
+    - O engenheiro deve cumprir o protocolo de segurança rigorosamente.
+    - O trâmite processual decorre de acordo com o calendário previsto.
+    - A equipa tem de assegurar a estabilidade do servidor central.
+    - O recibo de quitação foi emitido após o pagamento da fatura.
+
+# A3.1-85: gerúndio simples - forma - verbos regulares [-ar, -er -ir]
+a3d1_85:
+  positive:
+    - O algoritmo encontra-se processando os metadados em tempo real.
+    - A equipa de engenharia continua implementando novas funcionalidades.
+    - O sensor de telemetria está transmitindo dados via satélite.
+    - Estamos procedendo à verificação dos requisitos de conformidade.
+    - Os peritos estão analisando o impacto ambiental da infraestrutura.
+  negative:
+    - O dividendo anual será distribuído pelos acionistas amanhã.
+    - O mando de captura foi emitido pela autoridade competente.
+    - Este é o segundo protocolo de segurança a ser validado.
+    - O sistema analisou os pacotes de dados em poucos milissegundos.
+    - A venda de ativos estratégicos foi suspensa pelo conselho.
+
+# A3.1-93: futuro composto do indicativo - forma - auxiliar ter no futuro simples do indicativo + particípio passado do verbo principal
+a3d1_93:
+  positive:
+    - Até ao final do exercício, a administração terá aprovado o novo plano.
+    - Quando a auditoria iniciar, o perito já terá verificado os ativos.
+    - Nós teremos concluído a migração dos servidores antes da abertura.
+    - Antes da próxima sessão, os técnicos terão revisto os cálculos.
+    - Tu terás implementado o patch de segurança até ao final do turno.
+  negative:
+    - O alvará de licenciamento industrial aguarda a homologação final.
+    - O acórdão do Supremo Tribunal será publicado em Diário da República.
+    - A equipa de manutenção verificará a integridade dos circuitos hoje.
+    - O consultor terá as credenciais de acesso apenas na próxima semana.
+    - A sessão de esclarecimento sobre o novo regulamento foi produtiva.
+
+# A3.1-97: pretérito perfeito composto do conjuntivo - forma - auxiliar ter no presente do conjuntivo + particípio passado do verbo principal
+a3d1_97:
+  positive:
+    - É provável que o conselho de administração tenha ratificado o acordo.
+    - Duvido que o sistema tenha detetado a anomalia no barramento.
+    - Embora nós tenhamos submetido o relatório, a revisão é necessária.
+    - Espero que o perito tenha aceite as cláusulas de confidencialidade.
+    - É fundamental que os técnicos tenham restabelecido a rede.
+  negative:
+    - É imperativo que a infraestrutura tenha redundância física.
+    - O conselho de administração ratificou o acordo na última sessão.
+    - A montagem dos componentes eletrónicos exige precisão micrométrica.
+    - O valor da senha de encriptação deve ser alterado trimestralmente.
+    - O sistema detetou uma tentativa de intrusão às 14:00.
+
+# A3.1-99: futuro composto do conjuntivo - forma - auxiliar ter no futuro simples do conjuntivo + particípio passado do verbo principal
+a3d1_99:
+  positive:
+    - Quando o sistema tiver processado a telemetria, o alerta será desativado.
+    - Se a administração tiver aprovado a dotação, iniciaremos a adjudicação.
+    - Assim que nós tivermos validado o código, procederemos ao deployment.
+    - Logo que os peritos tiverem concluído a perícia, o relatório será lacrado.
+    - Se tu tiveres implementado a redundância, a latência estabilizará.
+  negative:
+    - O parecer jurídico sobre a viabilidade do projeto foi desfavorável.
+    - É provável que o sistema tiver a capacidade de resposta necessária.
+    - O dever de sigilo profissional impede a divulgação dos dados.
+    - Se a equipa tiver os recursos, a implementação será imediata.
+    - O alvará sanitário deve estar visível na receção da infraestrutura.
+
+# A3.1-101: infinitivo pessoal composto - forma - auxiliar ter no infinitivo pessoal simples + particípio passado do verbo principal
+a3d1_101:
+  positive:
+    - Por terem submetido a candidatura fora do prazo, o processo foi indeferido.
+    - O facto de teres detetado a vulnerabilidade salvou a integridade da rede.
+    - É fundamental termos analisado os riscos antes da alocação de capital.
+    - O perito lamentou a empresa não ter cumprido as normas de segurança.
+    - Para ela ter aceitado a proposta, as condições foram renegociadas.
+  negative:
+    - O termo de responsabilidade deve ser assinado pelo diretor técnico.
+    - Por submeterem a candidatura agora, o processo será analisado em junho.
+    - A equipa de auditoria tem de analisar o impacto da nova legislação.
+    - É importante vermos o relatório de sustentabilidade na próxima reunião.
+    - O trâmite processual para a obtenção da licença é extremamente moroso.
+
+# A3.1-103: gerúndio composto - forma - auxiliar ter no futuro do gerúndio + particípio passado do verbo principal
+a3d1_103:
+  positive:
+    - Tendo auditado as demonstrações financeiras, o perito emitiu o parecer.
+    - Tendo validado o esquema da base de dados, a equipa iniciou a migração.
+    - Tendo ocorrido uma falha na redundância, o sistema ativou o modo de segurança.
+    - Tendo submetido a documentação técnica, o engenheiro aguarda a homologação.
+    - Tendo detetado a intrusão, o firewall bloqueou o tráfego de saída.
+  negative:
+    - O dividendo extraordinário será creditado na conta dos acionistas.
+    - O mando de execução foi assinado pelo juiz da causa.
+    - O segundo administrador verificará a integridade do barramento.
+    - A equipa validou o esquema da base de dados ontem à tarde.
+    - O perito tem de auditar as demonstrações financeiras até sexta-feira.
+
+# A3.1-105: pretérito mais-que-perfeito simples do indicativo - forma - verbos regulares [-ar, -er -ir]
+a3d1_105:
+  positive:
+    - O engenheiro detetara a vulnerabilidade antes da invasão do sistema.
+    - A administração concedera a autorização previamente ao anúncio oficial.
+    - Nós concluíramos a análise de risco quando o incidente ocorreu.
+    - O algoritmo processara os metadados antes da falha de energia.
+    - A empresa solicitara o parecer jurídico no trimestre anterior.
+  negative:
+    - O alvará de funcionamento foi afixado na entrada da infraestrutura.
+    - A equipa concluiu o relatório de conformidade na semana passada.
+    - Oxalá o novo protocolo de segurança seja implementado com sucesso.
+    - O técnico deteta anomalias através de ferramentas de telemetria.
+    - A clara vantagem competitiva reside na inovação tecnológica.
+
+# A3.1-106: pretérito mais-que-perfeito simples do indicativo - forma - verbos irregulares [-ar, -er -ir]
+a3d1_106:
+  positive:
+    - O sistema dissera que a base de dados estava íntegra antes da corrupção.
+    - A administração pusera o plano em marcha meses antes da crise.
+    - O perito tivera acesso aos registos brutos antes da sua eliminação.
+    - Nós fizéramos a cópia de segurança antes do incidente térmico.
+    - A equipa soubera da falha estrutural por via de um relatório externo.
+  negative:
+    - A esfera de influência da empresa expandiu-se no mercado asiático.
+    - A barreira de segurança impediu o acesso não autorizado ao terminal.
+    - O administrador pôs termo ao contrato de prestação de serviços.
+    - A carreira profissional do engenheiro foi pautada pelo rigor técnico.
+    - Oxalá a solução tivesse o impacto esperado na eficiência energética.
+
+# A3.2-1: estar (pres. ind.) a + inf. (presente momentâneo)
+a3d2_1:
+  positive:
+    - O algoritmo está a processar o volume de dados em tempo real.
+    - A administração está a analisar o impacto das novas taxas de juro.
+    - Os peritos estão a calibrar os instrumentos de medição no laboratório.
+    - Nós estamos a implementar um novo protocolo de cibersegurança.
+    - O sistema de telemetria está a transmitir os sinais via satélite.
+  negative:
+    - Esta análise de mercado revela uma tendência de crescimento estável.
+    - O software processa os metadados automaticamente a cada sessenta minutos.
+    - O estágio de maturação do projeto encontra-se na fase de testes beta.
+    - A equipa de engenharia analisou os riscos estruturais no mês passado.
+    - Esta infraestrutura de rede suporta elevados débitos de transmissão.
+
+# A3.2-2: costumar (pres. ind.) + inf. (presente frequentativo)
+a3d2_2:
+  positive:
+    - O administrador de sistemas costuma monitorizar o tráfego da rede durante o período de baixa latência.
+    - As empresas tecnológicas costumam investir em investigação e desenvolvimento para manter a competitividade.
+    - Nós costumamos validar a integridade dos ficheiros antes de proceder à descompactação.
+    - O algoritmo de aprendizagem automática costuma ajustar os pesos sinápticos após cada iteração.
+    - Tu costumas rever as cláusulas de confidencialidade antes da assinatura do contrato?
+  negative:
+    - A customização do software de gestão foi solicitada pelo departamento de logística.
+    - O tribunal costumou absolver os réus em casos de negligência administrativa no passado.
+    - É um costume institucional realizar uma auditoria externa no final de cada exercício fiscal.
+    - A equipa de manutenção monitorizou todos os sensores de temperatura durante o teste de carga.
+    - O custo operacional da infraestrutura de nuvem aumentou significativamente este semestre.
+
+# A3.2-3: ir + inf . (futuro próximo)
+a3d2_3:
+  positive:
+    - O sistema vai processar a atualização durante o período de baixa latência.
+    - A administração vai subscrever o novo protocolo de conformidade regulatória.
+    - Nós vamos auditar as infraestruturas de rede no próximo trimestre.
+    - Os técnicos vão substituir os componentes obsoletos na próxima intervenção.
+    - Tu vais validar o acesso ao servidor de contingência?
+  negative:
+    - O diretor vai ao congresso internacional de cibersegurança em Genebra.
+    - O voo comercial foi cancelado devido a condições meteorológicas adversas.
+    - A equipa processa os metadados automaticamente todas as manhãs.
+    - As vias de comunicação foram interrompidas para manutenção preventiva.
+    - Nós fizemos o levantamento topográfico do terreno na semana passada.
+
+# A3.2-4: começar a + inf. - início de ação
+a3d2_4:
+  positive:
+    - O departamento de TI começa a implementar a nova política de acessos esta tarde.
+    - A equipa de engenharia começa a analisar os logs de erro do servidor agora mesmo.
+    - O algoritmo começa a processar a volumetria de dados após a inicialização do módulo.
+    - Nós começamos a rever a arquitetura do sistema de microsserviços nesta iteração.
+    - As flutuações de mercado começam a influenciar a nossa estratégia de investimento.
+  negative:
+    - O começo do exercício financeiro está agendado para o próximo trimestre.
+    - A equipa de engenharia implementa a política de acessos de acordo com o protocolo.
+    - O sistema de monitorização analisa os logs de erro durante a janela de manutenção.
+    - Começos de projetos complexos exigem sempre um planeamento rigoroso.
+    - A estratégia de investimento influencia positivamente os resultados anuais da empresa.
+
+# A3.2-5: acabar de + inf. - fim da ação
+a3d2_5:
+  positive:
+    - O algoritmo acaba de gerar o relatório de discrepâncias orçamentais.
+    - A administração acaba de ratificar o novo protocolo de sustentabilidade.
+    - Nós acabamos de validar a integridade dos dados no servidor principal.
+    - Os técnicos acabam de concluir a substituição dos módulos redundantes.
+    - Tu acabas de detetar uma vulnerabilidade crítica na camada de transporte?
+  negative:
+    - O acabamento galvânico das peças garante uma maior resistência à corrosão.
+    - A gerência acabou com o regime de teletrabalho para o departamento de vendas.
+    - O sistema gerou o relatório de discrepâncias no final do turno anterior.
+    - É necessário que a equipa acabe a auditoria interna até sexta-feira.
+    - O acórdão do tribunal arbitral pôs fim ao litígio entre as subsidiárias.
+
+# A3.2-8: ter de + inf. (obrigação/necessidade)
+a3d2_8:
+  positive:
+    - O sistema tem de autenticar o utilizador antes de facultar o acesso aos dados.
+    - Tu tens de atualizar o certificado digital para evitar a suspensão do serviço.
+    - Nós temos de assegurar a conformidade com o novo regulamento de proteção de dados.
+    - Os peritos têm de submeter o relatório técnico até ao encerramento do exercício.
+    - A equipa de manutenção tem de inspecionar o gerador de emergência trimestralmente.
+  negative:
+    - A tendência de mercado indica uma valorização dos ativos tecnológicos no curto prazo.
+    - O administrador tem plenos poderes para revogar as permissões de rede.
+    - Nós assegurámos a conformidade com o regulamento no trimestre transato.
+    - A têmpera do aço é um processo crítico para garantir a durabilidade da estrutura.
+    - O sistema autenticou a credencial de segurança com sucesso às 09:00.
+
+# A3.2-9: estar (p.p.s. ind.) a + inf. - ação contínua num momento delimitado do passado.
+a3d2_9:
+  positive:
+    - O administrador de sistemas esteve a monitorizar o tráfego durante toda a janela de manutenção.
+    - Nós estivemos a validar os certificados de encriptação entre as 09:00 e as 12:00.
+    - Os técnicos estiveram a substituir os módulos de memória durante o período de inatividade.
+    - Tu estiveste a analisar as métricas de desempenho ao longo de toda a tarde?
+    - A equipa de cibersegurança esteve a reconfigurar a firewall durante a última hora.
+  negative:
+    - Os técnicos estavam a substituir os módulos quando a energia falhou subitamente.
+    - O estaleiro naval interrompeu as operações de soldadura devido à precipitação intensa.
+    - Nós validámos os certificados de encriptação após a auditoria externa.
+    - O esteio da estrutura metálica apresenta sinais de oxidação e fadiga de material.
+    - A equipa de cibersegurança esteve presente na conferência internacional em Genebra.
+
+# A3.2-10: estar (imperf. ind.) a + inf . - ação em progresso num momento preciso do passado
+a3d2_10:
+  positive:
+    - O firewall estava a filtrar o tráfego quando o ataque foi mitigado.
+    - A equipa de QA estava a executar os testes de regressão durante a quebra de ligação.
+    - Tu estavas a monitorizar a pressão da caldeira no momento da anomalia?
+    - Nós estávamos a compilar os binários quando o servidor reiniciou inesperadamente.
+    - Os analistas estavam a rever as projeções trimestrais antes da reunião de emergência.
+  negative:
+    - Esta execução de código resultou numa exceção de ponteiro nulo.
+    - O engenheiro de redes filtrou todos os pacotes maliciosos na sessão anterior.
+    - A equipa de QA executava testes manuais semanalmente no laboratório antigo.
+    - O estatuto de membro honorário foi conferido ao diretor de inovação.
+    - Nós estávamos presentes no centro de dados durante o incidente térmico.
+
+# A3.2-11: andar (pres. ind.) a + inf. (ação em desenvolvimento)
+a3d2_11:
+  positive:
+    - O departamento de cibersegurança anda a detetar várias tentativas de intrusão nos últimos dias.
+    - Os auditores andam a rever os fluxos de tesouraria do segundo trimestre.
+    - Nós andamos a implementar melhorias significativas na interface do utilizador.
+    - A equipa de suporte anda a resolver incidentes de hardware com maior frequência.
+    - Tu andas a compilar os relatórios de conformidade esta semana?
+  negative:
+    - O técnico de manutenção anda no telhado para verificar as unidades de climatização.
+    - O andamento do processo de licenciamento industrial está dentro do prazo previsto.
+    - A equipa de cibersegurança deteta anomalias automaticamente através do sistema SIEM.
+    - A montagem do andaime metálico deve seguir as normas de segurança em vigor.
+    - Os auditores reveram toda a documentação fiscal antes do encerramento do ano.
+
+# A3.2-14: dever + inf. (certeza/probabilidade)
+a3d2_14:
+  positive:
+    - O algoritmo deve processar o volume de dados em menos de cinco segundos.
+    - A administração devia implementar protocolos de redundância mais rigorosos.
+    - Os peritos devem ter validado as métricas de segurança antes da auditoria.
+    - A nova infraestrutura deve permitir uma escalabilidade sem precedentes.
+    - Tu deves rever a arquitetura do sistema para evitar pontos de falha.
+  negative:
+    - O sucesso da migração deve-se à competência técnica da equipa de suporte.
+    - O dever de confidencialidade impede a partilha de dados sensíveis.
+    - O sistema processou os metadados de acordo com os requisitos definidos.
+    - A empresa ainda deve o pagamento relativo ao licenciamento do software.
+    - O devido processo legal foi cumprido durante a fase de instrução.
+
+# A3.2-15: haver (pres. ind.) de + inf.
+a3d2_15:
+  positive:
+    - O engenheiro-chefe há de resolver o constrangimento na arquitetura da rede.
+    - Nós havemos de implementar a migração para a cloud antes do final do ano fiscal.
+    - Os peritos informáticos hão de encontrar a origem da falha de segurança.
+    - Eu hei de concluir a auditoria de conformidade, independentemente dos obstáculos.
+    - Tu hás de validar a integridade dos dados assim que o servidor for reiniciado.
+  negative:
+    - Há anomalias críticas no sistema que exigem uma intervenção imediata.
+    - A auditoria de conformidade foi submetida há mais de três semanas.
+    - Os peritos informáticos encontraram a origem da falha de segurança ontem.
+    - O gestor do projeto havia alertado para o risco de sobredimensionamento térmico.
+    - A administração e os acionistas têm de aprovar o orçamento retificativo.
+
+# A3.2-16: continuar a + inf. - ação ou estado contínuo ou permanente
+a3d2_16:
+  positive:
+    - O sistema continua a registar picos de latência na rede local.
+    - A administração continua a investir em protocolos de redundância física.
+    - Nós continuamos a aguardar o parecer técnico da equipa de auditoria.
+    - Os terminais de acesso continuam a apresentar falhas de autenticação.
+    - Tu continuas a gerir a base de dados de contingência do departamento?
+  negative:
+    - O continuum espaço-temporal é um conceito fundamental na física teórica.
+    - A administração investiu em protocolos de redundância no ano passado.
+    - O desvio contínuo das métricas de desempenho indica um erro de hardware.
+    - Os terminais de acesso apresentaram falhas de autenticação às 08:00.
+    - A continuidade do serviço depende da estabilidade do fornecimento elétrico.
+
+# A3.2-17: acabar de + inf. - ação terminada num passado muito próximo do presente
+a3d2_17:
+  positive:
+    - O engenheiro de sistemas acabou de implementar o patch de segurança.
+    - Tu acabaste de validar a integridade dos dados no servidor de backup?
+    - Os peritos acabaram de submeter o relatório técnico da auditoria.
+    - Nós acabámos de rever os parâmetros de latência da rede local.
+    - A administração acabou de ratificar o contrato de prestação de serviços.
+  negative:
+    - O acabamento eletrostático da peça impede a oxidação prematura.
+    - O engenheiro implementou o patch de segurança no trimestre passado.
+    - A equipa de suporte acabou com os erros de redundância do sistema.
+    - Os peritos submeteram o relatório de auditoria há duas semanas.
+    - O acórdão jurídico determinou a suspensão imediata da atividade.
+
+# A3.2-18: deixar (pret. perf. ind.) de + inf. - paragem, supressão ou desistência
+a3d2_18:
+  positive:
+    - O sistema de monitorização deixou de registar as métricas de temperatura.
+    - A equipa de desenvolvimento deixou de utilizar o repositório legado.
+    - Nós deixámos de submeter os relatórios de conformidade em suporte de papel.
+    - Tu deixaste de supervisionar a integridade das bases de dados?
+    - Os terminais deixaram de emitir sinais de diagnóstico após a falha de energia.
+  negative:
+    - O técnico deixou o multímetro digital na bancada de ensaios.
+    - A administração deixou que a auditoria fosse adiada para o próximo semestre.
+    - A deixa para a ativação do protocolo foi enviada pelo servidor central.
+    - O sistema de monitorização regista as métricas de temperatura a cada minuto.
+    - Nós deixámos a infraestrutura de rede configurada para alta disponibilidade.
+
+# A3.2-19: haver de (imperf. ind.) + inf.
+a3d2_19:
+  positive:
+    - O gestor de infraestrutura havia de considerar a implementação de clusters de alta disponibilidade.
+    - Nós havíamos de testar a resiliência do sistema antes do lançamento da versão estável.
+    - Tu havias de analisar os logs de erro com maior rigor técnico.
+    - Os programadores haviam de otimizar o consumo de memória desta rotina de processamento.
+    - Havia de ser produtivo observar o comportamento do algoritmo sob carga extrema.
+  negative:
+    - Havia várias redundâncias críticas no diagrama de rede original.
+    - A equipa de QA já havia testado a resiliência do sistema na fase alfa.
+    - O administrador tem de analisar os logs de erro imediatamente.
+    - Os haveres da empresa foram auditados pela entidade reguladora.
+    - Nós testámos a resiliência do sistema durante a janela de manutenção.
+
+# A3.2-20: deixar de + inf. - eventualidade de não concretização de ação habitual ou futura
+a3d2_20:
+  positive:
+    - Não deixem de submeter os logs de erro ao suporte técnico.
+    - O sistema não deixará de alertar sobre falhas de redundância.
+    - Não deixes de rever os protocolos de encriptação antes da migração.
+    - Nós não deixaremos de auditar as permissões de acesso trimestralmente.
+    - O firewall não deixa de analisar cada pacote de entrada no tráfego.
+  negative:
+    - Submetam os logs de erro ao suporte técnico.
+    - O sistema alertará sobre falhas de redundância.
+    - Revê os protocolos de encriptação antes da migração.
+    - Auditámos as permissões de acesso no trimestre anterior.
+    - O técnico deixou o cabo de fibra ótica na sala de servidores.
+
+# A3.2-21: estar para + inf. - proximidade de realização da ação
+a3d2_21:
+  positive:
+    - O servidor central está para reiniciar devido à instalação do patch de segurança.
+    - A equipa de engenharia estava para lançar a versão estável quando o bug foi reportado.
+    - Eu estou para rever a documentação técnica do projeto há vários dias.
+    - Nós estávamos para validar as credenciais quando ocorreu a quebra de ligação.
+    - O novo protocolo de encriptação está para ser ativado na próxima janela horária.
+  negative:
+    - O servidor reiniciou com sucesso após a conclusão das atualizações críticas.
+    - A equipa de engenharia lançou a nova versão do software na semana transata.
+    - Este relatório técnico está para o diretor de operações analisar em detalhe.
+    - Nós validámos a integridade dos ficheiros antes da transferência de dados.
+    - O hardware obsoleto está para venda como sucata eletrónica certificada.
+
+# A3.2-22: ir a + inf. - ação apenas iniciada
+a3d2_22:
+  positive:
+    - O sistema ia a iniciar a sincronização de dados quando a rede falhou subitamente.
+    - O engenheiro ia a executar o script de migração, mas detetou um conflito de versões.
+    - Nós íamos a aplicar a atualização de firmware no router principal.
+    - A auditora ia a submeter o parecer final quando recebeu os novos registos.
+    - Tu ias a validar a configuração do switch de redundância?
+  negative:
+    - O sistema iniciou a sincronização de dados de acordo com o agendamento.
+    - O engenheiro executou o script de migração durante a janela de manutenção.
+    - Nós aplicámos a atualização de firmware no trimestre passado.
+    - A auditora submeteu o parecer técnico ao conselho de administração.
+    - Tu validaste a configuração da infraestrutura de redundância.
+
+# A3.2-23: vir a + inf. - resultado final da ação
+a3d2_23:
+  positive:
+    - O investimento em redundância de hardware veio a demonstrar-se essencial para a continuidade do negócio.
+    - A equipa de auditoria veio a detetar discrepâncias no aprovisionamento após uma análise exaustiva.
+    - Este protocolo de segurança virá a tornar-se a norma de referência na indústria de semicondutores.
+    - As previsões dos analistas vieram a confirmar-se no fecho do relatório de contas do quarto trimestre.
+    - Tu vieste a assumir a coordenação do projeto após a reestruturação do departamento de engenharia.
+  negative:
+    - O perito veio à sede da empresa para iniciar a perícia forense nos servidores.
+    - A administração demonstrou os resultados operacionais na última reunião de acionistas.
+    - A vinda de novos consultores reforçou a capacidade de processamento do departamento.
+    - O algoritmo confirmou a validade dos dados em tempo real durante o teste de carga.
+    - Nós sabemos os detalhes da implementação técnica desde o início do ciclo de desenvolvimento.
+
+# A3.2-24: ir/vir ter com/a - encontro com ideia de deslocação de uma das partes
+a3d2_24:
+  positive:
+    - O arquiteto de soluções vai ter com o cliente à sede da empresa.
+    - Os auditores vêm ter connosco ao departamento de conformidade para a reunião de abertura.
+    - Tu vais ter com a equipa de QA ao laboratório de testes para validar o protótipo?
+    - Nós vamos ter com o gestor de projeto à sala de conferências após o fecho do mercado.
+    - O perito forense veio ter com os investigadores ao local do incidente digital.
+  negative:
+    - O arquiteto vai à sede da empresa para apresentar o novo diagrama de topologia de rede.
+    - A vinda do perito forense facilitou a recolha imediata de evidências no servidor.
+    - A equipa de engenharia tem reuniões de coordenação agendadas todas as manhãs às 09:00.
+    - Nós encontrámos os logs de erro corrompidos na diretoria raiz do sistema operativo.
+    - O equipamento de comutação vem com uma garantia de suporte on-site de três anos.
+
+# A3.2-25: ir + gerúndio - ação durativa, que se desenvolve lentamente
+a3d2_25:
+  positive:
+    - O sistema vai gerando cópias de segurança de forma incremental durante a noite.
+    - A equipa de suporte foi mitigando as vulnerabilidades à medida que eram reportadas.
+    - Nós vamos otimizando o código-fonte conforme os testes de carga revelam gargalos.
+    - Os peritos foram auditando as contas da empresa ao longo do último trimestre.
+    - Vou acompanhando a evolução dos indicadores de desempenho no dashboard.
+  negative:
+    - O sistema gerou uma cópia de segurança completa às 02:00.
+    - A equipa de suporte mitigou a vulnerabilidade crítica do servidor.
+    - Nós otimizámos o código-fonte antes da implantação em produção.
+    - Os peritos auditaram as contas e emitiram o parecer técnico final.
+    - Acompanhei a apresentação dos indicadores de desempenho na reunião.
+
+# A3.2-26: ir (imperf.) + gerúndio - ação que quase se realizou
+a3d2_26:
+  positive:
+    - O sistema de base de dados ia falhando criticamente durante a migração dos metadados.
+    - O administrador de redes ia eliminando a diretoria raiz por um erro de digitação no terminal.
+    - Nós íamos ultrapassando o orçamento alocado para a infraestrutura de hardware.
+    - O certificado de segurança da plataforma ia expirando antes da renovação automática.
+    - Tu ias enviando o relatório de auditoria para um destinatário externo não autorizado.
+  negative:
+    - O sistema de base de dados falhou criticamente durante a migração dos metadados.
+    - O administrador de redes eliminou a diretoria raiz por um erro de digitação no terminal.
+    - Nós ultrapassámos o orçamento alocado para a infraestrutura de hardware no mês passado.
+    - O certificado de segurança da plataforma expirou antes da renovação automática.
+    - O destinatário recebeu o relatório de auditoria através do canal oficial de comunicação.
+
+# A4.1-3: superlativo relativo (advérbio)
+a4d1_3:
+  positive:
+    - O servidor de base de dados responde o mais rapidamente de todos os sistemas da rede.
+    - A nova infraestrutura de rede opera o mais eficientemente de entre os protocolos testados.
+    - O algoritmo de compressão processa os ficheiros o mais eficazmente de todas as soluções disponíveis.
+    - O técnico configurou o firewall o mais criteriosamente de todas as máquinas do cluster.
+    - A equipa de cibersegurança agiu o menos precipitadamente de todos os grupos de resposta a incidentes.
+  negative:
+    - O servidor de base de dados responde o mais rapidamente possível às consultas.
+    - A nova infraestrutura de rede opera muito eficientemente de acordo com os testes.
+    - Este algoritmo de compressão é o melhor de todas as soluções atuais.
+    - O técnico configurou o firewall mais criteriosamente do que o seu antecessor.
+    - A equipa de cibersegurança agiu cautelosamente durante a mitigação do incidente.
+
+# A4.1-8: o mais / o menos + adv. + possível
+a4d1_8:
+  positive:
+    - O administrador deve mitigar a vulnerabilidade o mais rapidamente possível para evitar a exfiltração de dados.
+    - A aplicação deve consumir recursos de memória o menos frequentemente possível durante picos de tráfego.
+    - O relatório técnico descreve as falhas de segurança o mais detalhadamente possível.
+    - Tu deves configurar os parâmetros de latência o mais rigorosamente possível no ambiente de produção.
+    - O tráfego de rede deve ser encriptado o mais robustamente possível para garantir a integridade da comunicação.
+  negative:
+    - O administrador mitigou a vulnerabilidade rapidamente durante a última janela de manutenção.
+    - O consumo frequente de recursos de memória compromete o desempenho global do servidor.
+    - O relatório apresenta detalhes exaustivos sobre as falhas de segurança detetadas na auditoria.
+    - Uma configuração rigorosa das permissões evita acessos não autorizados ao sistema de ficheiros.
+    - A robustez da encriptação é um requisito fundamental para a conformidade com as normas internacionais.
+
+# A5.1-6: pronomes complemento - forma - variação em pessoa, número e género
+a5d1_6:
+  positive:
+    - O terminal de controlo enviou-me um alerta de sobreaquecimento crítico.
+    - O administrador de sistemas atualizou-os durante a janela de manutenção programada.
+    - A equipa de cibersegurança apoiou-a na mitigação do ataque de negação de serviço.
+    - O diretor técnico entregou-lhe o relatório final da auditoria de infraestrutura.
+    - Nós vimo-las a ser processadas no servidor de computação de alto desempenho.
+  negative:
+    - O terminal de controlo enviou eu um alerta de sobreaquecimento crítico.
+    - O administrador de sistemas atualizou eles durante a janela de manutenção.
+    - A equipa de cibersegurança apoiou ela na mitigação do ataque de rede.
+    - O diretor técnico entregou a ele o relatório final da auditoria.
+    - A via de comunicação série estabelece a ligação entre os periféricos.
+
+# A5.1-7: colocação do pronome - antes da forma verbal
+a5d1_7:
+  positive:
+    - Não se observaram picos de latência durante o teste de carga.
+    - Como se autenticam os utilizadores no novo diretório ativo?
+    - Onde os armazenaram após a extração dos metadados?
+    - Já lhe enviámos as especificações da API atualizada.
+    - Quem nos reportou a vulnerabilidade no firmware?
+  negative:
+    - Observaram-se picos de latência durante o teste de carga.
+    - Autenticam-se os utilizadores via protocolo de segurança.
+    - Armazenaram-nos no servidor de ficheiros secundário.
+    - Enviámos-lhe as especificações da API esta manhã.
+    - Reportaram-nos a vulnerabilidade no firmware imediatamente.
+
+# A5.1-9: pronomes complemento - forma - variantes morfológicas de o, a, os, as (-lo, -la)
+a5d1_9:
+  positive:
+    - O administrador deve reiniciá-lo após a conclusão da atualização do kernel.
+    - A equipa de garantia de qualidade pretende analisá-la em ambiente de pré-produção.
+    - Os algoritmos de compressão podem processá-los em frações de segundo.
+    - A empresa tem de atualizá-las para cumprir as novas normas de conformidade.
+    - Tu podes refazê-lo para otimizar significativamente o consumo de recursos.
+  negative:
+    - O administrador deve reiniciar o servidor após a conclusão da atualização.
+    - A equipa de garantia de qualidade pretende analisar a métrica em ambiente de teste.
+    - Os algoritmos de compressão podem processar os ficheiros em frações de segundo.
+    - A empresa tem de atualizar as licenças para cumprir as novas normas.
+    - Tu podes refazer o script para otimizar significativamente o consumo de recursos.
+
+# A5.1-10: pronomes complemento - forma - variantes morfológicas de o, a, os, as (-no, -na)
+a5d1_10:
+  positive:
+    - Os engenheiros de software testam-no exaustivamente antes da integração contínua.
+    - As equipas de manutenção propuseram-nas durante a revisão do plano de contingência.
+    - Os sistemas de monitorização detetam-no imediatamente após a ocorrência da anomalia.
+    - Os auditores mantêm-na devidamente arquivada no repositório de conformidade.
+    - Os terminais de processamento geram-nos de forma automática no final de cada ciclo.
+  negative:
+    - Os engenheiros de software testam o código exaustivamente antes da integração contínua.
+    - As equipas de manutenção propuseram as alterações durante a revisão do plano.
+    - Os sistemas de monitorização detetam o incidente imediatamente após a ocorrência.
+    - Os auditores mantêm a documentação devidamente arquivada no repositório.
+    - Os terminais de processamento geram os relatórios de forma automática.
+
+# A5.1-12: pronomes complemento - forma - grupos de pronomes (formas contraídas)
+a5d1_12:
+  positive:
+    - O administrador de sistemas facultou-lho após a verificação das credenciais.
+    - O técnico de infraestrutura comunicou-mo durante a reunião de diagnóstico.
+    - A equipa de suporte técnico já tas enviou via canal encriptado.
+    - Não ma entregues antes da conclusão da auditoria de segurança.
+    - A direção de operações apresentou-lhas no relatório de desempenho trimestral.
+  negative:
+    - O administrador de sistemas facultou-lhe o acesso após a verificação.
+    - O técnico de infraestrutura comunicou-me o incidente na reunião.
+    - A equipa de suporte técnico já te enviou as chaves de encriptação.
+    - Não me entregues a pasta antes da conclusão da auditoria.
+    - A direção de operações apresentou-lhe as métricas no relatório.
+
+# A5.1-15: colocação dos pronomes - no interior da forma verbal (mesóclise)
+a5d1_15:
+  positive:
+    - O sistema de monitorização alertar-nos-á em caso de intrusão na rede perimetral.
+    - A equipa de engenharia implementá-lo-ia se o requisito fosse tecnicamente viável.
+    - Comunicar-lhe-emos os resultados da auditoria forense na próxima reunião técnica.
+    - Verificar-se-iam menos falhas críticas com uma arquitetura de alta disponibilidade.
+    - Tu atualizá-lo-ás manualmente antes da migração para o ambiente de produção.
+  negative:
+    - O sistema de monitorização vai alertar-nos em caso de intrusão na rede.
+    - A equipa de engenharia ia implementar o requisito se fosse viável.
+    - Vamos comunicar-lhe os resultados da auditoria forense na próxima reunião.
+    - Iam verificar-se menos falhas com uma arquitetura de alta disponibilidade.
+    - Tu vais atualizá-lo manualmente antes da migração para o ambiente.
+
+# A5.2-01: Pronomes - Demonstrativos - forma - variação em género e número
+a5d2_01:
+  positive:
+    - O servidor primário falhou, mas este contém a base de dados principal da infraestrutura.
+    - As correções gerais estão prontas; no entanto, estas devem ser aplicadas em todos os terminais.
+    - Os módulos antigos foram descontinuados, enquanto esses foram desenvolvidos pela equipa de DevOps.
+    - A regra anterior era demasiado permissiva, porém esta impede o acesso externo não autorizado.
+    - Os monitores são reconhecidos automaticamente, mas aqueles requerem a instalação de controladores específicos.
+  negative:
+    - Este servidor contém a base de dados principal da infraestrutura.
+    - Estas atualizações de segurança devem ser aplicadas em todos os terminais.
+    - Esses scripts de automação foram desenvolvidos pela equipa de DevOps.
+    - Esta configuração de firewall impede o acesso externo não autorizado.
+    - Aqueles dispositivos periféricos requerem a instalação de controladores específicos.
+
+# A5.2-02: Demonstrativos - forma - invariáveis (isto, isso, aquilo)
+a5d2_02:
+  positive:
+    - Isto representa uma falha crítica na redundância do sistema.
+    - O que é isso que aparece no log de depuração?
+    - Aquilo no horizonte do diagrama é o nó de saída da rede.
+    - O administrador de infraestrutura não autorizou isto.
+    - Deves integrar isso no próximo ciclo de desenvolvimento do software.
+  negative:
+    - Este erro representa uma falha crítica na redundância do sistema.
+    - O que é este parâmetro que aparece no log de depuração?
+    - Aquele nó no diagrama é o ponto de saída da rede.
+    - O administrador de infraestrutura não autorizou este protocolo.
+    - Deves integrar este script no próximo ciclo de desenvolvimento.
+
+# A5.2-1: Pronomes - Demonstrativos - forma - contração com preposições
+a5d2_1:
+  positive:
+    - O sistema possui múltiplos módulos de autenticação, mas o erro de execução reside nestes.
+    - Foram configuradas novas variáveis de ambiente, dado que a integridade dos dados depende destas.
+    - Ocorreram vários incidentes críticos no servidor, contudo o administrador referiu-se àqueles.
+    - A estratégia de migração foi redefinida, e o sucesso da operação baseia-se nessa.
+    - Ocorreram alterações não documentadas no repositório; não temos registos daquelas.
+  negative:
+    - O erro de execução reside nestes módulos de autenticação.
+    - A integridade dos dados depende destas variáveis de ambiente.
+    - O administrador referiu-se àqueles incidentes críticos no servidor.
+    - O sucesso da operação baseia-se nessa estratégia de migração.
+    - Não temos registos daquelas alterações não documentadas no repositório.
+
+# A5.2-2: Pronomes - Demonstrativos - uso / valor - uso deítico (reforço com advérbios)
+a5d2_2:
+  positive:
+    - Temos dois bastidores na sala; este aqui aloja os comutadores de agregação da rede local.
+    - Há vários terminais na bancada; esse aí deve ser desconectado da fonte de alimentação.
+    - Várias unidades falharam, mas aquela ali apresenta sinais de degradação térmica.
+    - A documentação é densa, mas isto aqui no esquema lógico representa o barramento de comunicação interna.
+    - O centro de dados é vasto; aquilo acolá é o sistema de refrigeração de emergência.
+  negative:
+    - Este bastidor aqui aloja os comutadores de agregação da rede local.
+    - Esse terminal aí deve ser desconectado da fonte de alimentação antes da inspeção.
+    - Aquela unidade de processamento ali apresenta sinais de degradação térmica.
+    - A documentação é densa, mas isto no esquema lógico representa o barramento de comunicação interna.
+    - O centro de dados é vasto; aquilo é o sistema de refrigeração de emergência.
+
+# A5.2-3: Pronomes - Demonstrativos - uso / valor - uso deítico (reforço com mesmo)
+a5d2_3:
+  positive:
+    - O nó de computação isolou-se da rede; este mesmo foi o que apresentou a falha de segmentação no último ciclo.
+    - A arquitetura descentralizada resolve gargalos. Isso mesmo deve ser implementado na camada de transporte.
+    - Revimos as dependências do sistema, visto que estas mesmas causaram a instabilidade no contentor de produção.
+    - O ficheiro de configuração estava corrompido, e foi esse mesmo que a auditoria interna solicitou.
+    - A latência aumentou drasticamente; aquilo mesmo foi o que motivou a revisão completa do código-fonte.
+  negative:
+    - Este mesmo servidor foi o que apresentou a falha de segmentação no último ciclo.
+    - A arquitetura descentralizada resolve gargalos. Isso deve ser implementado mesmo na camada de transporte.
+    - Revimos estas mesmas dependências do sistema que causaram a instabilidade no contentor de produção.
+    - Foi esse mesmo relatório de métricas que a auditoria interna solicitou.
+    - A latência aumentou drasticamente; aquilo motivou mesmo a revisão completa do código-fonte.
+
+# A5.2-4: Demonstrativos - uso / valor - uso anafórico - referente catafórico
+a5d2_4:
+  positive:
+    - "O log de sistema reportou isto: a memória física está esgotada."
+    - "O requisito de conformidade é este: todos os dados devem ser encriptados em repouso."
+    - "Considera isto: o tempo de inatividade planeado afetará todos os utilizadores."
+    - "O principal benefício da migração é este: uma redução de 40% na latência de rede."
+    - "Atenção a isto: a chave privada nunca deve ser partilhada via canais não seguros."
+  negative:
+    - O log de sistema reportou isto ontem durante a verificação de rotina.
+    - O requisito de conformidade é este que apresentámos na reunião de planeamento.
+    - Considera isto cuidadosamente antes de executar o script de automação.
+    - O principal benefício da migração é este, como podes verificar no gráfico.
+    - Atenção a este log de erros que foi gerado pelo serviço de autenticação.
+
+# A5.2-5: Demonstrativos - forma - outras formas demonstrativas (mesmo, tal)
+a5d2_5:
+  positive:
+    - O administrador de sistemas nunca enfrentou tal anomalia na integridade dos volumes lógicos.
+    - Tais configurações de roteamento podem comprometer a latência entre centros de dados.
+    - O orquestrador não deve alocar recursos computacionais para tal carga de trabalho preemptível.
+    - A documentação da arquitetura desaconselha a implementação de tais protocolos de comunicação legados.
+    - A análise forense de rede não conseguiu rastrear a origem de tal injeção de dependência.
+  negative:
+    - O script de automação executou o mesmo procedimento de limpeza em todos os nós do cluster.
+    - As mesmas vulnerabilidades de dia zero foram detetadas na auditoria de segurança anterior.
+    - A versão estável da API de produção é a mesma que foi documentada no repositório oficial.
+    - O administrador de sistemas nunca enfrentou essa anomalia na integridade dos volumes lógicos.
+    - Essas configurações de roteamento podem comprometer a latência entre centros de dados.
+
+# A5.3-1: Possessivos - forma - variação em pessoa, género e número
+a5d3_1:
+  positive:
+    - O meu repositório local contém as últimas alterações do código-fonte.
+    - A nossa infraestrutura de rede foi migrada integralmente para a nuvem.
+    - As tuas credenciais de acesso ao sistema expiram no final do dia.
+    - O vosso servidor de bases de dados requer uma intervenção técnica urgente.
+    - Os meus logs de depuração indicam um erro crítico de estouro de pilha.
+  negative:
+    - Aquele repositório local contém as últimas alterações do código-fonte.
+    - A infraestrutura de rede foi migrada integralmente para a nuvem.
+    - Umas credenciais de acesso ao sistema expiram no final do dia.
+    - O servidor de bases de dados requer uma intervenção técnica urgente.
+    - Estes logs de depuração indicam um erro crítico de estouro de pilha.
+
+# A5.3-3: Possessivos - forma - formas de desambiguação da 3.ª pessoa (dele, dela)
+a5d3_3:
+  positive:
+    - O repositório de código dele foi migrado para o servidor de produção.
+    - A estação de trabalho dela requer uma atualização crítica de firmware.
+    - O volume de dados deles ultrapassou o limite de quota mensal.
+    - A permissão de escrita delas foi revogada pelo administrador de sistemas.
+    - O log de erros é dele ou do processo de automação?
+  negative:
+    - O seu repositório de código foi migrado para o servidor de produção.
+    - A sua estação de trabalho requer uma atualização crítica de firmware.
+    - O seu volume de dados ultrapassou o limite de quota mensal.
+    - A sua permissão de escrita foi revogada pelo administrador.
+    - O seu log de erros é o que estamos a analisar?
+
+# A5.3-5: Possessivos - uso / valor - expressões com possessivos
+a5d3_5:
+  positive:
+    - O seu a seu dono.
+    - É a cara dele.
+    - Ele está na sua.
+    - Cada qual com o seu.
+    - Ela não está nos seus dias.
+  negative:
+    - O dono está aqui.
+    - O rosto dele é bonito.
+    - Ele está em casa.
+    - Cada um tem o seu livro.
+    - Ela está doente hoje.
+
+# A5.4-1: Pronomes - Indefinidos - forma - variação em género e número
+a5d4_1:
+  positive:
+    - Das vulnerabilidades no código-fonte, o sistema identificou muitas.
+    - Esperava-se alta latência na rede, mas observou-se pouca.
+    - Dos parâmetros de configuração, alguns foram alterados incorretamente.
+    - O script mapeou as instâncias da base de dados e processou todas.
+    - Analisámos os metadados do volume e não se corromperam nenhuns.
+  negative:
+    - O sistema identificou vulnerabilidades no código-fonte.
+    - Observou-se latência na rede.
+    - Os parâmetros de configuração foram alterados incorretamente.
+    - O script processou as instâncias da base de dados.
+    - Os metadados do volume foram corrompidos.
+
+# A5.4-2: Indefinidos - forma - invariáveis (tudo, nada, alguém, ninguém)
+a5d4_2:
+  positive:
+    - Tudo está operacional após a implementação do patch de segurança.
+    - A verificação de integridade não detetou nada durante o scan recursivo.
+    - Alguém com privilégios de superutilizador modificou a chave da API.
+    - Ninguém monitorizou o consumo de recursos no ambiente de pré-produção.
+    - O sistema de deteção de intrusão identificou algo no tráfego de saída.
+  negative:
+    - O cluster completo está operacional após a implementação do patch.
+    - A verificação de integridade não detetou o malware durante o scan.
+    - O engenheiro de segurança modificou a chave da API no cofre digital.
+    - O técnico de turno não monitorizou o consumo de recursos no ambiente.
+    - O sistema de deteção identificou a exfiltração de dados no tráfego.
+
+# A5.4-6: Pronomes - Indefinidos - forma - variação em género e número (outro, tanto, vários, qualquer)
+a5d4_6:
+  positive:
+    - O protocolo de encaminhamento principal falhou, pelo que o arquiteto de redes implementou outro.
+    - Esperava-se um volume normal de interrupções de entrada/saída, mas o subsistema gerou tantas que o processador saturou.
+    - Dos vetores de ataque enumerados durante o exercício de red teaming, foram analisados vários.
+    - Estão disponíveis múltiplas opções de configuração do núcleo, mas qualquer exige o reinício imediato do sistema operativo.
+    - O sistema corrigiu uma anomalia de persistência de dados, mas o suporte técnico identificou outras.
+  negative:
+    - O protocolo de encaminhamento principal falhou, pelo que o arquiteto de redes implementou o de redundância.
+    - O volume de interrupções de entrada/saída gerado pelo subsistema saturou o processador.
+    - Os vetores de ataque enumerados durante o exercício de red teaming foram analisados pelos engenheiros.
+    - A nova configuração do núcleo exige o reinício imediato do sistema operativo.
+    - O sistema corrigiu uma anomalia de persistência de dados, mas o suporte técnico identificou as falhas subsequentes.
+
+# A5.4-8: Indefinidos - forma - variação em género e número (quanto)
+a5d4_8:
+  positive:
+    - O sistema de gestão de recursos libertou tudo quanto foi alocado para o processo de renderização.
+    - Dos nós disponíveis no cluster, o balanceador integrou quantos estavam operacionais.
+    - Da memória alocada ao processo, o gestor de recursos utilizava apenas quanta fosse necessária.
+    - Das instâncias disponíveis no nó, o orquestrador ativou quantas o serviço exigia.
+    - Entre os blocos em cache, o coletor de memória libertou todos quantos já não eram referenciados.
+  negative:
+    - O engenheiro de hardware aplicou quanta tensão era necessária para estabilizar o barramento.
+    - O orquestrador distribuiu a carga por quantas instâncias estavam ativas no nó.
+    - Quanta eficiência este novo algoritmo de compressão proporciona!
+    - Quantos nós foram adicionados ao cluster durante a última expansão?
+    - Quanto mais nós forem adicionados ao cluster, maior será a tolerância a falhas da infraestrutura.
+
+# A5.4-9: Indefinidos - forma - invariáveis (algo, outrem)
+a5d4_9:
+  positive:
+    - O sistema de heurística detetou algo anómalo no comportamento do tráfego de saída.
+    - A política de conformidade proíbe a cedência de credenciais de administrador a outrem.
+    - Algo na estrutura do ficheiro binário sugere uma técnica de ofuscação avançada.
+    - O servidor proxy atua como um intermediário que solicita recursos a outrem em nome do cliente.
+    - Tens algo a reportar sobre a vulnerabilidade identificada no ambiente de testes?
+  negative:
+    - O sistema de heurística detetou alguma coisa anómala no comportamento do tráfego de saída.
+    - A política de conformidade proíbe a cedência de credenciais de administrador a outras pessoas.
+    - Alguma coisa na estrutura do ficheiro binário sugere uma técnica de ofuscação avançada.
+    - O servidor proxy atua como um intermediário que solicita recursos a outros servidores em nome do cliente.
+    - Tens alguma coisa a reportar sobre a vulnerabilidade identificada no ambiente de testes?
+
+# A5.5-8: Interrogativos - uso / valor - com preposições - quem
+a5d5_8:
+  positive:
+    - A quem transferiste a propriedade do repositório de documentação técnica?
+    - Com quem estabeleceste o túnel VPN para a administração remota?
+    - De quem é a titularidade deste processo que está a consumir 90% da CPU?
+    - Para quem configuraste a regra de exceção na firewall de perímetro?
+    - Por quem foi validado o plano de recuperação de desastres do centro de dados?
+  negative:
+    - Quem transferiu a propriedade do repositório de documentação técnica?
+    - Estabeleceste o túnel VPN com o administrador de segurança da rede.
+    - A titularidade deste processo pertence ao utilizador root do sistema.
+    - Configuraste a regra de exceção para o servidor de base de dados.
+    - O arquiteto de sistemas validou o plano de recuperação de desastres.
+
+# A5.5-9: Interrogativos - uso / valor - com preposições - que, o que
+a5d5_9:
+  positive:
+    - De que depende a escalabilidade horizontal deste cluster de processamento?
+    - Em que camada do modelo OSI opera este protocolo de comunicação?
+    - Com o que (com que ferramenta) realizas a orquestração dos contentores?
+    - Por que parâmetros de otimização se rege o novo compilador JIT?
+    - Sobre o que versa a documentação técnica da API de integração?
+  negative:
+    - O que condiciona a escalabilidade horizontal deste cluster de processamento?
+    - O protocolo de comunicação opera na camada de transporte do modelo OSI.
+    - Utilizas o Kubernetes para realizar a orquestração dos contentores.
+    - O compilador JIT foi configurado para máxima performance porquê?
+    - A documentação técnica da API está disponível no repositório oficial.
+
+# A5.5-10: Interrogativos - uso / valor - com preposições - qual, quais
+a5d5_10:
+  positive:
+    - Com qual destes protocolos de cifragem pretendes ficar para a comunicação entre serviços?
+    - De quais destas bibliotecas de visualização de dados gostas mais para o painel de métricas?
+    - Em qual destes nós do cluster acreditas que reside o erro de sincronização de estado?
+    - Para qual destes portos de rede vais encaminhar o tráfego proveniente da sub-rede externa?
+    - Por quais etapas de validação de segurança passaste antes de submeter o código para produção?
+  negative:
+    - Qual protocolo de cifragem vais escolher para a comunicação entre os serviços?
+    - Gostas das bibliotecas de visualização de dados baseadas em frameworks de código aberto.
+    - Acreditas que o erro de sincronização de estado reside no nó mestre do sistema.
+    - Vais encaminhar o tráfego proveniente da sub-rede externa para o porto de rede 443.
+    - Passaste por todas as etapas de validação de segurança exigidas pelo protocolo.
+
+# A5.5-11: Interrogativos - uso / valor - com preposições - quanto
+a5d5_11:
+  positive:
+    - Por quanto foi adquirido o licenciamento anual do software de monitorização?
+    - De quanto armazenamento adicional precisas para o volume de dados do projeto?
+    - Em quanto fica a estimativa de custos para a reparação do bastidor de servidores?
+    - Com quantos nós de redundância vens configurar o cluster de alta disponibilidade?
+    - Para quantas instâncias de processamento é a configuração de balanceamento de carga?
+  negative:
+    - O licenciamento anual do software de monitorização custou um valor nominal elevado.
+    - Precisas de muito espaço para os volumes de dados gerados pelo projeto.
+    - A estimativa de custos para a reparação do bastidor de servidores é significativa.
+    - Vens configurar o cluster de alta disponibilidade com vários nós de redundância.
+    - A configuração de balanceamento de carga é para dez instâncias de processamento.
+
+# A5.5-14: Interrogativos - posição - posição final
+a5d5_14:
+  positive:
+    - O algoritmo de compressão executa o quê?
+    - O sistema de monitorização reportou o quê?
+    - Os pacotes de telemetria são encaminhados para aonde?
+    - Das instâncias de contentores disponíveis, pretendes qual?
+    - O ficheiro de configuração do servidor reside onde?
+  negative:
+    - O que executa o algoritmo de compressão?
+    - O que reportou o sistema de monitorização?
+    - Para aonde são encaminhados os pacotes de telemetria?
+    - Qual pretendes das instâncias de contentores disponíveis?
+    - Onde reside o ficheiro de configuração do servidor?
+
+# A5.6-1: Relativos - forma - invariáveis (que, quem, onde)
+a5d6_1:
+  positive:
+    - O script que automatiza o deployment terminou a execução sem erros de segmentação.
+    - O engenheiro de quem recebi o relatório de auditoria é o responsável pelo SOC.
+    - O nó do cluster onde o contentor está instanciado apresenta elevada latência de E/S.
+    - A vulnerabilidade que foi detetada na biblioteca externa já possui um patch disponível.
+    - O centro de dados onde alojamos os servidores críticos possui redundância física N+1.
+  negative:
+    - O script automatiza o deployment e terminou a execução sem erros.
+    - Recebi o relatório de auditoria do engenheiro responsável pelo SOC.
+    - O contentor está instanciado num nó do cluster com elevada latência.
+    - A vulnerabilidade foi detetada na biblioteca externa durante o scan.
+    - Alojamos os servidores críticos num centro de dados com redundância.
+
+# A5.6-5: Relativos - forma - variação em género e número (o qual)
+a5d6_5:
+  positive:
+    - A sub-rede na qual o tráfego foi isolado pertence ao segmento de gestão.
+    - Os processos os quais foram terminados forçosamente libertaram memória heap.
+    - A base de dados a qual migrámos para o novo motor de SQL está estável.
+    - As dependências as quais o projeto requer devem ser instaladas via gestor de pacotes.
+    - O protocolo o qual implementámos garante a integridade dos pacotes em trânsito.
+  negative:
+    - O tráfego foi isolado na sub-rede de gestão.
+    - Terminámos forçosamente os processos para libertar memória.
+    - Migrámos a base de dados estável para o novo motor.
+    - O projeto requer a instalação de dependências específicas.
+    - Implementámos um protocolo para garantir a integridade dos pacotes.
+
+# A5.6-6: Relativos - forma - invariáveis (o que)
+a5d6_6:
+  positive:
+    - A equipa de DevOps não encontrou discrepâncias no que foi reportado pelo sensor de latência.
+    - O que o administrador de sistemas recomenda é a implementação de autenticação multifator.
+    - Tudo o que o algoritmo de compressão processa é validado por uma soma de verificação.
+    - O relatório de auditoria detalha o que foi alterado nas tabelas de permissões do servidor.
+    - O que ocorreu durante a migração de dados foi um erro de concorrência inesperado.
+  negative:
+    - O sensor de latência reportou métricas sem quaisquer discrepâncias visíveis.
+    - O administrador de sistemas recomenda a implementação de autenticação multifator.
+    - O algoritmo de compressão valida todos os dados processados via soma de verificação.
+    - O relatório de auditoria detalha as alterações nas tabelas de permissões do servidor.
+    - Ocorreu um erro de concorrência inesperado durante a migração de dados.
+
+# A6.1-3: artigo definido - uso/valor - com nomes próprios (primeiro nome)
+a6d1_3:
+  positive:
+    - O Joaquim é meu amigo.
+    - A Maria está em casa.
+    - Vi o Pedro no parque.
+    - Falaste com a Ana?
+    - O Paulo foi ao cinema.
+  negative:
+    - Joaquim é meu amigo.
+    - Maria está em casa.
+    - Pedro está no parque.
+    - Ana é inteligente.
+    - Vi um rapaz.
+
+# A6.1-4: artigo definido - uso/valor - com nomes de países, regiões e cidades
+a6d1_4:
+  positive:
+    - A Alemanha é um país europeu.
+    - O Porto é uma cidade bonita.
+    - Moro na Guarda.
+    - Vou para o Brasil.
+    - A Bavária fica no sul.
+  negative:
+    - Portugal é bonito.
+    - Madrid é a capital.
+    - Angola é um país.
+    - Vou para Paris.
+    - Coimbra é estudante.
+
+# A6.1-5: artigo definido - uso/valor - antes de determinante possessivo
+a6d1_5:
+  positive:
+    - O meu irmão é alto.
+    - A nossa casa é grande.
+    - Onde estão os teus livros?
+    - Vi a sua mãe ontem.
+    - Os vossos amigos são simpáticos.
+  negative:
+    - Meu irmão é alto.
+    - Nossa casa é grande.
+    - Teus livros estão aqui.
+    - Sua mãe é simpática.
+    - Vossos amigos vêm cá.
+
+# A6.1-6: artigo definido - concordância - em género e número com o nome
+a6d1_6:
+  positive:
+    - O livro é novo.
+    - Os livros são novos.
+    - A revista é interessante.
+    - As revistas são interessantes.
+    - Vi o carro azul.
+  negative:
+    - A livro é novo.
+    - As livros são novos.
+    - O revista é interessante.
+    - Os revistas são interessantes.
+    - Um livro é novo.
+
+# A6.1-9: artigo indefinido - concordância - em género e número com o nome
+a6d1_9:
+  positive:
+    - Comprei um livro novo.
+    - Li umas revistas antigas.
+    - Vi uns rapazes no parque.
+    - Ela tem uma casa bonita.
+    - Temos umas ideias giras.
+  negative:
+    - Comprei uma livro novo.
+    - Li uns revistas antigas.
+    - Vi uma rapazes no parque.
+    - Ela tem um casa bonita.
+    - Temos um ideias giras.
+
+# A6.1-10: artigo definido - forma - contração com preposições
+a6d1_10:
+  positive:
+    - O relatório detalha a latência do barramento de memória.
+    - O engenheiro instalou o binário no servidor de testes.
+    - O administrador concedeu acesso à base de dados relacional.
+    - Os registos de auditoria foram persistidos na tabela de logs.
+    - A equipa de segurança focou a análise nos processos ativos.
+  negative:
+    - O relatório detalha a latência de barramentos de memória.
+    - O engenheiro instalou o binário em servidores de testes.
+    - O administrador concedeu acesso a bases de dados relacionais.
+    - Os registos de auditoria foram persistidos em tabelas de logs.
+    - A equipa de segurança focou a análise em processos ativos.
+
+# A6.1-11: artigo definido - uso/valor - com nomes próprios (apelido)
+a6d1_11:
+  positive:
+    - Os Almeida gerem a infraestrutura de rede deste centro de dados.
+    - Consultámos os Sousa sobre o licenciamento do software empresarial.
+    - As Pereira lideram a equipa de cibersegurança da consultora.
+    - Os Magalhães implementaram o novo protocolo de redundância.
+    - Vi os Carvalho na conferência internacional de engenharia.
+  negative:
+    - O engenheiro Almeida gere a infraestrutura de rede deste centro de dados.
+    - O Sousa respondeu ao ticket sobre o licenciamento do software.
+    - A arquiteta Pereira lidera a equipa de cibersegurança da consultora.
+    - O Magalhães validou a implementação do protocolo de redundância.
+    - Vi os técnicos na conferência internacional de engenharia.
+
+# A6.1-15: artigo indefinido - uso/valor - antes de numeral, indica aproximação numérica
+a6d1_15:
+  positive:
+    - Ficava a uns 10km da sua casa.
+    - Demora uns 20 minutos a chegar.
+    - Ele tem uns 30 anos.
+    - Gastámos umas 50 euros.
+    - Vi umas 100 pessoas no comício.
+  negative:
+    - Ele tem 30 anos.
+    - Gastámos 50 euros.
+    - Vi 100 pessoas.
+    - Um livro custa 10 euros.
+    - Comprei uns livros.
+
+# A6.1-19: artigo definido - uso/valor - antes de datas festivas ou célebres
+a6d1_19:
+  positive:
+    - O 1 de maio é feriado.
+    - O natal é em dezembro.
+    - A páscoa é no domingo.
+    - O 25 de abril foi importante.
+    - O carnaval é divertido.
+  negative:
+    - Natal é bom.
+    - Hoje é dia 1.
+    - Abril é um mês.
+    - Gosto de festas.
+    - Ele faz anos hoje.
+
+# A6.1-20: artigo definido - uso/valor - com 'todo/a/os/as'
+a6d1_20:
+  positive:
+    - Todos os dias vou ao ginásio.
+    - Ela leu toda a revista.
+    - Fizemos todo o trabalho.
+    - Todas as raparigas saíram.
+    - Li a semana toda.
+  negative:
+    - Todo dia vou ao ginásio.
+    - Ela leu toda revista.
+    - Fizemos todo trabalho.
+    - Todas raparigas saíram.
+    - Li a semana.
+
+# A6.1-21: artigo definido - uso/valor - com 'ambos/as'
+a6d1_21:
+  positive:
+    - Acenava com ambas as mãos.
+    - Ambos os rapazes são altos.
+    - Vi ambas as irmãs ontem.
+    - Li ambos os livros.
+    - Ambas as propostas são boas.
+  negative:
+    - Acenava com ambas mãos.
+    - Ambos rapazes são altos.
+    - Vi ambas irmãs ontem.
+    - Li ambos livros.
+    - Ambas propostas são boas.
+
+# A6.1-28: artigo definido - uso/valor - para substantivar palavras
+a6d1_28:
+  positive:
+    - O argumentar da defesa convenceu o tribunal a rever as provas do caso.
+    - O não do conselho de administração inviabilizou o plano de expansão internacional.
+    - O belo na arquitetura corporativa reside na otimização funcional dos espaços.
+    - O eu revela-se frequentemente perante situações de pressão profissional extrema.
+    - O sorrir da testemunha durante a audiência preliminar levantou suspeitas.
+  negative:
+    - A defesa conseguiu argumentar de forma estruturada perante o tribunal.
+    - O conselho de administração não aprovou o plano de expansão internacional.
+    - O novo edifício corporativo apresenta um design bastante belo e funcional.
+    - Eu demonstro maior resiliência perante situações de pressão profissional extrema.
+    - A testemunha começou a sorrir quando foi questionada na audiência preliminar.
+
+# A6.1-34: artigo indefinido - uso/valor - com nomes de pessoas (indefinição de sujeito)
+a6d1_34:
+  positive:
+    - Acho que ele referiu um Francisco.
+    - Telefonou uma Maria para ti.
+    - Veio cá um João procurar por ti.
+    - Conheces um tal Ferreira?
+    - Ele disse que viu um Pedro no parque.
+  negative:
+    - O Francisco referiu isso.
+    - A Maria telefonou.
+    - O João veio cá.
+    - O Ferreira é simpático.
+    - O Pedro estava no parque.
+
+# A6.1-35: artigo indefinido - uso/valor - com nomes geográficos qualificados
+a6d1_35:
+  positive:
+    - Sonhamos com um Portugal melhor.
+    - Vivemos numa Europa devastada pela guerra.
+    - Conheci uma Lisboa diferente.
+    - Numa Angola em crescimento, tudo é possível.
+    - Queremos um Brasil unido.
+  negative:
+    - Portugal é bonito.
+    - A Europa é um continente.
+    - Lisboa é a capital.
+    - Angola fica em África.
+    - O Brasil é grande.
+
+# A6.2-3: Demonstrativos - concordância - em género e número com o nome
+a6d2_3:
+  positive:
+    - Este livro é novo.
+    - Esta caneta é azul.
+    - Estes livros são novos.
+    - Estas canetas são azuis.
+    - Aquela casa é grande.
+  negative:
+    - Esta livro é novo.
+    - Este caneta é azul.
+    - Estas livros são novos.
+    - Estes canetas são azuis.
+    - Aquele casa é grande.
+
+# A6.2-4: Demonstrativos - forma - contração com preposições
+a6d2_4:
+  positive:
+    - O erro de execução reside neste bloco de código específico.
+    - A latência desta interface de rede compromete o processamento.
+    - O balanceador de carga redireciona o tráfego àquela instância.
+    - O sucesso da migração depende daquele script de automação.
+    - Encontrámos inconsistências nesses volumes de armazenamento.
+  negative:
+    - O erro de execução reside em blocos de código específicos.
+    - A latência de interfaces de rede compromete o processamento.
+    - O balanceador de carga redireciona o tráfego a instâncias isoladas.
+    - O sucesso da migração depende de scripts de automação.
+    - Encontrámos inconsistências em volumes de armazenamento.
+
+# A6.2-13: Demonstrativos - posição - depois do nome - em relativas apositivas
+a6d2_13:
+  positive:
+    - A pobreza é um problema mundial, problema este que diz respeito a todos.
+    - A paz é um bem precioso, bem este que todos desejamos.
+    - O tempo é escasso, tempo este que não podemos perder.
+    - A verdade é essencial, verdade esta que deve ser dita.
+    - O amor é importante, amor este que nos faz felizes.
+  negative:
+    - A pobreza é um problema.
+    - Desejamos a paz.
+    - O tempo é curto.
+    - A verdade é dita.
+    - O amor é bom.
+
+# A6.3-6: Possessivos - obrigatoriedade de ocorrência - sem artigo
+a6d3_6:
+  positive:
+    - Meu amigo, como estás?
+    - Meu filho, anda cá.
+    - Vossa Excelência tem a palavra.
+    - Sua Majestade entrou no salão.
+    - Meu Deus, que confusão!
+  negative:
+    - O meu amigo está bem.
+    - O meu filho foi para a escola.
+    - O vosso diretor tem a palavra.
+    - A sua mãe entrou no salão.
+    - O meu pai telefonou-te.
+
+# A6.3-7: Possessivos - posição - depois do nome - em contextos indefinidos
+a6d3_7:
+  positive:
+    - Um amigo meu falou-me de ti.
+    - Vi uma irmã tua no parque.
+    - Conheci uns primos seus.
+    - Tivemos umas ideias nossas.
+    - Ele tem uns livros meus.
+  negative:
+    - O meu amigo falou.
+    - A tua irmã estava no parque.
+    - Os seus primos vieram cá.
+    - As nossas ideias são boas.
+    - Os meus livros são estes.
+
+# A6.3-9: Possessivos - demonstrativo + possessivo
+a6d3_9:
+  positive:
+    - Este meu cão é meigo.
+    - Aquela sua ideia foi ótima.
+    - Estes teus livros são bons.
+    - Aquelas nossas amigas vieram cá.
+    - Esse vosso trabalho está excelente.
+  negative:
+    - O meu cão é meigo.
+    - A sua ideia foi ótima.
+    - Os teus livros são bons.
+    - As nossas amigas vieram cá.
+    - O vosso trabalho está excelente.
+
+# A6.4-1: Indefinidos - forma - variação em género e número
+a6d4_1:
+  positive:
+    - O outro rapaz chegou.
+    - Certa rapariga disse a verdade.
+    - Outros alunos vieram.
+    - Certas coisas são óbvias.
+    - Outra casa foi vendida.
+  negative:
+    - O rapaz chegou.
+    - A rapariga disse a verdade.
+    - Alunos vieram.
+    - Coisas são óbvias.
+    - A casa foi vendida.
+
+# A6.6-1: Relativos - forma - variação em género e número (cujo)
+a6d6_1:
+  positive:
+    - Este rapaz, cujo nome não me recordo, vive aqui.
+    - A casa, cuja porta é azul, é minha.
+    - Os alunos, cujos pais vieram, estavam felizes.
+    - As irmãs, cujas ideias são boas, ajudaram.
+    - O autor, cujo livro li, é famoso.
+  negative:
+    - Este rapaz, o nome do qual não sei.
+    - A casa tem a porta azul.
+    - Os pais dos alunos vieram.
+    - As irmãs têm boas ideias.
+    - O livro do autor é famoso.
+
+# A6.6-3: Relativos - com preposições - de cujo, a cujo, com cujo, para cujo
+a6d6_3:
+  positive:
+    - Este rapaz, de cujo nome não me recordo, vive na minha rua.
+    - A rapariga, a cujos pais falei, é simpática.
+    - O homem, com cujo filho trabalhas, vem cá.
+    - A cidade, para cujas ruas olhei, é linda.
+    - O tema, sobre cujos problemas debatemos, é atual.
+  negative:
+    - O rapaz, cujo nome não sei.
+    - Os pais da rapariga falaram.
+    - Trabalhas com o filho do homem.
+    - Olhei para as ruas da cidade.
+    - Debatemos os problemas do tema.
+
+# A7.1-1: Existenciais - forma - variação em género e número - A2
+a7d1_1:
+  positive:
+    - Há muito trabalho para fazer.
+    - Tenho muitos amigos em Lisboa.
+    - Há pouca gente na rua.
+    - Comprei alguns livros novos.
+    - Ela tem algumas dúvidas.
+  negative:
+    - Há trabalho.
+    - Tenho amigos.
+    - Há gente.
+    - Comprei livros.
+    - Ela tem dúvidas.
+
+# A7.1-5: Existenciais - forma - variação em género e número - B1
+a7d1_5:
+  positive:
+    - Ele tem tanto dinheiro.
+    - Havia tantas pessoas na festa.
+    - Li vários jornais hoje.
+    - Vi várias raparigas no parque.
+    - Temos tantos problemas para resolver.
+  negative:
+    - Ele tem dinheiro.
+    - Havia pessoas na festa.
+    - Li jornais hoje.
+    - Vi raparigas no parque.
+    - Temos problemas para resolver.
+
+# A7.1-9: Existenciais - possibilidade de ocorrência com artigos
+a7d1_9:
+  positive:
+    - O perito forense recuperou uns poucos de logs do disco corrompido.
+    - A compilação do novo modelo exigiu um tanto de memória volátil.
+    - O administrador de sistemas teve de reconfigurar uns tantos nós da rede.
+    - A equipa introduziu um pouco de redundância na arquitetura física.
+    - O analista de tráfego isolou uns poucos de pacotes maliciosos na captura.
+  negative:
+    - O perito forense recuperou poucos logs do disco corrompido.
+    - A compilação do novo modelo exigiu tanta memória volátil.
+    - O administrador de sistemas teve de reconfigurar tantos nós da rede.
+    - A equipa introduziu pouca redundância na arquitetura física.
+    - O analista de tráfego isolou poucos pacotes maliciosos na captura.
+  
+# A7.2-1: Universais - forma - variação em género e número - A2 (todo, nenhum)
+a7d2_1:
+  positive:
+    - Todo o trabalho foi feito.
+    - Toda a gente veio.
+    - Todos os alunos passaram.
+    - Nenhuma pessoa faltou.
+    - Nenhuns livros foram perdidos.
+  negative:
+    - Algum trabalho foi feito.
+    - Alguma gente veio.
+    - Alguns alunos passaram.
+    - Muitas pessoas faltaram.
+    - Poucos livros foram perdidos.
+
+# A7.2-6: Universais - posição/distribuição - possibilidade de ocorrência com pronomes e determinantes
+a7d2_6:
+  positive:
+    - Todos eles vieram à festa.
+    - Todos estes livros são bons.
+    - Todos os meus amigos moram aqui.
+    - Nenhum dos amigos apareceu.
+    - Nenhuma destas raparigas sabe a verdade.
+  negative:
+    - Eles vieram à festa.
+    - Estes livros são bons.
+    - Os meus amigos moram aqui.
+    - O amigo apareceu.
+    - A rapariga sabe a verdade.
+
+# A7.2-7: Universais - forma - variação em género e número - B1 (ambos, qualquer)
+a7d2_7:
+  positive:
+    - Ambos os rapazes são altos.
+    - Ambas as raparigas são simpáticas.
+    - Qualquer pessoa sabe isso.
+    - Quaisquer alunos podem vir.
+    - Escolhe qualquer um.
+  negative:
+    - Os dois rapazes são altos.
+    - As duas raparigas são simpáticas.
+    - Alguma pessoa sabe isso.
+    - Alguns alunos podem vir.
+    - Escolhe um.
+
+# A7.2-8: Universais - forma - invariáveis (cada)
+a7d2_8:
+  positive:
+    - Cada aluno recebeu um livro.
+    - Estive lá cada dia da semana.
+    - Cada coisa tem o seu lugar.
+    - Ele vem cá cada vez que pode.
+    - Cada qual sabe de si.
+  negative:
+    - Todos os alunos receberam um livro.
+    - Estive lá todos os dias.
+    - Todas as coisas têm lugar.
+    - Ele vem cá todas as vezes.
+    - Todo o aluno recebeu.
+
+# A7.2-13: Universais - uso / valor - cada ocorrência com um
+a7d2_13:
+  positive:
+    - Cada um seguiu o seu caminho.
+    - Demos um presente a cada um.
+    - Cada uma das raparigas sorriu.
+    - Li cada um dos livros.
+    - Cada um de nós tem uma tarefa.
+  negative:
+    - Todos seguiram o seu caminho.
+    - Demos presentes a todos.
+    - Todas as raparigas sorriram.
+    - Li todos os livros.
+    - Todos nós temos tarefas.
+
+# A7.2-15: Universais - distribuição - qualquer, quaisquer DEPOIS do nome (um N qualquer)
+a7d2_15:
+  positive:
+    - Ele gosta de um filme qualquer.
+    - Escolhe um lugar qualquer.
+    - Uma pessoa qualquer disse isso.
+    - Comprei uns sapatos quaisquer.
+    - Deram-me uma desculpa qualquer.
+  negative:
+    - Ele gosta de qualquer filme.
+    - Qualquer pessoa pode vir.
+    - Escolhe um lugar.
+    - Uma pessoa disse isso.
+    - Todos os filmes são bons.
+
+# A7.2-16: Universais - distribuição - qualquer, quaisquer - ocorrência com outro
+a7d2_16:
+  positive:
+    - Ele é melhor que qualquer outro.
+    - Não quero este, quero outro qualquer.
+    - Qualquer outra ideia é melhor.
+    - Outros quaisquer seriam bons.
+    - Qualquer outro rapaz faria o mesmo.
+  negative:
+    - Ele é o melhor.
+    - Não quero este, quero outro.
+    - Outra ideia é melhor.
+    - Outros seriam bons.
+    - Outro rapaz faria o mesmo.
+
+# A7.3-3: Numerais - forma - multiplicativos - em expressões com cardinal + vez/vezes
+a7d3_3:
+  positive:
+    - Fui lá duas vezes.
+    - Li o livro dez vezes.
+    - Repeti a pergunta cem vezes.
+    - Ele tentou várias vezes.
+    - Fizemos o exercício três vezes.
+  negative:
+    - Fui lá ontem.
+    - Li o livro todo.
+    - Repeti a pergunta.
+    - Ele tentou muito.
+    - Fizemos o exercício.
+
+# A7.3-4: Numerais - forma - fracionários (meio, metade)
+a7d3_4:
+  positive:
+    - Quero meio quilo de maçãs.
+    - Comi metade do bolo.
+    - Ele bebeu meia garrafa de água.
+    - Faltava meia hora para o fim.
+    - Já é meio-dia.
+  negative:
+    - Quero um quilo.
+    - Comi o bolo todo.
+    - Ele bebeu a garrafa toda.
+    - Faltava uma hora.
+    - É uma hora.
+
+# A7.3-5: Numerais - forma - multiplicativos (dobro, triplo)
+a7d3_5:
+  positive:
+    - Ganhei o dobro do prémio.
+    - Ele fez o triplo do esforço.
+    - Tenho o quádruplo do dinheiro.
+    - O preço é o dobro de ontem.
+    - O triplo de nove é vinte e sete.
+  negative:
+    - Ganhei o prémio.
+    - Ele fez muito esforço.
+    - Tenho muito dinheiro.
+    - O preço é caro.
+    - Nove vezes três é vinte e sete.
+
+# A7.3-6: Numerais - forma - multiplicativos - em expressões com 'de'
+a7d3_6:
+  positive:
+    - O dobro do tempo foi gasto.
+    - Ele tem o triplo da idade.
+    - Comi o quádruplo do que devia.
+    - O dobro da sorte é o que preciso.
+    - O triplo do valor foi pago.
+  negative:
+    - O tempo foi gasto.
+    - Ele é velho.
+    - Comi muito.
+    - Preciso de sorte.
+    - O valor foi pago.
+
+# A7.3-7: Numerais - forma - multiplicativos - em expressões com cardinal + vez/vezes + mais/menos
+a7d3_7:
+  positive:
+    - Ele é cem vezes mais inteligente.
+    - Esta casa é duas vezes menos cara.
+    - Sou dez vezes mais rápido que tu.
+    - O carro é três vezes mais potente.
+    - O teste foi duas vezes mais difícil.
+  negative:
+    - Ele é muito inteligente.
+    - Esta casa é barata.
+    - Sou rápido.
+    - O carro é potente.
+    - O teste foi difícil.
+
+# A7.3-8: Numerais - forma - fracionários - em expressões com 'de'
+a7d3_8:
+  positive:
+    - Um terço do dinheiro desapareceu.
+    - Um quarto da turma faltou.
+    - Metade dos alunos passou no exame.
+    - Três quintos da população vive na cidade.
+    - Um décimo do valor foi pago.
+  negative:
+    - O dinheiro desapareceu.
+    - A turma faltou.
+    - Os alunos passaram.
+    - A população vive na cidade.
+    - O valor foi pago.
+
+# A7.3-10: Numerais - forma - outras expressões que exprimem número
+a7d3_10:
+  positive:
+    - Inúmeros problemas surgiram.
+    - Diversos alunos faltaram à aula.
+    - Diferentes opiniões foram ouvidas.
+    - O comitê avaliou inúmeros projetos.
+    - O autor publicou diversos artigos sobre o tema.
+  negative:
+    - Problemas surgiram.
+    - Os alunos faltaram à aula.
+    - As opiniões foram ouvidas.
+    - O comitê avaliou os projetos.
+    - O autor publicou artigos sobre o tema.
+
+# A7.4-5: Interrogativos - distribuição - seguido de preposição de
+a7d4_5:
+  positive:
+    - Quantos dos teus amigos são portugueses?
+    - Qual das camisas preferes?
+    - Quantas das raparigas vieram?
+    - Quais dos problemas foram resolvidos?
+    - Quanto do bolo comeste?
+  negative:
+    - Quantos amigos tens?
+    - Qual camisa preferes?
+    - Quantas raparigas vieram?
+    - Quais problemas resolveste?
+    - Quanto bolo comeste?
+
+# A7.5-1: Relativos - forma - variação em género e número (quanto)
+a7d5_1:
+  positive:
+    - Comeu tudo quanto quis.
+    - Comprou tantas quantas precisava.
+    - Disse tudo quanto sabia.
+    - Viu tantos quantos pôde.
+    - Fez quanta força era necessária.
+  negative:
+    - Comeu muito hoje.
+    - Comprou as que precisava.
+    - Disse o que sabia.
+    - Viu muitos alunos.
+    - Fez muita força.
+
+# B2.1-111: sujeito - sujeito nulo - sem interpretação/referente (expletivo) - A2:
+b2d1_111:
+  positive:
+    - Choveu torrencialmente sobre a zona de arrefecimento externo da instalação.
+    - Houve uma quebra de conectividade no nó principal da rede de dados.
+    - Faz duas semanas desde a última implementação de código em produção.
+    - Está demasiado calor na sala dos servidores devido à falha de climatização.
+    - Trovejou intensamente perto do centro de processamento secundário.
+  negative:
+    - Choveram notificações de erro na consola de administração após o update.
+    - Ocorreu uma quebra de conectividade no nó principal da rede de dados.
+    - A implementação de código em produção causou instabilidade no sistema.
+    - Resolveram as falhas de conectividade antes da reinicialização do hardware.
+    - O sistema amanheceu totalmente operacional apesar da sobrecarga térmica.
+
+# B2.1-117: sujeito - sujeito nulo - sem interpretação/referente (expletivo) - B1:
+b2d1_117:
+  positive:
+    - Parece que o servidor principal reiniciou inesperadamente durante a madrugada.
+    - Parece que as métricas de extração de características estão incorretas.
+    - Parece que eles também submeteram o artigo ao workshop de NLP.
+    - Parece que não há memória RAM suficiente alocada para o processo.
+    - Parece que a nova atualização do sistema resolveu os problemas de latência.
+  negative:
+    - O servidor principal parece ter reiniciado inesperadamente durante a madrugada.
+    - As métricas de extração de características parecem incorretas.
+    - O investigador parece que também submeteu o artigo ao workshop de NLP.
+    - Parecemos estar num impasse com o treino do modelo de linguagem.
+    - A nova atualização do sistema parece resolver os problemas de latência.
+
+# B2.1-118: vocativo - em posição não inicial (vd. ordem dos constituintes)
+b2d1_118:
+  positive:
+    - O relatório, Dr. Silva, já foi submetido para validação final.
+    - Não creio, Joana, que o erro de segmentação tenha origem no hardware.
+    - Executa o comando, Tiago, antes que o sistema reinicie automaticamente.
+    - Entendes a complexidade desta arquitetura, Carlos?
+    - Verifica os logs, Miguel, para isolar a causa-raiz do incidente.
+  negative:
+    - Dr. Silva, o relatório já foi submetido para validação final.
+    - Joana, não creio que o erro de segmentação tenha origem no hardware.
+    - Tiago, executa o comando antes do reinício do sistema.
+    - O Carlos entende a complexidade da arquitetura de microsserviços.
+    - O Miguel verifica os logs para isolar a causa-raiz do incidente.
+
+# B2.1-119: sujeito - oracional - com oração relativa
+b2d1_119:
+  positive:
+    - Quem chegar atrasado não vai ao passeio.
+    - Quem avisa amigo é.
+    - Quem muito fala pouco faz.
+    - O que eu quero é um café.
+    - Tudo o que ele disse é verdade.
+  negative:
+    - O João chegou atrasado.
+    - Eu aviso-te.
+    - Tu falas muito.
+    - Eu quero um café.
+    - Ele disse a verdade.
+
+# B2.1-120: sujeito - oracional - com oração completiva
+b2d1_120:
+  positive:
+    - É verdade que eles se conhecem?
+    - É necessário que estudes para o exame.
+    - Importa que tudo corra bem.
+    - É óbvio que ela está doente.
+    - Convém que chegues a tempo.
+  negative:
+    - Eles conhecem-se.
+    - Tu estudas para o exame.
+    - Tudo corre bem.
+    - Ela está doente.
+    - Tu chegas a tempo.
+
+# B2.1-213: complemento direto - nominal (pronome pessoal)
+b2d1_213:
+  positive:
+    - A Joana comprou-as ontem.
+    - Ainda não o vi hoje.
+    - Ele chamou-me para a reunião.
+    - Nós já os vimos no parque.
+    - Quero ver-te amanhã.
+  negative:
+    - A Joana comprou as maçãs.
+    - Ainda não vi o Pedro.
+    - Ele chamou o João.
+    - Nós vimos os cães.
+    - Quero ver o filme.
+
+# B2.1-214: complemento direto - oracional - verbos como 'dizer' (completiva com verbo no indicativo)
+b2d1_214:
+  positive:
+    - Ele disse que o curso era longo.
+    - Eu sei que tu és inteligente.
+    - Nós pensamos que a festa vai ser boa.
+    - Ela acredita que tudo vai correr bem.
+    - Tu afirmaste que o trabalho estava feito.
+  negative:
+    - Ele disse o curso.
+    - Eu sei a verdade.
+    - Nós pensamos na festa.
+    - Ela acredita em mim.
+    - Tu afirmaste a verdade.
+
+# B2.1-215: complemento indireto - pronominal (sem preposição)
+b2d1_215:
+  positive:
+    - A Rita deu-lhe um livro.
+    - Eu emprestei-te a minha caneta.
+    - Eles enviaram-nos um convite.
+    - Ela contou-me a história.
+    - Nós pedimo-vos ajuda.
+  negative:
+    - A Rita deu um livro ao Pedro.
+    - O diretor viu-me no corredor.
+    - A médica examinou-te cuidadosamente.
+    - Eles convidaram-nos para a festa de anos.
+    - Ela contou a história para mim.
+
+# B2.1-216: modificador - oração - subordinada adverbial (temporal/causal/final)
+b2d1_216:
+  positive:
+    - O Gonçalo chegou quando tu saíste.
+    - Ele vestiu o casaco porque tinha frio.
+    - Elas vieram para Lisboa para trabalhar.
+    - Mal chegou a casa, foi dormir.
+    - Fiz o jantar para comermos.
+  negative:
+    - O Gonçalo chegou cedo.
+    - Ele vestiu o casaco azul.
+    - Elas vieram para Lisboa hoje.
+    - Ele foi dormir.
+    - Fiz o jantar.
+
+# B2.1-218: complemento direto - oracional - verbos da subordinada completiva no presente do conjuntivo
+b2d1_218:
+  positive:
+    - Ele não quer que o projeto se atrase.
+    - Espero que tenhas sorte.
+    - Desejo que sejas feliz.
+    - Peço que fales baixo.
+    - Sugiro que partamos cedo.
+  negative:
+    - Ele não quer o projeto.
+    - Espero a sorte.
+    - Desejo a felicidade.
+    - Peço o silêncio.
+    - Sugiro a partida.
+
+# B2.1-219: predicativo do sujeito - oracional (oração substantiva predicativa)
+b2d1_219:
+  positive:
+    - É muito importante lavar bem as mãos.
+    - O essencial é que todos participem.
+    - O meu desejo é ser feliz.
+    - O problema foi terem chegado tarde.
+    - A intenção é ajudar quem precisa.
+  negative:
+    - As mãos estão limpas.
+    - Todos participam.
+    - Eu sou feliz.
+    - Eles chegaram tarde.
+    - Eu ajudo quem precisa.
+
+# B2.1-220: predicativo do complemento direto - com 'nomear'/'eleger', 'considerar'/'julgar', 'tornar' GN
+b2d1_220:
+  positive:
+    - A direção nomeou a Maria chefe de departamento.
+    - O povo elegeu o João presidente.
+    - Considero o Pedro meu amigo.
+    - O sol tornou o dia uma maravilha.
+    - Julgaram o réu um criminoso.
+  negative:
+    - A direção nomeou a Maria.
+    - O povo elegeu o João.
+    - Considero o Pedro.
+    - O sol é bonito.
+    - Julgaram o réu.
+
+# B2.1-221: predicativo do complemento direto - com 'nomear'/'eleger', 'considerar'/'julgar', 'tornar' + GAdj
+b2d1_221:
+  positive:
+    - A equipa de auditoria considerou a infraestrutura obsoleta.
+    - A nova atualização tornou o sistema vulnerável.
+    - Os analistas julgam o processo de migração ineficiente.
+    - O conselho elegeu o engenheiro responsável pela segurança.
+    - O gestor técnico acha a solução escalável.
+  negative:
+    - A infraestrutura é obsoleta segundo a equipa de auditoria.
+    - O sistema está vulnerável após a nova atualização.
+    - O processo de migração é ineficiente na ótica dos analistas.
+    - O engenheiro é o responsável pela segurança do conselho.
+    - A solução é escalável no ambiente de produção.
+
+# B2.1-224: modificador - oração - subordinada adverbial (condicional/concessiva)
+b2d1_224:
+  positive:
+    - Eu trago-te o livro, caso precises.
+    - Embora esteja frio, eles vão andar de barco.
+    - Se chover, não saímos.
+    - Mesmo que ele peça, eu não dou.
+    - Iremos à praia a menos que esteja a chover.
+  negative:
+    - Eu trago-te o livro hoje.
+    - Está frio mas eles vão andar de barco.
+    - Não saímos hoje.
+    - Eu não dou.
+    - Iremos à praia.
+
+# B2.1-225: complemento direto - oracional - verbos da subordinada completiva em diferentes tempos e modos (indicativo/conjuntivo/condicional)
+b2d1_225:
+  positive:
+    - A Carolina queria que ela também fosse ao jantar.
+    - Ele pensou que iríamos todos juntos.
+    - Eles perguntaram se tínhamos gostado do almoço.
+    - Eu sabia que tu virias.
+    - Ela duvida que eles tenham feito o trabalho.
+  negative:
+    - A Carolina queria o jantar.
+    - Ele pensou no sol.
+    - Eles perguntaram a hora.
+    - Eu sabia a verdade.
+    - Ela duvida da verdade.
+
+# B2.1-227: predicativo do complemento direto - GP
+b2d1_227:
+  positive:
+    - Ela tratava os filhos por criaturas.
+    - Considerámos a exposição sem interesse.
+    - Tomámo-lo por idiota.
+    - Tenho o Pedro como irmão.
+    - Elegeram-no para o cargo.
+  negative:
+    - Ela tratava os filhos bem.
+    - Considerámos a exposição boa.
+    - Ele é um idiota.
+    - O Pedro é meu irmão.
+    - Ele foi eleito.
+
+# B2.1-229: modificador - de constituinte verbal/predicado - oração - não finita (gerundiva/infinitiva - diferentes valores)
+b2d1_229:
+  positive:
+    - Sabendo da tua alergia, preparei um prato diferente.
+    - Ao verificarem os resultados finais, os investigadores detetaram uma anomalia.
+    - Tendo concluído a análise preliminar, a equipa redigiu o relatório.
+    - Por ultrapassarem os limites estabelecidos, os candidatos foram desclassificados.
+    - Mesmo reconhecendo o erro evidente, o diretor recusou-se a pedir desculpa.
+  negative:
+    - Como sabíamos da tua alergia, preparámos um prato diferente.
+    - Analisar estes dados sem o software adequado requer muito tempo.
+    - Os participantes prometeram entregar os formulários preenchidos até amanhã.
+    - Ao longo do semestre, os alunos foram desenvolvendo as suas competências.
+    - Devido à falta de financiamento, o projeto foi temporariamente suspenso.
+
+# B2.1-230: complemento indireto - pleonástico - um dos complementos é obrigatoriamente pronome pessoal átono
+b2d1_230:
+  positive:
+    - Quem lhe disse a ela que estávamos a organizar uma festa?
+    - Dei-te a ti o livro que me pediste.
+    - Eles enviaram-nos a nós o convite.
+    - Ela contou-me a mim toda a verdade.
+    - Nós pedimo-vos a vocês ajuda.
+  negative:
+    - Quem disse a ela a verdade?
+    - Dei a ti o livro.
+    - Eles enviaram a nós o convite.
+    - Ela contou a mim a verdade.
+    - Nós pedimos ajuda a vocês.
+
+# B2.1-231: modificador - oracional - não finita (gerundiva - diferentes valores)
+b2d1_231:
+  positive:
+    - Tendo sabido que vinhas, podia ter preparado um jantar especial.
+    - Tendo concluído a análise dos dados, a equipa submeteu o artigo.
+    - Não tendo estudado para o exame final, o aluno acabou por reprovar.
+    - Tendo sido alertados para a tempestade, os pescadores regressaram imediatamente.
+    - Havendo resolvido o problema informático, o sistema voltou a funcionar.
+  negative:
+    - Sabendo a verdade, não podia calar-se. # Distractor: Simple gerund (Target for B2.1-229)
+    - Sendo professor há mais de vinte anos, conhece bem os desafios. # Distractor: Simple gerund (Target for B2.1-229)
+    - Por ter sabido que vinhas, preparei um jantar especial. # Distractor: Compound infinitive (Infinitivo composto)
+    - Como tinha sabido da notícia antecipadamente, decidiu ficar em casa. # Distractor: Finite adverbial clause (Pretérito mais-que-perfeito composto)
+    - Os investigadores têm publicado vários artigos sobre aquisição de segunda língua. # Distractor: Pretérito perfeito composto (Main clause, no advcl dependency)
+
+# B2.1-232: modificador - oracional - não finita (partcipial/gerundiva - expressão de circunstâncias de tempo e condição)
+b2d1_232:
+  positive:
+    - Em chegando o João, vamos.
+    - Aberta a porta, puderam entrar.
+    - Chegada a hora, partiram.
+    - Em tendo tempo, vou contigo.
+    - Terminada a reunião, saíram todos.
+  negative:
+    - O João chegou.
+    - A porta abriu-se.
+    - A hora chegou.
+    - Eu tenho tempo.
+    - A reunião terminou.
+
+# B2.1-308: complemento do nome - com nomes icónicos, como 'foto'/'fotografia', 'imagem', 'desenho', 'figura' (GP)
+b2d1_308:
+  positive:
+    - O desenho de Lisboa estava muito bonito.
+    - A fotografia da Maria é antiga.
+    - Vi uma imagem do castelo.
+    - O retrato do rei foi pintado por um mestre.
+    - A figura do herói é imponente.
+  negative:
+    - O desenho é bonito.
+    - A fotografia é antiga.
+    - A imagem é nítida.
+    - O rei foi pintado.
+    - O herói é imponente.
+
+# B2.1-311: complemento do nome - com nomes que regem preposição (GP oracional - oração não finita)
+b2d1_311:
+  positive:
+    - Sentia saudades de estar com os amigos.
+    - A ideia de irem ao parque era ótima.
+    - Estive a pensar no facto de não poderes vir.
+    - Tenho esperança de ganhar o prémio.
+    - O receio de falhar era grande.
+  negative:
+    - Sentia saudades dos amigos.
+    - A ideia do parque era ótima.
+    - Pensei no facto.
+    - Tenho esperança no prémio.
+    - O receio era grande.
+
+# B2.1-312: modificador de nome - apositivo - GN
+b2d1_312:
+  positive:
+    - D. Afonso Henriques, primeiro rei de Portugal, teve sete filhos.
+    - Lisboa, a capital do país, é muito antiga.
+    - Camões, o maior poeta português, escreveu os Lusíadas.
+    - O João, meu melhor amigo, vem jantar hoje.
+    - Cristiano Ronaldo, o famoso jogador, marcou dois golos.
+  negative:
+    - D. Afonso Henriques teve sete filhos.
+    - Lisboa é muito antiga.
+    - Camões escreveu os Lusíadas.
+    - O João vem jantar hoje.
+    - Cristiano Ronaldo marcou dois golos.
+
+# B2.1-315: complemento do nome - com nomes que regem preposição (GP oracional - oração finita)
+b2d1_315:
+  positive:
+    - Tinha vontade de que lhe trouxessem doces regionais.
+    - A hipótese de que conseguisse o trabalho era grande.
+    - O facto de que eles não sabiam de nada ajudou.
+    - A certeza de que tudo correria bem deu-nos ânimo.
+    - Receio de que chova durante a festa.
+  negative:
+    - Tinha vontade de comer doces.
+    - A hipótese do trabalho era grande.
+    - O facto ajudou.
+    - A certeza deu-nos ânimo.
+    - Receio a chuva.
+
+# B2.2-5: ordem inversa (VS) - com frases exclamativas
+b2d2_5:
+  positive:
+    - Que bonita é a cidade!
+    - Que grande é o teu carro!
+    - Que alto corre o rapaz!
+    - Que bem canta a Maria!
+    - Que frio está hoje!
+  negative:
+    - A cidade é bonita.
+    - O teu carro é grande.
+    - O rapaz corre alto.
+    - A Maria canta bem.
+    - Hoje está frio.
+
+# B2.2-11: ordem inversa (VS) - nas frases com discurso indireto
+b2d2_11:
+  positive:
+    - Isso não é possível! - respondeu ela.
+    - Onde vais? - perguntou o Pedro.
+    - Vou sair - disse o João.
+    - Tudo está bem - afirmou o diretor.
+    - Não sei de nada - confessou a rapariga.
+  negative:
+    - Ela respondeu que não era possível.
+    - O Pedro perguntou onde eu ia.
+    - O João disse que ia sair.
+    - O diretor afirmou que estava tudo bem.
+    - A rapariga confessou que não sabia de nada.
+
+# B2.2-14: ordem inversa (VS) - nas orações subordinadas adverbiais condicionais sem conjunção
+b2d2_14:
+  positive:
+    - Tivessem eles trazido os cães e não entravam.
+    - Viesse a chuva mais cedo e tudo estava bem.
+    - Soubesse eu a verdade e não vinha.
+    - Pudéssemos nós voar e íamos agora.
+    - Fizesse ele o trabalho e tinha boa nota.
+  negative:
+    - Se eles tivessem trazido os cães.
+    - Se a chuva viesse mais cedo.
+    - Se eu soubesse a verdade.
+    - Se nós pudéssemos voar.
+    - Se ele fizesse o trabalho.
+
+# B2.3-8: Concordância (Suj./Pred.) - com o verbo haver com sentido de existência
+b2d3_8:
+  positive:
+    - Havia muitos turistas no museu.
+    - Houve várias festas ontem.
+    - Haverá novas oportunidades.
+    - Há muitas pessoas na rua.
+    - Tem havido muitos problemas.
+  negative:
+    - Haviam muitos turistas.
+    - Houveram várias festas.
+    - Haverão novas oportunidades.
+    - O João falou com eles.
+    - Eu tenho muitos problemas.
+
+# B2.3-13: Concordância (Suj./Pred.) - com o verbo parecer
+b2d3_13:
+  positive:
+    - Os alunos parecem gostar de português.
+    - Os alunos parece que gostam da professora.
+    - As casas parecem ser antigas.
+    - Tudo parece estar bem.
+    - Elas parecem cansadas.
+  negative:
+    - Os alunos gostam de português.
+    - A professora é boa.
+    - As casas são antigas.
+    - Tudo está bem.
+    - Elas estão cansadas.
+
+# B2.3-14: Concordância (Suj./Pred.) - entre sujeito e particípio passado em passivas
+b2d3_14:
+  positive:
+    - Os doces foram comidos pelas crianças.
+    - A casa foi vendida ontem.
+    - As chaves foram encontradas no parque.
+    - O trabalho foi terminado a tempo.
+    - As janelas foram abertas pelo vento.
+  negative:
+    - As crianças comeram os doces.
+    - Vendi a casa ontem.
+    - Encontrei as chaves no parque.
+    - Terminei o trabalho a tempo.
+    - O vento abriu as janelas.
+
+# B2.3-18: Concordância (Suj./Pred.) - com isto, isso, tudo
+b2d3_18:
+  positive:
+    - Isso são disparates.
+    - Tudo eram dificuldades.
+    - Isto são as minhas chaves.
+    - Aquilo eram apenas sonhos.
+    - Tudo foram flores no início.
+  negative:
+    - Isso é um disparate.
+    - Tudo era difícil.
+    - Isto é a minha chave.
+    - Aquilo era um sonho.
+    - Tudo foi bom.
+
+# B3.2-8: interrogativa de confirmação - não é ou não + V
+b3d2_8:
+  positive:
+    - Vives em Lisboa, não é?
+    - Vives em Lisboa, não vives?
+    - Ele é teu amigo, não é?
+    - Comeste a maçã, não comeste?
+    - Elas vêm amanhã, não vêm?
+  negative:
+    - Vives em Lisboa?
+    - Ele é teu amigo?
+    - Comeste a maçã?
+    - Elas vêm amanhã?
+    - Não vives em Lisboa.
+
+# B3.2-11: interrogativa de confirmação - com outras formas (não é verdade?)
+b3d2_11:
+  positive:
+    - Elas vêm amanhã, não é mesmo?
+    - Tu ligaste-lhe ontem, não foi?
+    - Ele é teu amigo, não achas?
+    - Isto é injusto, não concordas?
+    - Devíamos ir agora, não te parece?
+  negative:
+    - Vives em Lisboa, não é?
+    - Ele é teu amigo, certo?
+    - Elas vêm amanhã, verdade?
+    - Vamos, ou não?
+    - Comeste a maçã?
+
+# B3.2-14: interrogativa parcial múltipla - contém dois ou mais elementos interrogativos
+b3d2_14:
+  positive:
+    - Quem disse o quê?
+    - Onde vais e com quem?
+    - Quando e como aconteceu?
+    - Qual escolhes e porquê?
+    - Quantos vieram e de onde?
+  negative:
+    - Quem disse isso?
+    - Onde vais?
+    - Quando aconteceu?
+    - Qual escolhes?
+    - Quantos vieram?
+
+# B3.3-5: exclamativa parcial - elemento exclamativo + expressões nominais e adjetivais
+b3d3_5:
+  positive:
+    - Que medo!
+    - Que grande!
+    - Que bonita!
+    - Que dia fantástico!
+    - Que sorte a nossa!
+  negative:
+    - Eu tenho medo.
+    - É muito grande.
+    - Ela é bonita.
+    - O dia está fantástico.
+    - Temos muita sorte.
+
+# B3.3-6: exclamativa parcial - com tanto / tão + que
+b3d3_6:
+  positive:
+    - Tão bem que ela canta!
+    - Tanta fome que eu tenho!
+    - Tão alto que ele saltou!
+    - Tantos problemas que nós temos!
+    - Tão bonita que ela é!
+  negative:
+    - Ela canta bem.
+    - Eu tenho fome.
+    - Ele saltou alto.
+    - Nós temos problemas.
+    - Ela é bonita.
+
+# B3.3-8: exclamativa parcial - elemento exclamativo + que + oração
+b3d3_8:
+  positive:
+    - Que bom que foi encontrar-te!
+    - Que pena que não vieste!
+    - Que sorte que eles tiveram!
+    - Que maravilha que tudo correu bem!
+    - Que estranho que ninguém apareceu!
+  negative:
+    - Foi bom encontrar-te.
+    - Tu não vieste.
+    - Eles tiveram sorte.
+    - Tudo correu bem.
+    - Ninguém apareceu.
+
+# B3.3-9: elemento exclamativo + oração
+b3d3_9:
+  positive:
+    - Como ele corre depressa!
+    - Quantas mentiras a Ana inventa!
+    - Quanto dinheiro ele gasta!
+    - Como o tempo passa depressa!
+    - Quantas pessoas vieram à festa!
+  negative:
+    - Ele corre depressa.
+    - A Ana inventa mentiras.
+    - Ele gasta dinheiro.
+    - O tempo passa depressa.
+    - Muitas pessoas vieram.
+
+# B3.3-10: exclamativa total - com diferentes marcadores - é que
+b3d3_10:
+  positive:
+    - Isso é que era bom!
+    - Tu é que sabes!
+    - Ele é que tem sorte!
+    - Nós é que trabalhamos!
+    - Elas é que são espertas!
+  negative:
+    - Isso era bom.
+    - Tu sabes.
+    - Ele tem sorte.
+    - Nós trabalhamos.
+    - Elas são espertas.
+
+# B3.3-11: exclamativa total - se condicional + imperf. conjuntivo
+b3d3_11:
+  positive:
+    - Se ele trabalhasse mais!
+    - Se eu tivesse dinheiro!
+    - Se nós pudéssemos viajar!
+    - Se ela soubesse a verdade!
+    - Se eles viessem cá hoje!
+  negative:
+    - Ele trabalha mais.
+    - Eu tenho dinheiro.
+    - Nós podemos viajar.
+    - Ela sabe a verdade.
+    - Eles vêm cá hoje.
+
+# B3.3-15: exclamativa parcial - se condicional + não com valor de reforço de afirmação
+b3d3_15:
+  positive:
+    - Se ela não chegasse sempre atrasada!
+    - Se tu não fosses tão teimoso!
+    - Se eles não fizessem tanto barulho!
+    - Se eu não tivesse tanta sorte!
+    - Se nós não fôssemos tão amigos!
+  negative:
+    - Ela chega sempre atrasada.
+    - Tu és teimoso.
+    - Eles fazem barulho.
+    - Eu tenho muita sorte.
+    - Nós somos amigos.
+
+# B3.4-2: imperativas atenuadas / intensificadas - por favor / se faz favor
+b3d4_2:
+  positive:
+    - Dá-me esse livro, por favor.
+    - Se faz favor, sente-se.
+    - Abra a janela, por favor.
+    - Traga-me a conta, por favor.
+    - Venha cá um momento, se faz favor.
+  negative:
+    - Dá-me o livro.
+    - Sente-se aqui.
+    - Abra a janela.
+    - Traga-me a conta.
+    - Venha cá.
+
+# B3.4_3: imperativa - particípio passado
+b3d4_3:
+  positive:
+    - Sentados!
+    - Calados!
+    - Arrumados!
+    - Preparados!
+    - Todos parados!
+  negative:
+    - Sentem-se.
+    - Calem-se.
+    - Arrumem tudo.
+    - Preparem-se.
+    - Parem.
+
+# B3.4-5: imperativas atenuadas / intensificadas - se não se importa
+b3d4_5:
+  positive:
+    - Traga-me uma garrafa de água, se não se importa.
+    - Passe-me o sal, se não se importa.
+    - Feche a porta, se não se importa.
+    - Diga-me as horas, se não se importa.
+    - Espere aqui, se não se importa.
+  negative:
+    - Traga-me a água.
+    - Passe-me o sal.
+    - Feche a porta.
+    - Diga-me as horas.
+    - Espere aqui.
+
+# B3.4_10: imperativa direta - gerúndio
+b3d4_10:
+  positive:
+    - Andando!
+    - Correndo!
+    - Estudando!
+    - Fazendo!
+    - Partindo!
+  negative:
+    - Anda.
+    - Corre.
+    - Estuda.
+    - Faz.
+    - Parte.
+
+# B3.5-2: frase passiva - passiva adjetival - com auxiliar estar + particípio passado
+b3d5_2:
+  positive:
+    - As portas estão fechadas.
+    - O trabalho está terminado.
+    - A comida está preparada.
+    - O livro está aberto em cima da mesa.
+    - As luzes estão acesas.
+  negative:
+    - Eu fechei as portas.
+    - O trabalho terminou hoje.
+    - A comida ficou pronta cedo.
+    - O livro abriu-se.
+    - As luzes acenderam-se.
+
+# B3.5-3: frase passiva - passiva periferástica - com auxiliar ser + particípio passado + agente da passiva
+b3d5_3:
+  positive:
+    - Um livro foi lido às crianças pelo professor.
+    - A casa foi construída pelos meus avós.
+    - O prémio foi ganho pela nossa equipa.
+    - O trabalho será feito por todos nós.
+    - A verdade foi descoberta pela polícia.
+  negative:
+    - Um livro foi lido às crianças.
+    - A casa foi construída em 1950.
+    - O prémio foi ganho ontem.
+    - O trabalho será feito amanhã.
+    - A verdade foi descoberta hoje.
+
+# B3.5-4: frase passiva - passiva perifrástica - sem agente da passiva
+b3d5_4:
+  positive:
+    - Um livro foi lido às crianças.
+    - A casa foi vendida ontem.
+    - O prémio será entregue hoje.
+    - O trabalho está a ser feito agora.
+    - A verdade foi descoberta finalmente.
+  negative:
+    - Um livro foi lido às crianças pelo professor.
+    - A casa foi vendida por mim.
+    - O prémio será entregue pelo diretor.
+    - O trabalho está a ser feito pelos alunos.
+    - A verdade foi descoberta pela polícia.
+
+# B3.5-5: frase passiva - passiva reflexa - no singular
+b3d5_5:
+  positive:
+    - Vende-se automóvel.
+    - Aluga-se apartamento.
+    - Procura-se funcionário.
+    - Compra-se ouro.
+    - Aceita-se cartão.
+  negative:
+    - Vendem-se automóveis.          # Passiva sintética no plural
+    - Alugam-se apartamentos.        # Passiva sintética no plural
+    - Precisa-se de funcionários.    # Sujeito indeterminado (Verbo Transitivo Indireto)
+    - Vive-se bem em Portugal.       # Sujeito indeterminado (Verbo Intransitivo)
+    - Diz-se que vai chover.         # Passiva com oração subordinada subjetiva (sujeito oracional)
+
+# B3.5-6: frase passiva - passiva reflexa - no plural
+b3d5_6:
+  positive:
+    - Vendem-se automóveis.
+    - Alugam-se apartamentos.
+    - Procuram-se funcionários.
+    - Compram-se livros antigos.
+    - Fazem-se traduções de inglês.
+  negative:
+    - Vende-se automóvel.
+    - Aluga-se apartamento.
+    - Procura-se funcionário.
+    - Compra-se ouro.
+    - Faz-se o trabalho.
+
+# B4-4: negativa - marcada por outras palavras de valor negativo
+b4d1_4:
+  positive:
+    - Ninguém foi à aula.
+    - Nunca visitei Portugal.
+    - Nada disto é verdade.
+    - Jamais farei isso.
+    - Nenhum aluno passou.
+  negative:
+    - Alguém foi à aula.
+    - Sempre visitei Portugal.
+    - Tudo isto é verdade.
+    - Vou fazer isso.
+    - Todos os alunos passaram.
+
+# B5.1-2: coordenada disjuntiva - ou
+b5d1_2:
+  positive:
+    - Vamos ao cinema ou ficamos em casa?
+    - Queres café ou chá?
+    - Estudas ou trabalhas?
+    - Vens comigo ou ficas aqui?
+    - Comemos agora ou mais logo?
+  negative:
+    - Vamos ao cinema.
+    - Queres café.
+    - Tu estudas.
+    - Vens comigo.
+    - Comemos agora.
+
+# B5.1-3: coordenada adversativa - mas
+b5d1_3:
+  positive:
+    - Vivo em Portugal, mas sou italiano.
+    - Ele é rico, mas infeliz.
+    - Estudei muito, mas não passei.
+    - Está sol, mas faz frio.
+    - Quero sair, mas não posso.
+  negative:
+    - Vivo em Portugal e sou italiano.
+    - Ele é rico e feliz.
+    - Estudei muito e passei.
+    - Está sol e faz calor.
+    - Quero sair e posso.
+
+# B5.1-4: coordenada conclusiva - então
+b5d1_4:
+  positive:
+    - Estou doente, então não vou à aula.
+    - Ele tem dinheiro, então comprou o carro.
+    - Nós sabíamos a verdade, então não dissemos nada.
+    - Ela está cansada, então vai dormir.
+    - Tu queres sair, então vamos agora.
+  negative:
+    - Naquela altura, ainda não sabíamos a verdade.        # "então" ausente; sentido temporal
+    - Então, o que é que vamos fazer agora?                # "então" como marcador discursivo/interjeição
+    - Desde então, ela nunca mais foi à aula.              # "desde então" locução temporal
+    - Ele estava doente, mas mesmo assim comprou o carro.  # conector adversativo, não conclusivo
+    - Só então percebemos que a porta estava aberta.       # "então" advérbio de tempo
+
+# B5.1-5: coordenada copulativa - nem
+b5d1_5:
+  positive:
+    - Não comprei pão nem leite.
+    - Ele não fala nem ouve.
+    - Nós não vimo-lo nem a ela.
+    - Ela não trabalha nem estuda.
+    - Não sou rico nem pobre.
+  negative:
+    - Comprei pão e leite.
+    - Ele fala e ouve.
+    - Nós vimo-los.
+    - Ela trabalha e estuda.
+    - Sou rico e pobre.
+
+# B5.1-6: coordenada conclusiva - logo, por isso
+b5d1_6:
+  positive:
+    - João está doente, logo não vem.
+    - A Rita tem pressa, por isso correu.
+    - O céu está escuro, logo vai chover.
+    - Fizemos o trabalho, por isso estamos cansados.
+    - Ela ganhou o prémio, logo está feliz.
+  negative:
+    - Logo de manhã, o João foi ao médico.
+    - Logo que a Rita chegou, foi descansar.
+    - O João pediu desculpa por isso.
+    - A Rita entrou e foi logo para a cama.
+    - Não vale a pena chorar por isso.
+
+# B5.1-7: coordenada explicativa - pois
+b5d1_7:
+  positive:
+    - Estou cansado, pois deitei-me tarde.
+    - Ele está feliz, pois ganhou a lotaria.
+    - Ela chora, pois perdeu o cão.
+    - Nós estudamos, pois temos exame.
+    - Eles saíram, pois estava calor.
+  negative:
+    - Estou cansado porque deitei-me tarde.
+    - Ele está feliz porque ganhou.
+    - Ela chora porque perdeu.
+    - Nós estudamos para o exame.
+    - Eles saíram hoje.
+
+# B5.1-8: coordenada copulativa - não só…mas também
+b5d1_8:
+  positive:
+    - O João não só chegou atrasado como também não fez o trabalho.
+    - Gosto tanto de ler como de ver televisão.
+    - O João nem ligou nem deixou recado.
+    - Ela não só canta mas também dança.
+    - Eles tanto vieram como trouxeram presentes.
+  negative:
+    - O João chegou atrasado.
+    - Gosto de ler.
+    - O João não ligou.
+    - Ela canta e dança.
+    - Eles vieram cá.
+
+# B5.1-9: coordenada disjuntiva - ou...ou; quer...quer
+b5d1_9:
+  positive:
+    - Ou andas mais depressa ou vamos chegar atrasados.
+    - Quer chova quer faça sol, iremos sair.
+    - Ora estuda ora dorme.
+    - Seja rico seja pobre, todos são iguais.
+    - Ou comes tudo ou não tens sobremesa.
+  negative:
+    - Andas depressa ou chegamos atrasados.
+    - Chove ou faz sol.
+    - Ele estuda e dorme.
+    - Rico ou pobre são iguais.
+    - Comes tudo.
+
+# B5.1-10: coordenada adversativa - porém, contudo
+b5d1_10:
+  positive:
+    - O João está doente, porém veio trabalhar.
+    - Estudei muito, contudo não passei.
+    - Ela é simpática, no entanto é tímida.
+    - Queremos viajar, ainda assim ficamos em casa.
+    - O filme foi longo, porém interessante.
+  negative:
+    - Estudei muito e, por isso, passei no exame.          # conector conclusivo, não adversativo
+    - Gosto de muitos filmes e também aprecio o terror.    # conector copulativo
+    - Ele é rico, portanto vive sem preocupações.          # conector conclusivo
+    - O dia está bonito porque o sol brilha.               # conector causal
+    - Ela é inteligente, logo resolve tudo depressa.       # conector conclusivo
+
+# B5.1-11: coordenada conclusiva - portanto, assim
+b5d1_11:
+  positive:
+    - A Rita tem medo de alturas, portanto não voa.
+    - O teste foi fácil, assim todos passaram.
+    - Temos tempo, portanto vamos com calma.
+    - Ele é inteligente, portanto resolveu o problema.
+    - Está calor, assim vamos à praia.
+  negative:
+    - Faz o exercício assim, com calma.                    # "assim" advérbio de modo
+    - Assim como tu, também eu gosto de viajar.            # "assim como" comparativo
+    - Assim que chegámos, fomos à praia.                   # "assim que" temporal
+    - Está calor, mas não vamos à praia.                   # conector adversativo, não conclusivo
+    - Ele é inteligente e trabalhador.                     # conector copulativo
+
+# B5.1-12: coordenada adversativa - todavia, não obstante
+b5d1_12:
+  positive:
+    - Gosto de muitos filmes, todavia não aprecio terror.
+    - Ele é rico. Não obstante, vive de forma simples.
+    - Trabalhamos muito, todavia não terminámos.
+    - Ela é inteligente, não obstante comete erros.
+    - O dia está bonito, todavia faz frio.
+  negative:
+    - Trabalhamos muito e terminámos o projeto.            # conector copulativo
+    - Ela é inteligente, por isso comete poucos erros.     # conector conclusivo
+    - Gosto de muitos filmes porque me distraem.           # conector causal
+    - O dia está bonito, então vamos passear.              # conector conclusivo
+    - Ele é rico e vive de forma simples.                  # conector copulativo
+
+# B5.1-13: coordenada conclusiva - por conseguinte
+b5d1_13:
+  positive:
+    - Estudei pouco, por conseguinte não passei.
+    - Ele é o chefe, por conseguinte ele manda.
+    - O trânsito está parado, por conseguinte chegaremos tarde.
+    - Ela é a melhor, por conseguinte ganhou.
+    - Choveu muito, por conseguinte o rio transbordou.
+  negative:
+    - Estudei pouco, mas passei à mesma.                   # conector adversativo
+    - Ele é o chefe e dá as ordens.                        # conector copulativo
+    - O trânsito está parado porque houve um acidente.     # conector causal
+    - Choveu muito, no entanto o rio não transbordou.      # conector adversativo
+    - Ela ganhou o prémio e ficou muito feliz.             # conector copulativo
+
+# B5.2-1: subordinada substantiva completiva - flexionada - iniciada por que - com função de complemento - com verbos epistémicos (achar)
+b5d2_1:
+  positive:
+    - Acho que este livro é teu.
+    - Achas que vai chover?
+    - Ele acha que eu estou enganado.
+    - Nós achamos que a festa vai ser boa.
+    - Elas acham que o trabalho está feito.
+  negative:
+    - Acho este livro teu.
+    - Vai chover?
+    - Ele acha-me enganado.
+    - Nós achamos a festa boa.
+    - Elas acham o trabalho feito.
+
+# B5.2-2: subordinada substantiva completiva - flexionada - de infinitivo (impessoal) - com função de sujeito - ser
+b5d2_2:
+  positive:
+    - Falar português é fácil.
+    - Aprender música é divertido.
+    - Nadar no mar é bom.
+    - Correr de manhã faz bem.
+    - Ler livros é instrutivo.
+  negative:
+    - Eu falo português.
+    - Eu aprendo música.
+    - Eu nado no mar.
+    - Eu corro de manhã.
+    - Eu leio livros.
+
+# B5.2-3: subordinada substantiva completiva - flexionada - de infinitivo (impessoal) - com função de complemento - com verbos optativos e volitivos (querer)
+b5d2_3:
+  positive:
+    - Quero visitar Lisboa.
+    - Queres comer uma maçã?
+    - Ele quer comprar um carro.
+    - Nós queremos viajar pelo mundo.
+    - Elas querem estudar português.
+  negative:
+    - Quero Lisboa.
+    - Queres uma maçã?
+    - Ele quer um carro.
+    - Nós queremos viagens.
+    - Elas querem o livro.
+
+# B5.2-4: subordinada substantiva completiva - flexionada - de infinitivo (impessoal) - com função de complemento - com verbos epistémicos (saber)
+b5d2_4:
+  positive:
+    - Sei falar português.
+    - Sabes tocar piano?
+    - Ele sabe nadar muito bem.
+    - Nós sabemos cozinhar.
+    - Elas sabem pintar quadros.
+  negative:
+    - Sei português.
+    - Sabes piano?
+    - Ele sabe a verdade.
+    - Nós sabemos a receita.
+    - Elas sabem a lição.
+
+# B5.2-5: subordinada substantiva completiva - flexionada - de infinitivo (impessoal) - com função de complemento - com verbos modais (poder, dever)
+b5d2_5:
+  positive:
+    - Podes abrir a porta.
+    - Deves estudar para o exame.
+    - Ele pode vir connosco.
+    - Nós devemos respeitar os outros.
+    - Elas podem entrar agora.
+  negative:
+    - Podes a porta.
+    - Deves o exame.
+    - Ele pode connosco.
+    - Nós devemos o respeito.
+    - Elas podem o livro.
+
+# B5.2-6: subordinada adverbial - causal - porque (+ indicativo)
+b5d2_6:
+  positive:
+    - Gosto de Portugal, porque é um país bonito.
+    - Ele não veio, porque estava doente.
+    - Vou sair agora, porque tenho pressa.
+    - Nós estudamos muito, porque queremos passar.
+    - Elas gritaram, porque tiveram medo.
+  negative:
+    - Porque é que não vieste à aula ontem?                # "porque" interrogativo (pergunta), não causal
+    - Ninguém sabe o porquê da sua decisão.                # "porquê" nome
+    - Gosto de Portugal por causa do clima ameno.          # causa por locução prepositiva + nome
+    - Estas são as razões por que não fui à festa.         # "por que" relativo
+    - Vou sair agora para chegar a tempo.                  # oração final, não causal
+
+# B5.2-9: subordinada substantiva completiva - flexionada - iniciada por que - com função de complemento - com verbos epistémicos (pensar, saber)
+b5d2_9:
+  positive:
+    - Penso que a Ana é uma boa amiga.
+    - Sei que eles já chegaram.
+    - Ele pensa que o trabalho está terminado.
+    - Nós sabemos que a situação é difícil.
+    - Tu pensas que eu estou a mentir?
+  negative:
+    - Penso na Ana.
+    - Sei a notícia.
+    - Ele pensa no trabalho.
+    - Nós sabemos a verdade.
+    - Tu pensas em mim.
+
+# B5.2-11: subordinada substantiva completiva - flexionada - de infinitivo (impessoal) - com a função de complemento - com verbos optativos e volitivos (esperar, desejar, ...)
+b5d2_11:
+  positive:
+    - O Paulo deseja ter um carro novo.
+    - Espero ganhar o prémio.
+    - Desejamos ser felizes.
+    - Elas esperam encontrar um bom emprego.
+    - Tu desejas viajar para o estrangeiro?
+  negative:
+    - O Paulo deseja um carro.
+    - Espero o prémio.
+    - Desejamos a felicidade.
+    - Elas esperam um emprego.
+    - Tu desejas o livro?
+
+# B5.2-12: subordinada substantiva completiva - flexionada - de infinitivo (impessoal) - com a função de complemento - com verbos epistémicos (pensar...)
+b5d2_12:
+  positive:
+    - A Maria pensa ir ao cinema.
+    - Penso fazer uma viagem em breve.
+    - Eles pensam mudar de casa.
+    - Nós pensamos vender o carro.
+    - Tu pensas comprar o livro?
+  negative:
+    - A Maria pensa no cinema.
+    - Penso numa viagem.
+    - Eles pensam na mudança.
+    - Nós pensamos na venda.
+    - Tu pensas no livro?
+
+# B5.2-13: subordinada substantiva completiva - flexionada - de infinitivo (impessoal) - com a função de complemento - com precisar, necessitar + de
+b5d2_13:
+  positive:
+    - Preciso de dormir.
+    - Necessito de falar contigo.
+    - Ele precisa de comer alguma coisa.
+    - Nós necessitamos de descansar um pouco.
+    - Elas precisam de estudar mais.
+  negative:
+    - Preciso de ti.
+    - Necessito de ajuda.
+    - Ele precisa de dinheiro.
+    - Nós necessitamos de repouso.
+    - Elas precisam de tempo.
+
+# B5.2-14: subordinada adverbial - temporal - enquanto (+ indicativo)
+b5d2_14:
+  positive:
+    - Enquanto dormíamos, ouvimos um barulho.
+    - Eu leio enquanto eles vêem televisão.
+    - Ela estuda enquanto ouve música.
+    - Eles falam enquanto comem.
+    - Nós cantamos enquanto trabalhamos.
+  negative:
+    - Durante o sono, ouvimos um barulho.
+    - Eu leio sempre.
+    - Ela estuda muito.
+    - Eles falam alto.
+    - Nós cantamos bem.
+
+# B5.2-15: subordinada adverbial - temporal - desde que (+ indicativo)
+b5d2_15:
+  positive:
+    - Desde que cheguei, ainda não vi o Pedro.
+    - Ela está feliz desde que começou o curso.
+    - Desde que ele partiu, a casa está vazia.
+    - Não comi nada desde que acordei.
+    - Eles moram aqui desde que se casaram.
+  negative:
+    - Podes usar o carro, desde que o devolvas amanhã.     # "desde que" + conjuntivo = condicional, não temporal
+    - Não o vejo desde a semana passada.                   # "desde" + nome (locução prepositiva)
+    - Ele está aqui desde as oito da manhã.                # "desde" + nome
+    - Faremos o trabalho, desde que todos ajudem.          # "desde que" condicional (+ conjuntivo)
+    - Cheguei há duas horas e ainda não vi o Pedro.        # temporal com "há", sem "desde que"
+
+# B5.2-16: subordinada adverbial - causal - como (+ indicativo)
+b5d2_16:
+  positive:
+    - Como nos atrasámos, perdemos o comboio.
+    - Como estava a chover, ficámos em casa.
+    - Como ele é simpático, todos gostam dele.
+    - Como não tinhas chave, bateste à porta.
+    - Como nós sabíamos a verdade, não dissemos nada.
+  negative:
+    - Ela corre tão depressa como o irmão.                 # "como" comparativo
+    - Como é que resolveste o problema?                    # "como" interrogativo (modo)
+    - Ao pequeno-almoço, como sempre pão com manteiga.     # "como" = 1.ª pessoa de "comer"
+    - Faz o exercício como o professor explicou.           # "como" conformativo/modal
+    - Trabalha numa empresa como programador.              # "como" = na qualidade de
+
+# B5.2-22: subordinada substantiva completiva - flexionada - iniciada por que - com função de sujeito - com verbos inacusativos
+b5d2_22:
+  positive:
+    - Sucede que me atrasei e perdi o comboio.
+    - Acontece que eu não tenho dinheiro.
+    - Ocorre que eles não sabiam de nada.
+    - Importa que tudo seja esclarecido.
+    - Convém que chegues a tempo para a reunião.
+  negative:
+    - Eu atrasei-me.
+    - Eu não tenho dinheiro.
+    - Eles não sabiam de nada.
+    - Tudo deve ser esclarecido.
+    - Tu deves chegar a tempo.
+
+# B5.2-26: subordinada substantiva completiva - flexionada - iniciada por se - com função de complemento - com verbos de inquirição
+b5d2_26:
+  positive:
+    - A rapariga perguntava se já tinham chegado a casa.
+    - Quero saber se vais à festa.
+    - Ele perguntou se eu estava doente.
+    - Nós queríamos saber se eles vinham connosco.
+    - Tu perguntaste se o teste era difícil?
+  negative:
+    - A rapariga perguntava a hora.
+    - Quero saber a verdade.
+    - Ele perguntou o nome.
+    - Nós queríamos saber o resultado.
+    - Tu perguntaste a lição.
+
+# B5.2-27: subordinada substantiva completiva - flexionada - iniciada por se - com função de complemento - com verbos dubitativos
+b5d2_27:
+  positive:
+    - Ignoro se a Paula vem trabalhar hoje.
+    - Desconheço se o projeto foi aprovado.
+    - Duvido se ele disse a verdade.
+    - Não sei se vou ao cinema.
+    - Ignoramos se eles aceitarão a proposta.
+  negative:
+    - Ignoro a Paula.
+    - Desconheço o projeto.
+    - Duvido dele.
+    - Não sei a verdade.
+    - Ignoramos o resultado.
+
+# B5.2-29: subordinada substantiva completiva - flexionada - de infinitivo (pessoal / impessoal) - com a função de complemento - com verbos seguidos de preposição
+b5d2_29:
+  positive:
+    - A Maria insistiu em passarmos o fim de semana lá.
+    - Ele concorda em fazer o trabalho.
+    - Nós hesitamos em aceitar a proposta.
+    - Ela recusa-se a falar comigo.
+    - Eles comprometeram-se a ajudar quem precisa.
+  negative:
+    - A Maria insistiu no fim de semana.
+    - Ele concorda com o trabalho.
+    - Nós hesitamos na proposta.
+    - Ela recusa-se a mim.
+    - Eles comprometeram-se com a ajuda.
+
+# B5.2-34: subordinada substantiva relativa - quem, onde, quanto, o que - modificador do grupo verbal
+b5d2_34:
+  positive:
+    - Estacionei onde encontrei lugar.
+    - Farei o que for preciso.
+    - Come o quanto quiseres.
+    - Ele foi por onde lhe indicaram.
+    - Falámos com quem estava presente.
+  negative:
+    - Estacionei no lugar.
+    - Farei tudo.
+    - Come muito.
+    - Ele foi para casa.
+    - Falámos com as pessoas.
+
+# B5.2-35: subordinada substantiva relativa - quem, onde, quanto, o que - predicativo do sujeito
+b5d2_35:
+  positive:
+    - Ele não é quem eu pensava.
+    - Isto é o que eu queria.
+    - Ali é onde nós moramos.
+    - Ela é quem manda aqui.
+    - Tu és o que me faz feliz.
+  negative:
+    - Ele não é meu amigo.
+    - Isto é bom.
+    - Ali é a minha casa.
+    - Ela manda aqui.
+    - Tu fazes-me feliz.
+
+# B5.2-42: subordinada adverbial - temporal - quando (+ conjuntivo)
+b5d2_42:
+  positive:
+    - Quando for a Lisboa, quero visitar a Torre de Belém.
+    - Telefona-me quando chegares a casa.
+    - Quando tiveres tempo, ajuda-me com o trabalho.
+    - Iremos passear quando parar de chover.
+    - Quando eles vierem, começaremos a reunião.
+  negative:
+    - Quando fui a Lisboa, visitei a Torre.
+    - Telefonaste-me quando chegaste.
+    - Tens tempo para me ajudar?
+    - Parou de chover.
+    - Eles vieram ontem.
+
+# B5.2-43: subordinada adverbial - temporal - enquanto (+ conjuntivo)
+b5d2_43:
+  positive:
+    - Quero viajar pelo mundo enquanto for jovem.
+    - Trabalharei aqui enquanto me sentir bem.
+    - Enquanto fores criança, deves brincar muito.
+    - Ele não sairá de casa enquanto estiver a chover.
+    - Ficaremos contigo enquanto precisares.
+  negative:
+    - Eu viajo enquanto sou jovem.
+    - Trabalho aqui e sinto-me bem.
+    - Tu és criança.
+    - Está a chover.
+    - Tu precisas de ajuda.
+
+# B5.2-44: subordinada adverbial - temporal - assim que, logo que, mal (+ conjuntivo)
+b5d2_44:
+  positive:
+    - Assim que chegar ao Porto, telefono-te.
+    - Mal chegue ao trabalho, termino o relatório.
+    - Logo que possas, vem ter comigo.
+    - Assim que ele vir a notícia, ficará surpreendido.
+    - Mal eles saibam a verdade, dirão alguma coisa.
+  negative:
+    - Assim que cheguei ao Porto, telefonei.
+    - Mal cheguei ao trabalho, terminei.
+    - Logo que pudeste, vieste.
+    - Ele viu a notícia.
+    - Eles souberam a verdade.
+
+# B5.2-45: subordinada adverbial - temporal - sempre que (+ conjuntivo)
+b5d2_45:
+  positive:
+    - Podes contar com a minha ajuda sempre que precisares.
+    - Visita-nos sempre que vieres a Lisboa.
+    - Sempre que quiseres, podemos ir ao cinema.
+    - Telefona-me sempre que houver algum problema.
+    - Sempre que eles chegarem tarde, avisa-me.
+  negative:
+    - Sempre que precisava de ajuda, ele ajudava-me.       # "sempre que" + INDICATIVO (imperfeito habitual)
+    - Sempre que ia a Lisboa, visitava o museu.            # "sempre que" + INDICATIVO
+    - Ele chega sempre atrasado ao trabalho.               # "sempre" advérbio, sem oração
+    - Todas as vezes que o vi, cumprimentei-o.             # locução equivalente + INDICATIVO
+    - Podes contar comigo para sempre.                     # "para sempre" locução
+
+# B5.2-46: subordinada adverbial - temporal - (de) cada vez que, (de) todas as vezes que (+ conjuntivo)
+b5d2_46:
+  positive:
+    - Todas as vezes que o vires, diz-lhe olá.                          # futuro do conjuntivo (ver)
+    - De cada vez que ele vier, faremos um bolo.                        # futuro do conjuntivo (vir)
+    - Cada vez que tu quiseres, eu ajudo-te.                            # futuro do conjuntivo (querer)
+    - Prometeu que, cada vez que eu precisasse de ajuda, estaria lá.    # imperfeito do conjuntivo (backshift)
+    - Disse que, todas as vezes que o visse, ficava mais tranquilo.     # imperfeito do conjuntivo (ver)
+  negative:
+    - Cada vez que visitei a loja, recebi um desconto.                  # certo lema, pretérito do INDICATIVO
+    - Cada vez que eu precisava de ajuda, ele ajudava-me.               # certo lema, imperfeito do INDICATIVO
+    - Sempre que precisares de ajuda, liga-me.                          # conjuntivo, mas gatilho temporal fora do alvo
+    - Uma vez que estás cansado, deves descansar.                       # "vez que" na superfície, mas causal + indicativo
+    - A cidade fica cada vez mais cara.                                 # "cada vez" sem que-oração (intensificador)
+
+# B5.2-51: subordinada adverbial - condicional - a menos que, a não ser que (+ conjuntivo)
+b5d2_51:
+  positive:
+    - Iremos ao jantar, a não ser que haja algum imprevisto.
+    - Vou sair agora, a menos que queiras vir comigo.
+    - Iremos à praia amanhã, a não ser que chova.
+    - Ele não fará o trabalho, a menos que lhe paguem mais.
+    - Não diremos nada a ninguém, a não ser que seja necessário.
+  negative:
+    - Não como nada a não ser fruta ao pequeno-almoço.     # "a não ser" + nome (exceção, sem oração)
+    - Ninguém faltou à reunião, a não ser o diretor.       # "a não ser" + nome (exceção)
+    - Iremos à praia amanhã se não chover.                 # condicional com "se", não "a menos/não ser que"
+    - Ele trabalha menos que os colegas.                   # "menos que" comparativo
+    - Vou sair agora porque quero apanhar o comboio.       # causal, sem estrutura condicional
+
+# B5.2-53: subordinada adverbial - comparativa - como se
+b5d2_53:
+  positive:
+    - Falámos como se nos conhecêssemos há muito tempo.
+    - Ela corre como se fosse uma atleta profissional.
+    - Ele olha para mim como se eu estivesse a mentir.
+    - Tu ages como se nada tivesse acontecido.
+    - Eles gritam como se estivessem loucos.
+  negative:
+    - Falámos e conhecemo-nos.
+    - Ela é uma atleta.
+    - Eu estou a mentir.
+    - Nada aconteceu.
+    - Eles estão loucos.
+
+# B5.2-54: subordinada adverbial conformativa - consoante, conforme
+b5d2_54:
+  positive:
+    - Faz conforme achares melhor.
+    - Age consoante as circunstâncias indicarem.
+    - Escreve o texto conforme o professor pediu.
+    - Decidiremos consoante as propostas que recebermos.
+    - Conforme fores crescendo, irás compreender melhor.
+  negative:
+    - Recebi o material conforme o combinado.              # "conforme" preposição + nome
+    - O "s" é uma consoante da língua portuguesa.          # "consoante" = nome (fonética)
+    - O relatório está conforme as normas em vigor.        # "conforme" adjetivo (em conformidade)
+    - Faz o trabalho como o professor pediu.               # "como", não "conforme/consoante"
+    - Age de acordo com as circunstâncias.                 # locução equivalente, sem "consoante/conforme"
+
+# B5.2-56: subordinada substantiva completiva - flexionada - iniciada por que - com verbos em colocação com nomes
+b5d2_56:
+  positive:
+    - Faz falta que os jovens se interessem mais pela política.
+    - Dá pena que ele não tenha vindo.
+    - Faz sentido que tudo seja esclarecido.
+    - Dá jeito que vocês tragam o material para a reunião.
+    - Faz confusão que eles não aceitem as novas regras.
+  negative:
+    - Faz falta estudar mais a matéria para o exame.
+    - Dá pena vê-lo abandonar o projeto a meio.
+    - Esta explicação finalmente faz sentido para mim.
+    - Dá muito jeito trabalhar com dois monitores.
+    - Toda esta situação me faz muita confusão.
+
+# B5.2-58: subordinada substantiva completiva - flexionada - de infinitivo (pessoal) - infinitivo pessoal composto
+b5d2_58:
+  positive:
+    - O Ivo reconheceu ter sido muito teimoso.
+    - Os alunos lamentaram terem chegado atrasados.
+    - Ela admitiu ter feito um erro.
+    - Nós afirmamos termos dito a verdade.
+    - Eles confessaram terem roubado o carro.
+  negative:
+    - O Ivo foi teimoso.
+    - Os alunos chegaram atrasados.
+    - Ela fez um erro.
+    - Nós dissemos a verdade.
+    - Eles roubaram o carro.
+
+# B5.2-62: subordinada adverbial - causal - participial
+b5d2_62:
+  positive:
+    - Lesionado, o atleta não participou na maratona.
+    - Cansado, o rapaz adormeceu no sofá.
+    - Assustada, a gata escondeu-se debaixo da cama.
+    - Atrasados, os convidados perderam o início do espetáculo.
+    - Confuso, o aluno pediu uma clarificação ao professor.
+  negative:
+    - Porque estava lesionado, o atleta não participou na maratona. # Finite causal clause
+    - O atleta foi lesionado durante o jogo. # Passive voice
+    - O homem cansado adormeceu no sofá. # Attributive participle/adjective modifier
+    - Terminada a reunião, saíram todos contentes. # C2 (B2.1-232): Absolute participial clause
+    - Aberta a porta, puderam entrar. # C2 (B2.1-232): Absolute participial clause
+
+# B5.2-63: subordinada adverbial - causal - devido a, devido ao facto de (+ infinitivo)
+b5d2_63:
+  positive:
+    - O livro foi um sucesso devido ao facto de ter recebido um prémio.
+    - Ele está cansado devido a ter trabalhado muito.
+    - O trânsito parou devido ao facto de ter havido um acidente.
+    - Não fomos à praia devido a estar a chover.
+    - Ela ficou feliz devido ao facto de ter visto a notícia.
+  negative:
+    - O livro foi um sucesso devido ao prémio recebido.    # "devido a" + nome, não oração de infinitivo
+    - Não fomos à praia por causa da chuva.                # causa por locução + nome
+    - O respeito devido aos mais velhos é importante.      # "devido" adjetivo (que se deve)
+    - O trânsito parou porque houve um acidente.           # causal finita com "porque"
+    - Ele está cansado, pois trabalhou muito.              # causal finita com "pois"
+
+# B5.2-64: subordinada adverbial - causal - graças a, por culpa de (+ infinitivo)
+b5d2_64:
+  positive:
+    - Ele tem dificuldade em respirar por culpa de fumar tanto.
+    - Conseguimos chegar a tempo graças a termos apanhado o táxi.
+    - Ela ficou doente por culpa de não se ter agasalhado.
+    - Graças a termos estudado muito, passámos no exame.
+    - Por culpa de terem saído tarde, perderam o comboio.
+  negative:
+    - Conseguimos chegar a tempo graças ao táxi.           # "graças a" + nome, não oração
+    - Ela ficou doente por culpa do frio.                  # "por culpa de" + nome
+    - Demos graças pela ajuda que recebemos.               # "graças" nome (agradecimento)
+    - Passámos no exame porque estudámos muito.            # causal finita com "porque"
+    - Ele tem dificuldade em respirar por fumar tanto.     # "por" + infinitivo, sem "culpa de/graças a"
+
+# B5.2-65: subordinada adverbial - temporal - mal...(logo) (+ indicativo / conjuntivo)
+b5d2_65:
+  positive:
+    - Mal entrei em casa, apercebi-me logo de que alguém lá tinha estado.
+    - Mal chegues, telefona-me logo.
+    - Mal ele viu a Maria, sorriu logo.
+    - Mal soubermos a notícia, avisamos-te logo.
+    - Mal eles partiram, começou logo a chover.
+  negative:
+    - Ele fala muito mal o português.                      # "mal" advérbio de modo (= badly)
+    - O bem sempre vence o mal.                            # "mal" = nome
+    - Sinto-me mal desde ontem à noite.                    # "mal" advérbio
+    - Chegámos cedo, logo tivemos tempo de sobra.          # "logo" conclusivo, sem "mal" temporal
+    - Entrei em casa e fui logo dormir.                    # "logo" advérbio de tempo, sem oração "mal"
+
+# B5.2-66: subordinada adverbial - temporal - à medida que, ao passo que (+ indicativo / conjuntivo)
+b5d2_66:
+  positive:
+    - À medida que a economia melhora, o desemprego diminui.
+    - À medida que fores crescendo, irás compreender.
+    - Ao passo que o tempo passa, ficamos mais velhos.
+    - À medida que eles chegavam, íamos servindo o jantar.
+    - Ao passo que uns trabalham, outros descansam.
+  negative:
+    - O fato foi feito à medida do cliente.                # "à medida de" + nome (sob medida)
+    - O governo anunciou uma nova medida económica.        # "medida" = nome
+    - Ele deu um passo em frente e parou.                  # "passo" = nome
+    - Enquanto a economia melhora, o desemprego diminui.   # temporal com "enquanto", não "à medida/ao passo que"
+    - O tempo passa e ficamos mais velhos.                 # coordenação, sem locução "ao passo que"
+
+# B5.2-67: subordinada adverbial - temporal - no momento em que, na altura em que (+ indicativo)
+b5d2_67:
+  positive:
+    - Fez-se silêncio no momento em que ele subiu ao palco.
+    - Estava a chover na altura em que saí de casa.
+    - No momento em que a vi, soube que era ela.
+    - Na altura em que eles partiram, o sol brilhava.
+    - Fechei a porta no momento em que o telefone tocou.
+  negative:
+    - Naquele momento, todos ficaram em silêncio.          # advérbio de tempo, sem "em que" (sem relativa)
+    - Este não é o momento de discutir esse assunto.       # "momento" nome + complemento
+    - Na altura, ninguém percebeu o que se passava.        # "na altura" advérbio, sem "em que"
+    - O avião está a ganhar altura sobre o oceano.         # "altura" = nome (elevação)
+    - Fez-se silêncio quando ele subiu ao palco.           # temporal com "quando", não "no momento em que"
+
+# B5.2-69: subordinada adverbial - concessiva - por muito...que (+ conjuntivo)
+b5d2_69:
+  positive:
+    - Por muito empenhada que seja a Maria, não creio que consiga o emprego.
+    - Por muito dinheiro que eles ofereçam, a empresa não está à venda.
+    - Por muito rapidamente que a equipa atue, o dano já está feito.
+    - Por muitos obstáculos que surjam, manteremos a nossa estratégia intacta.
+    - Por muito que chova durante a tarde, o evento realizar-se-á conforme planeado.
+  negative:
+    - Ele foi elogiado por muito que fez pela instituição. # Causal preposition "por" + pronoun "muito" + relative "que" + indicative.
+    - Passámos por muito sofrimento que poderia ter sido facilmente evitado. # Preposition "por" + noun phrase + relative clause + indicative.
+    - Por mais esforço que faças, os resultados demoram a aparecer. # Concessive, but uses "mais" instead of the required "muito".
+    - Comprei o novo equipamento por muito menos do que o valor de mercado. # Comparative structure, missing subjunctive clause.
+    - O projeto de investigação manteve-se suspenso por muito tempo. # Prepositional phrase of time; missing "que" and dependent clause.
+
+# B5.2-70: subordinada adverbial - concessiva - gerundiva
+b5d2_70:
+  positive:
+    - Mesmo não gostando de calor, fui à praia.
+    - Ainda estando doente, veio trabalhar.
+    - Mesmo sabendo a verdade, não disse nada.
+    - Ainda tendo tempo, não quis ajudar.
+    - Mesmo sendo pobre, é feliz.
+  negative:
+    - Sabendo da tua alergia, preparei outro prato.        # gerúndio simples (causal), sem "mesmo/ainda"
+    - Ele próprio, ele mesmo, resolveu o problema.         # "mesmo" reforço de pronome
+    - Embora não goste de calor, fui à praia.              # concessiva finita com "embora"
+    - Mesmo assim, decidi não ir à festa.                  # "mesmo assim" locução, sem gerúndio
+    - Chegando a casa, fui logo dormir.                    # gerúndio temporal, sem marcador concessivo
+
+# B5.2-71: subordinada adverbial - concessiva - participial
+b5d2_71:
+  positive:
+    - Embora cansado, trabalhei até de madrugada.
+    - Ainda que lesionado, o atleta venceu a corrida.
+    - Mesmo irritado, falou com calma.
+    - Se bem que ocupado, ele atendeu o telefone.
+    - Conquanto triste, ela sorriu para todos.
+  negative:
+    - Ele foi-se embora sem se despedir de ninguém.        # "embora" na locução "ir(-se) embora"
+    - O atleta lesionado desistiu da corrida.              # particípio atributivo (modificador do nome)
+    - Embora estivesse cansado, trabalhei até tarde.       # concessiva finita (com verbo), não reduzida
+    - Ainda que estivesse triste, ela sorriu.              # concessiva finita, não participial
+    - Ele estava ocupado, mas atendeu o telefone.          # coordenação adversativa, sem "embora/ainda que"
+
+# B5.2-73: subordinada adverbial - condicional - se porventura
+b5d2_73:
+  positive:
+    - Teria ajudado o João, se porventura tivesse sabido da sua situação.
+    - Iremos visitar-te, se porventura formos a Lisboa.
+    - Se porventura chover, ficaremos em casa.
+    - Perdoa-me, se porventura te ofendi.
+    - Se porventura ele vier, avisa-me.
+  negative:
+    - Sabes, porventura, a que horas abre a loja?          # "porventura" advérbio em interrogativa (= por acaso)
+    - Se chover amanhã, ficaremos em casa.                 # condicional com "se", sem "porventura"
+    - Perguntou-me se, porventura, eu conhecia o caminho.  # "porventura" em interrogativa indireta
+    - Encontrámos o tesouro por mero acaso.                # "acaso", sem estrutura condicional
+    - Caso ele venha, avisa-me.                            # condicional com "caso", sem "se porventura"
+
+# B5.2-74: subordinada adverbial - condicional - salvo se (+ conjuntivo)
+b5d2_74:
+  positive:
+    - O contrato é renovado, salvo se uma das partes decidir de outro modo.
+    - Iremos jantar fora, salvo se tu preferires ficar em casa.
+    - Sairemos agora, salvo se ainda tiveres trabalho por fazer.
+    - Tudo correrá bem, salvo se houver um imprevisto.
+    - O teste será amanhã, salvo se o professor o adiar.
+  negative:
+    - Todos chegaram a casa sãos e salvos.                 # "salvo" adjetivo
+    - Vieram todos à reunião, salvo o diretor.             # "salvo" preposição + nome (= exceto)
+    - O bombeiro salvou a criança das chamas.              # "salvou" verbo (salvar)
+    - Iremos jantar fora se não estiveres cansado.         # condicional com "se", sem "salvo"
+    - Sairemos agora, a não ser que chova.                 # condicional com "a não ser que", não "salvo se"
+
+# B5.2-75: subordinada substantiva completiva - de infinitivo (pessoal) - com alteração de ordem
+b5d2_75:
+  positive:
+    - A Paula afirmou ter o João sido o responsável.
+    - O diretor pensa terem os funcionários feito um bom trabalho.
+    - Julgamos sermos nós os vencedores.
+    - Creio teres tu razão.
+    - Dizem terem eles encontrado o tesouro.
+  negative:
+    - A Paula afirmou que o João foi o responsável.
+    - O diretor pensa que os funcionários fizeram um bom trabalho.
+    - Julgamos que somos nós os vencedores.
+    - Creio que tu tens razão.
+    - Dizem que eles encontraram o tesouro.
+
+# B5.2-76: subordinada substantiva completiva - de infinitivo (pessoal) - nominalizada, precedida de artigo
+b5d2_76:
+  positive:
+    - O que me surpreendeu foi o ele ter ido sem dizer nada.   # art + subj pron + personal inf
+    - O nós estarmos aqui ajuda muito.                          # (fixed from "o facto de...")
+    - O eles terem chegado cedo foi uma sorte.                 # inflected inf (3pl)
+    - O tu falares assim incomoda-me.          # art + subj pron tu + inflected inf (2sg, overt -es)
+    - O nós partirmos agora é essencial.       # art + subj pron nós + inflected inf (1pl, overt -mos)
+  negative:
+    - O que me surpreendeu foi ele ter ido sem dizer nada.     # minimal pair of P1: personal inf, NO nominalizing article
+    - O facto de nós estarmos aqui ajuda muito.                # completiva DO NOME: article heads "facto", inf via "de"
+    - O fumar faz mal à saúde.                                 # article + IMPERSONAL inf (no subject, no inflection)
+    - É essencial partirmos agora.                             # personal inf, not nominalized (minimal pair of P5)
+    - Eles chegaram cedo.                                      # plain finite clause (de-nominalized counterpart of P4)
