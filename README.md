@@ -106,9 +106,10 @@ saber.extract([Path("a.txt"), Path("corpus/")])     # several paths
 To read a plain string as a path, pass `source_type="path"`.
 
 In a folder, every plain-text file is read: files with a `.txt` extension and
-files with **no extension at all**. Hidden files (`.DS_Store`, dotfiles) are
-skipped. To pick up something else — or to narrow the selection — pass an
-explicit glob:
+files with **no file-type extension at all**. A trailing number is not treated
+as an extension, so corpus names like `A1.1` or `texto.2` are read too. Hidden
+files (`.DS_Store`, dotfiles) and binary files are skipped. To pick up something
+else — or to narrow the selection — pass an explicit glob:
 
 ```python
 saber.extract(Path("corpus/"), pattern="*.txt")     # only .txt
@@ -119,8 +120,9 @@ saber.extract(Path("corpus/"), pattern="aluno_*")   # a subset, by name
 Other folder options: `recursive=False`, `encoding="utf-8"` (files that are not
 valid UTF-8 fall back to latin-1 with a warning).
 
-Each document is named after its file stem; inline strings become `text`, or
-`text_1`, `text_2`, … when there are several.
+Each document is named after its file, without the extension (`texto57.txt` and
+`texto57` both become `texto57`, while `A1.1` keeps its number); inline strings
+become `text`, or `text_1`, `text_2`, … when there are several.
 
 ## Choosing which structures to extract
 

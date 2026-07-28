@@ -12,12 +12,14 @@ Pass ``source_type="path"`` to read a plain string as a path, or
 ``source_type="text"`` to force the opposite.
 
 Inside a folder, the default selection is every plain-text file: those with a
-``.txt`` extension and those with no extension at all. Pass an explicit
-``pattern`` glob to override that.
+``.txt`` extension and those with no file-type extension at all -- including
+corpus names such as ``A1.1``, where the trailing ``.1`` is part of the name
+rather than an extension. Pass an explicit ``pattern`` glob to override that.
 """
 
 import logging
 import os
+import re
 from dataclasses import dataclass
 from pathlib import Path
 from typing import Optional
@@ -29,13 +31,19 @@ SOURCE_TYPES = ("auto", "text", "path")
 DEFAULT_SUFFIXES = ("", ".txt")
 """File suffixes picked up in a folder when no ``pattern`` is given."""
 
+_EXTENSION_RE = re.compile(r"\.[A-Za-z][A-Za-z0-9]{0,7}$")
+"""What counts as a file-type extension: a letter, then a few alphanumerics."""
+
+_SNIFF_BYTES = 8192
+"""How much of a file is inspected to decide whether it is text or binary."""
+
 
 @dataclass(frozen=True)
 class Document:
     """A single text to analyse."""
 
     name: str
-    """Identifier used in the output tables (file stem, or ``text``/``text_1``...)."""
+    """Identifier used in the output tables (file name, or ``text``/``text_1``...)."""
 
     path: Optional[Path]
     """Where it was read from, or ``None`` for text passed in directly."""
@@ -56,24 +64,89 @@ def _is_pathlike(value):
     return isinstance(value, os.PathLike)
 
 
+def _has_extension(path):
+    """Whether ``path`` ends in something that looks like a file-type extension.
+
+    :attr:`~pathlib.Path.suffix` calls anything after the last dot an extension,
+    which makes corpus filenames such as ``A1.1`` or ``texto.2`` look like
+    ``.1``/``.2`` files and so hides them from the default selection. A real
+    extension starts with a letter (see :data:`_EXTENSION_RE`), so a numeric one
+    is read as part of the name instead.
+    """
+    return bool(_EXTENSION_RE.search(path.name))
+
+
+def _document_name(path):
+    """Name a document after its file, dropping only a real extension.
+
+    ``texto57.txt`` becomes ``texto57``, and so does ``texto57``. ``A1.1`` keeps
+    its number, since :func:`_has_extension` does not count ``.1`` as an
+    extension -- taking the stem there would name ``A1.1`` through ``A1.6`` all
+    ``A1`` and leave the collision numbering to tell them apart.
+    """
+    return path.stem if _has_extension(path) else path.name
+
+
+def _looks_like_text(path):
+    """Whether ``path`` holds text, judged by the absence of a NUL byte.
+
+    Guards the extensionless half of the default selection: without a suffix to
+    go on, a binary file is only recognisable by its contents.
+    """
+    try:
+        with path.open("rb") as handle:
+            return b"\x00" not in handle.read(_SNIFF_BYTES)
+    except OSError as error:
+        logger.warning("Cannot read %s: %s", path, error)
+        return False
+
+
+def _is_default_text_file(path):
+    """Whether ``path`` belongs to the default, patternless folder selection.
+
+    That is every plain-text file: one with a ``.txt`` extension, or one with no
+    file-type extension at all whose contents look like text. Hidden files are
+    skipped, since their leading dot would otherwise make ``.DS_Store`` and
+    friends look extensionless.
+    """
+    if path.name.startswith("."):
+        return False
+    if _has_extension(path):
+        return path.suffix.lower() in DEFAULT_SUFFIXES
+    return _looks_like_text(path)
+
+
 def _folder_files(folder, *, pattern, recursive):
     """List the files to read inside ``folder``, sorted by path.
 
-    With ``pattern=None`` every plain-text file is picked up -- ``.txt`` files
-    and extensionless ones (see :data:`DEFAULT_SUFFIXES`) -- skipping hidden
-    files, whose leading dot would otherwise make ``.DS_Store`` and friends look
-    extensionless. An explicit ``pattern`` is used as a glob, as given.
+    With ``pattern=None`` every plain-text file is picked up, as decided by
+    :func:`_is_default_text_file`; anything left out is logged. An explicit
+    ``pattern`` is used as a glob, as given.
     """
     globber = folder.rglob if recursive else folder.glob
-    if pattern is None:
-        candidates = (
-            p
-            for p in globber("*")
-            if p.suffix.lower() in DEFAULT_SUFFIXES and not p.name.startswith(".")
+    if pattern is not None:
+        return sorted(p for p in globber(pattern) if p.is_file())
+
+    files, skipped = [], []
+    for path in sorted(p for p in globber("*") if p.is_file()):
+        (files if _is_default_text_file(path) else skipped).append(path)
+    if skipped:
+        logger.info(
+            "Skipped %d of %d file(s) in %s as not plain text: %s",
+            len(skipped),
+            len(skipped) + len(files),
+            folder,
+            _summarise(skipped),
         )
-    else:
-        candidates = globber(pattern)
-    return sorted(p for p in candidates if p.is_file())
+    return files
+
+
+def _summarise(paths, limit=5):
+    """Join up to ``limit`` file names, noting how many more there are."""
+    names = [p.name for p in paths[:limit]]
+    if len(paths) > limit:
+        names.append(f"... and {len(paths) - limit} more")
+    return ", ".join(names)
 
 
 def _flatten(source):
@@ -112,7 +185,8 @@ def resolve_sources(
         source: A string of text, a :class:`~pathlib.Path` to a file or folder,
             or a sequence mixing those.
         pattern: Glob applied inside folders. ``None`` (the default) reads every
-            plain-text file: ``.txt`` files and files with no extension.
+            plain-text file: ``.txt`` files and files with no file-type
+            extension, such as ``texto57`` or ``A1.1``.
         recursive: Search folders recursively.
         encoding: Encoding used to read files; falls back to latin-1.
         source_type: ``"auto"`` (default), ``"text"`` or ``"path"``. Overrides
@@ -120,9 +194,10 @@ def resolve_sources(
 
     Returns:
         A list of documents, in the order given; folder contents are sorted by
-        path. Document names are unique: file stems, disambiguated with a
-        numeric suffix on collision, and ``text`` (or ``text_1``, ``text_2``,
-        ... when there is more than one) for inline strings.
+        path. Document names are unique: file names without their extension,
+        disambiguated with a numeric suffix on collision, and ``text`` (or
+        ``text_1``, ``text_2``, ... when there is more than one) for inline
+        strings.
     """
     if source_type not in SOURCE_TYPES:
         raise ValueError(
@@ -168,7 +243,7 @@ def resolve_sources(
             files = _folder_files(path, pattern=pattern, recursive=recursive)
             if not files:
                 what = (
-                    "No .txt or extensionless files"
+                    "No plain-text files"
                     if pattern is None
                     else f"No files matching {pattern!r}"
                 )
@@ -179,7 +254,7 @@ def resolve_sources(
             for file_path in files:
                 documents.append(
                     Document(
-                        name=unique(file_path.stem),
+                        name=unique(_document_name(file_path)),
                         path=file_path,
                         text=read_text_file(file_path, encoding),
                     )
@@ -187,7 +262,7 @@ def resolve_sources(
         elif path.is_file():
             documents.append(
                 Document(
-                    name=unique(path.stem),
+                    name=unique(_document_name(path)),
                     path=path,
                     text=read_text_file(path, encoding),
                 )

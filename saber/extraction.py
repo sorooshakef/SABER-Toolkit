@@ -303,7 +303,7 @@ def extract(
             ``"count"``, ``"normalized"``, ``"presence"``.
         pattern: Glob used when ``source`` is a folder. ``None`` (the default)
             reads every plain-text file: ``.txt`` files and files with no
-            extension.
+            file-type extension, such as ``texto57`` or ``A1.1``.
         recursive: Search folders recursively.
         encoding: Encoding used to read files; falls back to latin-1.
         source_type: ``"auto"``, ``"text"`` or ``"path"``.
