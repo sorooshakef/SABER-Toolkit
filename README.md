@@ -245,7 +245,7 @@ pattern cannot abort a corpus run. Use `on_error="raise"` while debugging, or
 
 ## Performance
 
-Expect **a few seconds per short text**, and add ~30 s of one-off model loading
+Expect **a few seconds per short text**, and add a few additional seconds of one-off model loading
 to the first extraction in a process. Two things dominate: the Stanza parse, and
 the fact that each matcher rebuilds its spaCy `Matcher` object on every call.
 
@@ -259,21 +259,6 @@ Practical consequences:
   `logging.basicConfig(level=logging.INFO)`.
 
 ## Working on the matchers
-
-`saber/matchers/` and `saber/label_translation.py` are maintained in the
-upstream SABER application and copied into this package **verbatim**. Do not
-edit them here; replace them wholesale and they keep working. Two consequences
-worth knowing:
-
-- `saber/matchers/` has no `__init__.py`, on purpose — it is an implicit
-  namespace package, so replacing the folder cannot delete a file this project
-  needs.
-- The matchers import their dependencies by bare name
-  (`from process_and_display import nlp_stanza`,
-  `from text_reconstruction import reconstruct_text`). `saber/_compat.py`
-  registers those names in `sys.modules` before any matcher is imported, and
-  `saber/process_and_display.py` is a thin shim re-exporting the pipelines from
-  `saber/nlp.py`. That is why the module keeps its otherwise odd name.
 
 A matcher function is named after its structure minus the CEFR suffix
 (`a5d2_1` → `a5d2_1_A2`), takes a spaCy `Doc`, and returns a list of
