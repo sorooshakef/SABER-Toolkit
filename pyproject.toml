@@ -4,7 +4,7 @@ build-backend = "setuptools.build_meta"
 
 [project]
 name = "saber-pt"
-version = "0.1.0"
+version = "0.5.4"
 description = "Identify European Portuguese grammatical structures and extract CEFR-linked features from text"
 readme = "README.md"
 requires-python = ">=3.9"
