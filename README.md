@@ -265,8 +265,11 @@ Practical consequences:
   DataFrame — that is much cheaper than re-running with different filters.
 - Restricting `groups`/`categories`/`levels` up front does cut the matching cost
   roughly in proportion, but not the parsing cost.
-- Progress is logged per document. Turn it on with
-  `logging.basicConfig(level=logging.INFO)`.
+- A progress bar over the documents appears whenever there is more than one
+  document and you are working in a terminal or a notebook. `progress=False`
+  turns it off, `progress=True` forces it on (useful when output is redirected).
+- Progress is also logged per document, which is the better option for scripts
+  and log files. Turn it on with `logging.basicConfig(level=logging.INFO)`.
 
 ## Working on the matchers
 

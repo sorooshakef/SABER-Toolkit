@@ -7,6 +7,7 @@ import time -- it is pulled in lazily the first time structures are extracted.
 """
 
 import re
+import warnings
 
 import spacy
 import spacy_stanza
@@ -61,6 +62,50 @@ class _SnlpCache:
 
 
 nlp_stanza.tokenizer.snlp = _SnlpCache(nlp_stanza.tokenizer.snlp)
+
+#: The two warnings spacy-stanza raises whenever a text contains a multi-word
+#: token. In Portuguese that means any contraction ("no" -> "em o", "das" ->
+#: "de as"), i.e. effectively every real text, so they fire constantly.
+#: Matched as regular expressions against the start of the message.
+_MWT_WARNINGS = (
+    "Due to multiword token expansion",
+    "Can't set named entities because of multi-word token",
+)
+
+
+class _QuietTokenizer:
+    """Wrap the spacy-stanza tokenizer so its multi-word-token warnings do not
+    reach the user.
+
+    Neither warning describes a problem here. The first says ``doc.text`` was
+    rebuilt from space-joined expanded tokens; SABER never reads that text, it
+    recovers offsets from the raw Stanza Doc instead (see ``stanza_char_spans``).
+    The second says named entities could not be set; no matcher uses entities,
+    and the ``ner`` processor is not even loaded (see ``STANZA_PROCESSORS``).
+
+    Suppressing them on the tokenizer rather than through a global
+    ``warnings.filterwarnings`` call keeps the scope right in both directions:
+    it also covers the matchers that call ``nlp_stanza.pipe()`` themselves,
+    since every path into the pipeline tokenizes through here, and it leaves the
+    warning filters of the importing program untouched.
+    """
+
+    def __init__(self, tokenizer):
+        self._tokenizer = tokenizer
+
+    def __call__(self, text):
+        with warnings.catch_warnings():
+            for message in _MWT_WARNINGS:
+                warnings.filterwarnings("ignore", message=re.escape(message))
+            return self._tokenizer(text)
+
+    def __getattr__(self, name):
+        return getattr(self._tokenizer, name)
+
+
+# After the _SnlpCache assignment above: attribute writes land on the wrapper,
+# not on the tokenizer it delegates to.
+nlp_stanza.tokenizer = _QuietTokenizer(nlp_stanza.tokenizer)
 
 # Load the spaCy pipeline for Portuguese
 nlp_small = spacy.load(SPACY_MODEL)

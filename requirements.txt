@@ -8,5 +8,7 @@ click>=8.0
 # package pulls in a newer torch, reinstall this version afterwards.
 torch==2.5.1
 pandas>=1.5
+# The extraction progress bar (saber/progress.py).
+tqdm>=4.64
 # Only needed to run tests/test_suite.py
 pyyaml>=6.0

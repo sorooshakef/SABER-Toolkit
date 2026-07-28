@@ -13,6 +13,7 @@ saber/
   registry.py             matcher discovery, the structure taxonomy, filter resolution
   sources.py              turns a string / file / folder into named documents
   nlp.py                  the two NLP pipelines, preprocess_text, stanza_char_spans
+  progress.py             the per-document progress bar (tqdm, optional)
   models.py              model names and download_models()
   process_and_display.py  compat shim -- see below
   text_reconstruction.py  upstream, verbatim

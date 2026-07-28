@@ -6,6 +6,7 @@ from dataclasses import dataclass, field
 from pathlib import Path
 from typing import List, Optional, Sequence
 
+from saber import progress as progress_module
 from saber import registry, sources
 from saber.registry import Selector, Structure
 
@@ -156,21 +157,25 @@ def analyze(text, structures: Sequence[Structure], *, document="text", path=None
     return analysis
 
 
-def analyze_documents(documents, structures: Sequence[Structure], *, on_error="warn"):
+def analyze_documents(documents, structures: Sequence[Structure], *,
+                      on_error="warn", progress="auto"):
     """Run ``structures`` over every :class:`~saber.sources.Document`."""
     analyses = []
     total = len(documents)
-    for index, document in enumerate(documents, start=1):
-        logger.info("Analysing %s (%d/%d)", document.name, index, total)
-        analyses.append(
-            analyze(
-                document.text,
-                structures,
-                document=document.name,
-                path=document.path,
-                on_error=on_error,
+    with progress_module.bar(total, progress=progress) as bar:
+        for index, document in enumerate(documents, start=1):
+            logger.info("Analysing %s (%d/%d)", document.name, index, total)
+            bar.describe(document.name)
+            analyses.append(
+                analyze(
+                    document.text,
+                    structures,
+                    document=document.name,
+                    path=document.path,
+                    on_error=on_error,
+                )
             )
-        )
+            bar.update()
     return analyses
 
 
@@ -274,6 +279,7 @@ def extract(
     encoding="utf-8",
     source_type="auto",
     on_error="warn",
+    progress="auto",
 ):
     """Identify grammatical structures in Portuguese text.
 
@@ -303,6 +309,9 @@ def extract(
         source_type: ``"auto"``, ``"text"`` or ``"path"``.
         on_error: What to do when an individual matcher raises -- ``"warn"``
             (default), ``"raise"`` or ``"ignore"``.
+        progress: Show a progress bar over the documents. ``"auto"`` (default)
+            shows one when there is more than one document and stderr is a
+            terminal; ``True`` always shows it, ``False`` never does.
 
     Returns:
         A :class:`pandas.DataFrame`. See ``SPAN_COLUMNS`` for the columns of the
@@ -329,7 +338,9 @@ def extract(
     logger.info(
         "Extracting %d structure(s) from %d document(s)", len(selected), len(documents)
     )
-    analyses = analyze_documents(documents, selected, on_error=on_error)
+    analyses = analyze_documents(
+        documents, selected, on_error=on_error, progress=progress
+    )
 
     if mode == "spans":
         return spans_table(analyses)

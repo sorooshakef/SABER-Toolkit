@@ -40,6 +40,8 @@ dependencies = [
     # Pinned: Stanza model loading breaks with newer torch releases.
     "torch==2.5.1",
     "pandas>=1.5",
+    # The extraction progress bar (saber/progress.py).
+    "tqdm>=4.64",
 ]
 
 [project.optional-dependencies]
