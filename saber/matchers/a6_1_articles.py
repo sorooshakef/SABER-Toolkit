@@ -360,8 +360,7 @@ def a6d1_15(doc):
         end = max(token_ids) + 1
         tokens_in_span = doc[start:end]
         text = reconstruct_text(tokens_in_span)
-        print(text)
-        
+
         # If there's already a match with the same start, keep the one with the smaller end index
         if start in best_matches:
             if end < best_matches[start][3]:

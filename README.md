@@ -98,16 +98,26 @@ is never guessed:
 ```python
 saber.extract("Um texto qualquer.")                 # str  -> raw text
 saber.extract(Path("texto.txt"))                    # Path -> one file
-saber.extract(Path("corpus/"))                      # Path -> every .txt in the folder
+saber.extract(Path("corpus/"))                      # Path -> every text file in the folder
 saber.extract(["Primeiro texto.", "Segundo."])      # several texts
 saber.extract([Path("a.txt"), Path("corpus/")])     # several paths
 ```
 
 To read a plain string as a path, pass `source_type="path"`.
 
-Folder options: `pattern="*.txt"` (which files to pick up), `recursive=False`,
-`encoding="utf-8"` (files that are not valid UTF-8 fall back to latin-1 with a
-warning).
+In a folder, every plain-text file is read: files with a `.txt` extension and
+files with **no extension at all**. Hidden files (`.DS_Store`, dotfiles) are
+skipped. To pick up something else — or to narrow the selection — pass an
+explicit glob:
+
+```python
+saber.extract(Path("corpus/"), pattern="*.txt")     # only .txt
+saber.extract(Path("corpus/"), pattern="*.tsv")     # some other extension
+saber.extract(Path("corpus/"), pattern="aluno_*")   # a subset, by name
+```
+
+Other folder options: `recursive=False`, `encoding="utf-8"` (files that are not
+valid UTF-8 fall back to latin-1 with a warning).
 
 Each document is named after its file stem; inline strings become `text`, or
 `text_1`, `text_2`, … when there are several.

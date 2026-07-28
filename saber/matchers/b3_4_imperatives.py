@@ -27,8 +27,6 @@ def b3d4_2(doc):
     matcher.add("b3d4_2_A2", [pattern, pattern_reverse])
 
     matches = matcher(doc)
-    for match_id, start, end in matches:
-        print(reconstruct_text(doc[start:end]))
 
     return [(doc.vocab.strings[match_id], reconstruct_text(doc[start:end]), start, end) for match_id, start, end in matches]
 

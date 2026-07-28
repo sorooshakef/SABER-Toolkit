@@ -1677,9 +1677,7 @@ def a3d2_24(doc):
                                pattern_w_article, pattern_reverse_w_article])
 
     matches = matcher(doc)
-    
-    print(matches)
-    
+
     results = []
     for match_id, token_ids in matches:
         # Calculate start and end indices
@@ -1688,7 +1686,6 @@ def a3d2_24(doc):
         tokens_in_span = doc[start:end]
         
         text = reconstruct_text(tokens_in_span)
-        print(text)
         results.append((doc.vocab.strings[match_id], text, start, end))
 
     return results

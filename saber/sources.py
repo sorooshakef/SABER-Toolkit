@@ -10,6 +10,10 @@ ambiguous:
 
 Pass ``source_type="path"`` to read a plain string as a path, or
 ``source_type="text"`` to force the opposite.
+
+Inside a folder, the default selection is every plain-text file: those with a
+``.txt`` extension and those with no extension at all. Pass an explicit
+``pattern`` glob to override that.
 """
 
 import logging
@@ -21,6 +25,9 @@ from typing import Optional
 logger = logging.getLogger(__name__)
 
 SOURCE_TYPES = ("auto", "text", "path")
+
+DEFAULT_SUFFIXES = ("", ".txt")
+"""File suffixes picked up in a folder when no ``pattern`` is given."""
 
 
 @dataclass(frozen=True)
@@ -49,6 +56,26 @@ def _is_pathlike(value):
     return isinstance(value, os.PathLike)
 
 
+def _folder_files(folder, *, pattern, recursive):
+    """List the files to read inside ``folder``, sorted by path.
+
+    With ``pattern=None`` every plain-text file is picked up -- ``.txt`` files
+    and extensionless ones (see :data:`DEFAULT_SUFFIXES`) -- skipping hidden
+    files, whose leading dot would otherwise make ``.DS_Store`` and friends look
+    extensionless. An explicit ``pattern`` is used as a glob, as given.
+    """
+    globber = folder.rglob if recursive else folder.glob
+    if pattern is None:
+        candidates = (
+            p
+            for p in globber("*")
+            if p.suffix.lower() in DEFAULT_SUFFIXES and not p.name.startswith(".")
+        )
+    else:
+        candidates = globber(pattern)
+    return sorted(p for p in candidates if p.is_file())
+
+
 def _flatten(source):
     """Yield ``(kind, value)`` pairs, where kind is ``"text"`` or ``"path"``."""
     if isinstance(source, str) or _is_pathlike(source):
@@ -74,7 +101,7 @@ def _flatten(source):
 def resolve_sources(
     source,
     *,
-    pattern="*.txt",
+    pattern=None,
     recursive=False,
     encoding="utf-8",
     source_type="auto",
@@ -84,7 +111,8 @@ def resolve_sources(
     Args:
         source: A string of text, a :class:`~pathlib.Path` to a file or folder,
             or a sequence mixing those.
-        pattern: Glob applied inside folders.
+        pattern: Glob applied inside folders. ``None`` (the default) reads every
+            plain-text file: ``.txt`` files and files with no extension.
         recursive: Search folders recursively.
         encoding: Encoding used to read files; falls back to latin-1.
         source_type: ``"auto"`` (default), ``"text"`` or ``"path"``. Overrides
@@ -137,11 +165,15 @@ def resolve_sources(
 
         path = Path(value).expanduser()
         if path.is_dir():
-            globber = path.rglob if recursive else path.glob
-            files = sorted(p for p in globber(pattern) if p.is_file())
+            files = _folder_files(path, pattern=pattern, recursive=recursive)
             if not files:
+                what = (
+                    "No .txt or extensionless files"
+                    if pattern is None
+                    else f"No files matching {pattern!r}"
+                )
                 raise ValueError(
-                    f"No files matching {pattern!r} in {path}"
+                    f"{what} in {path}"
                     f"{' (searched recursively)' if recursive else ''}."
                 )
             for file_path in files:

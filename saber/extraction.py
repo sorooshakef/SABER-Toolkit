@@ -269,7 +269,7 @@ def extract(
     structures: Selector = None,
     exclude: Selector = None,
     features=FEATURE_KINDS,
-    pattern="*.txt",
+    pattern=None,
     recursive=False,
     encoding="utf-8",
     source_type="auto",
@@ -278,7 +278,7 @@ def extract(
     """Identify grammatical structures in Portuguese text.
 
     Args:
-        source: A string of text, a :class:`~pathlib.Path` to a ``.txt`` file, a
+        source: A string of text, a :class:`~pathlib.Path` to a text file, a
             :class:`~pathlib.Path` to a folder of them, or a sequence mixing
             those. Plain strings are treated as text; use
             ``source_type="path"`` to read them as paths instead.
@@ -295,7 +295,9 @@ def extract(
         exclude: Structures to leave out, in the same forms as ``structures``.
         features: Which feature kinds to emit in ``"features"`` mode; any of
             ``"count"``, ``"normalized"``, ``"presence"``.
-        pattern: Glob used when ``source`` is a folder.
+        pattern: Glob used when ``source`` is a folder. ``None`` (the default)
+            reads every plain-text file: ``.txt`` files and files with no
+            extension.
         recursive: Search folders recursively.
         encoding: Encoding used to read files; falls back to latin-1.
         source_type: ``"auto"``, ``"text"`` or ``"path"``.
