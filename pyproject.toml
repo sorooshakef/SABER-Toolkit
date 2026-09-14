@@ -8,7 +8,7 @@ version = "0.5.4"
 description = "Identify European Portuguese grammatical structures and extract CEFR-linked features from text"
 readme = "README.md"
 requires-python = ">=3.9,<3.14"
-license = "CC-BY-4.0"
+license = "MIT"
 license-files = ["LICENSE"]
 authors = [{ name = "Soroosh Akef", email = "s.akef@iwm-tuebingen.de" }]
 keywords = [

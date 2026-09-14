@@ -302,9 +302,9 @@ reference from the last full run.
 
 ## Licence and attribution
 
-Released under [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/) — see
-[LICENSE](LICENSE). You may share and adapt this work, including commercially,
-provided you give appropriate credit.
+Released under the [MIT License](https://opensource.org/licenses/MIT) — see
+[LICENSE](LICENSE). You may use, modify, and distribute this work, including
+commercially, provided the copyright notice and licence text are retained.
 
 The structure inventory and its CEFR mapping derive from the
 [Referencial Camões PLE](https://www.instituto-camoes.pt/activity/centro-virtual/referencial-camoes-ple)
