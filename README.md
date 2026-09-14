@@ -36,7 +36,13 @@ filter by group, category, CEFR level, or individual structure.
 
 Python 3.9 or newer, but not above 3.13.
 
-From a clone:
+From PyPI:
+
+```bash
+pip install saber-pt
+```
+
+From a clone, for development:
 
 ```bash
 git clone https://github.com/sorooshakef/SABER-Toolkit.git
@@ -46,7 +52,8 @@ source .venv/bin/activate      # Windows: .venv\Scripts\activate
 pip install -e .
 ```
 
-Then download the Portuguese models **once per machine** (~1 GB, mostly Stanza):
+Then, for either route, download the Portuguese models — once per machine
+(~1 GB, mostly Stanza):
 
 ```bash
 python -c "import saber; saber.download_models()"
