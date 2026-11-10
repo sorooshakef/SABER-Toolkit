@@ -3783,3 +3783,67 @@ b5d2_76:
     - O fumar faz mal à saúde.                                 # article + IMPERSONAL inf (no subject, no inflection)
     - É essencial partirmos agora.                             # personal inf, not nominalized (minimal pair of P5)
     - Eles chegaram cedo.                                      # plain finite clause (de-nominalized counterpart of P4)
+
+# Newly added syntactic patterns for MWEs
+
+b2d4_1:
+  positive:
+    - "A grande casa fica na colina."
+    - "A casa grande fica na colina."
+    - "A casa muito grande fica na colina."
+  negative:
+    - "A casa fica na colina."
+    - "Ela é muito feliz."
+
+b2d4_2:
+  positive:
+    - "Ele tem uma vontade de ferro."
+    - "A mesa de madeira é antiga."
+    - "café de a manhã"
+    - "atendimento a o público"
+  negative:
+    - "A mesa é antiga."
+    - "Ele trabalha de manhã."
+
+b2d4_3:
+  positive:
+    - "Em vez de fazer campanha para 32 milhões de pessoas, percorrendo todo o Estado, o candidato só faz campanha no distrito, de bicicleta."
+    - "Mas a maneira como bons atores lidam com essa previsibilidade pode fazer a diferença."
+    - "Mas a maneira como bons atores lidam com essa previsibilidade pode fazer uma enorme diferença."
+    - "Mas colombianos deram um salto também."
+    - "É no campo que os donos da casa têm oportunidade de mostrar sua superioridade."
+    - "Quando as pessoas se aproximavam da meia-idade, muitas tomavam consciência aguda de que sua vida era finita e, com isso, relatavam um medo crescente de que nunca conseguiriam alcançar suas metas."
+  negative:
+    - "A criança correu para a escola."       # NOUN is an oblique, not obj
+    - "O diretor chegou cedo."                # no nominal object
+    - "Ela decidiu trabalhar amanhã."         # xcomp VERB, not obj NOUN
+    - "Eles gostam de música."                # prepositional complement, not obj
+    - "O livro caiu da mesa."                 # noun is subject / oblique, not object
+    - "A professora falou aos alunos."        # indirect/prepositional complement
+
+b2d4_4:
+  positive:
+    - "Ao lado de fatores econômicos tradicionais, o bem-estar social é uma medida cada vez mais levada em conta na definição de políticas públicas e, com frequência, de empresas."
+    - "Mas há um sistema que ainda passa ao largo das discussões em Brasília (por que será?)."
+    - "Assim que percebeu que o irmão havia sido baleado, Leanny entrou em desespero."
+    - "Quando o depoimento veio a público, a defesa do ex-ministro negou que ele tenha recebido dinheiro de Funaro."
+    - "Moro não toca no assunto verdadeiro da reportagem."
+  negative:
+    - "Ela leu o livro de história."          # de história modifies NOUN, not VERB
+    - "A visita ao museu foi longa."          # ao museu modifies NOUN visita
+    - "Ele viu a fotografia do irmão."        # do irmão is an nmod of fotografia
+    - "Eles visitaram a cidade antiga."       # object, with no ADP/case relation
+    - "Ela decidiu trabalhar amanhã."         # no nominal oblique
+    - "O diretor chegou cedo."                # no prepositional nominal phrase
+
+b2d4_5:
+  positive:
+    - "Com a venda, o Estado estima arrecadar ao menos R$ 6 bilhões."
+    - "Ele desembarcou no Brasil há cerca de dez anos."
+    - "De acordo com o presidente da Associação Uruguaia de Futebol, Wilmar Valdez, Suárez telefonou para Messi para que os dois impulsionassem a candidatura."
+    - "Em vez de fazer campanha para 32 milhões de pessoas, percorrendo todo o Estado, o candidato só faz campanha no distrito, de bicicleta."
+  negative:
+    - "Para que serve esta ferramenta?"
+    - "A criança correu para casa e quebrou o vaso."
+    - "Ele escreveu em cima e saiu de casa."
+    - "A palavra cerca aparece antes de um número."
