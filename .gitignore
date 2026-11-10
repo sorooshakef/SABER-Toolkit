@@ -1,6 +1,7 @@
 __pycache__/
 *.py[cod]
 .DS_Store
+debug_*.py
 
 # Virtual environments
 venv/
