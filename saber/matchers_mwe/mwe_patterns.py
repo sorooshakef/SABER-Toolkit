@@ -1,6 +1,7 @@
 """Dependency-based multiword-expression pattern extractors for SABER.
 
-Copy this module to ``saber/matchers/``. The functions return SABER's usual
+This module lives in ``saber/matchers_mwe/``, apart from the upstream matchers;
+its labels are in ``saber/label_translation_mwe.py``. The functions return SABER's usual
 ``(structure, text, start, end)`` tuples and use the Universal Dependencies
 parse exposed by SABER's Stanza-backed spaCy document.
 """

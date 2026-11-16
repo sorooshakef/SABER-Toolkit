@@ -55,4 +55,4 @@ Issues = "https://github.com/sorooshakef/SABER-Toolkit/issues"
 # wholesale whenever the matchers are updated upstream, so it must not depend on
 # a file this project adds. It is listed explicitly so packaging picks it up.
 [tool.setuptools]
-packages = ["saber", "saber.matchers"]
+packages = ["saber", "saber.matchers", "saber.matchers_mwe"]

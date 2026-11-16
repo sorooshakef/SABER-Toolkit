@@ -16,7 +16,8 @@ It gives you two things:
 252 structures are covered, described in Portuguese and organised into 11 broad
 groups (nouns, adjectives, verbs, adverbs, pronouns, determiners, quantifiers,
 relations between constituents, sentence types, sentence polarity, relations
-between sentences) and 31 finer categories. You can extract all of them, or
+between sentences) and 31 finer categories, plus 5 multiword-expression patterns
+that are not tied to a CEFR level. You can extract all of them, or
 filter by group, category, CEFR level, or individual structure.
 
 ## Table of contents
@@ -161,7 +162,7 @@ saber.extract(text, exclude=["a1d1_7_A2"])
 To see what the valid values are:
 
 ```python
-saber.list_structures()                # all 252, as a DataFrame
+saber.list_structures()                # all 257, as a DataFrame
 saber.list_structures(groups="a7")     # just the quantifiers
 ```
 
@@ -176,6 +177,23 @@ Structure ids encode the taxonomy, so you can also filter the output frame
 directly: `a5d2_1_A2` → group `a5`, category `a5d2`, matcher `a5d2_1`, level
 `A2`.
 
+### Structures without a CEFR level
+
+The five multiword-expression patterns (`b2d4_1_MWE` … `b2d4_5_MWE`, category
+`b2d4`, "Expressões multipalavra") are not part of the Referencial Camões and
+are not tied to a CEFR level. Their `level` is the string `NA`, and they are
+included by default:
+
+```python
+saber.extract(text, levels="NA")                     # only the MWE patterns
+saber.extract(text, categories="b2d4")               # the same, by category
+saber.extract(text, levels=saber.CEFR_LEVELS)        # everything except them
+```
+
+If you write a table to CSV and read it back with pandas, pass
+`keep_default_na=False` (or `na_values=[]`), otherwise `NA` is parsed as a
+missing value.
+
 ## Output columns
 
 ### `mode="spans"` — one row per occurrence
@@ -185,7 +203,7 @@ directly: `a5d2_1_A2` → group `a5`, category `a5d2`, matcher `a5d2_1`, level
 | `document`, `path` | Which text the match came from (`path` is empty for inline strings) |
 | `structure` | Full structure id, e.g. `a5d2_1_A2` |
 | `matcher` | Name of the matcher function, e.g. `a5d2_1` |
-| `level` | CEFR level, `A1`–`C2` |
+| `level` | CEFR level, `A1`–`C2`, or `NA` for structures not tied to a level |
 | `group`, `group_name` | Broad group key and Portuguese name |
 | `category`, `category_name` | Category key and Portuguese name |
 | `description` | Portuguese description of the structure |
@@ -228,9 +246,10 @@ analysis.matches             # list of Match objects
 Columns are emitted for **every** selected structure, including those that never
 matched, so feature matrices line up across documents and across runs. Their
 order follows the declaration order of `LABEL_TRANSLATIONS` in
-`saber/label_translation.py`, which is curated taxonomically.
+`saber/label_translation.py`, which is curated taxonomically, followed by the
+multiword-expression patterns of `saber/label_translation_mwe.py`.
 
-Selecting all 252 structures therefore gives `3 × 252 + 3 = 759` columns. Use
+Selecting all 257 structures therefore gives `3 × 257 + 3 = 774` columns. Use
 `features=` to keep only what you need:
 
 ```python
@@ -292,6 +311,13 @@ A structure is available only if it has **both** an entry in
 `LABEL_TRANSLATIONS` and a matcher function, so commenting out a label in
 `saber/label_translation.py` disables the structure.
 `saber.missing_labels()` lists labels with no matcher.
+
+`saber/matchers/` and `saber/label_translation.py` are copied verbatim from the
+upstream SABER application and replaced wholesale when it is updated. Matchers
+that are not part of upstream go in `saber/matchers_mwe/`, with their labels in
+`saber/label_translation_mwe.py`; both folders are discovered and both label
+tables are merged. A label whose suffix is not a CEFR level (`b2d4_1_MWE`) gets
+the level `NA`.
 
 ## Testing the matchers
 

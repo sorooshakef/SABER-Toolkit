@@ -19,6 +19,8 @@ saber/
   text_reconstruction.py  upstream, verbatim
   label_translation.py    upstream, verbatim
   matchers/               upstream, verbatim (no __init__.py on purpose)
+  label_translation_mwe.py  labels for this project's own (MWE) matchers
+  matchers_mwe/           this project's own matchers, not part of upstream
 tests/
   tests.yaml              positive/negative example sentences per matcher
   test_suite.py           precision/recall harness
@@ -29,6 +31,14 @@ tests/
 upstream SABER application. Do not edit them here** — they are replaced wholesale
 whenever the matchers are updated, so any local change is lost. Everything else
 in `saber/` is this project's own code.
+
+Matchers that do not exist upstream (currently the multiword-expression
+patterns, `b2d4_*`) therefore live in `saber/matchers_mwe/`, with their labels in
+`LABEL_TRANSLATIONS_MWE` and their category names in `LEVEL_DESCRIPTIONS_MWE`
+(`saber/label_translation_mwe.py`). `saber/registry.py` discovers both folders
+and merges both label tables, upstream first; on a key collision the upstream
+definition wins and a warning is logged. Never add project-specific matchers or
+labels to the upstream files.
 
 Two consequences of that contract:
 
@@ -66,8 +76,13 @@ python -c "from saber.matchers.b5_2_subordination import b5d2_6; from saber.nlp 
   a spaCy `Doc`, and returns `(label, text, token_start, token_end)` tuples with
   an exclusive end index. `<function>.REQUIRES_SPACY = True` routes it to the
   `pt_core_news_md` parse instead of the Stanza one.
-- A structure is only available if it has both a `LABEL_TRANSLATIONS` entry and a
-  matcher function; commenting out a label disables the structure.
+- A structure whose id ends in something other than the six CEFR levels (e.g.
+  `b2d4_1_MWE`) is not tied to a level; `registry.level_of` reports its level as
+  the string `NA`. The suffix is still required, because the matcher name is the
+  id minus its last `_` part.
+- A structure is only available if it has both a label (`LABEL_TRANSLATIONS` or
+  `LABEL_TRANSLATIONS_MWE`) and a matcher function; commenting out a label
+  disables the structure.
 - Library code logs through `logging` (`logger = logging.getLogger(__name__)`).
   Never `print()` — matcher modules still contain a few stray debug prints from
   upstream, which show up as noise in library output and should be removed

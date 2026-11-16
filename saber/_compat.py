@@ -1,7 +1,7 @@
 """Make the matchers' absolute imports resolve inside this package.
 
 The modules in ``saber/matchers`` are copied verbatim from the upstream SABER
-application, where they live next to their dependencies at the top level of the
+application (and those in ``saber/matchers_mwe`` are written in the same style), where they live next to their dependencies at the top level of the
 project. They therefore contain absolute imports such as::
 
     from process_and_display import nlp_stanza

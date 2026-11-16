@@ -32,6 +32,7 @@ from saber.extraction import (
 )
 from saber.models import download_models
 from saber.registry import (
+    CEFR_LEVELS,
     Structure,
     all_structures,
     list_structures,
@@ -43,6 +44,7 @@ __version__ = "0.5.4"
 
 __all__ = [
     "Analysis",
+    "CEFR_LEVELS",
     "Match",
     "Structure",
     "all_structures",

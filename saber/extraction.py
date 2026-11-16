@@ -295,7 +295,9 @@ def extract(
             (``"Pronomes"``).
         categories: Restrict to categories, by key (``"a5d2"``) or name
             (``"Demonstrativos"``).
-        levels: Restrict to CEFR levels, ``"A1"`` to ``"C2"``.
+        levels: Restrict to CEFR levels, ``"A1"`` to ``"C2"``. ``"NA"``
+            selects the structures that are not tied to a level (the
+            multiword-expression patterns).
         structures: Restrict to individual structures, by id (``"a5d2_1_A2"``)
             or matcher name (``"a5d2_1"``).
         exclude: Structures to leave out, in the same forms as ``structures``.

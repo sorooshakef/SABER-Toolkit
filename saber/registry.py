@@ -1,9 +1,17 @@
 """Discovery of the matcher functions and the taxonomy used to select them.
 
-A *structure* here is one entry of ``LABEL_TRANSLATIONS`` in
-:mod:`saber.label_translation` that has a corresponding matcher function in
-``saber/matchers``. Its identifier, e.g. ``a5d2_1_A2``, encodes everything the
-selection API needs:
+A *structure* here is one label that has a corresponding matcher function.
+Labels and matchers come from two places:
+
+* ``LABEL_TRANSLATIONS`` in :mod:`saber.label_translation` and the functions in
+  ``saber/matchers`` -- both copied verbatim from the upstream SABER
+  application and replaced wholesale when it is updated;
+* ``LABEL_TRANSLATIONS_MWE`` in :mod:`saber.label_translation_mwe` and the
+  functions in ``saber/matchers_mwe`` -- this project's own additions, which
+  survive such an update.
+
+A structure's identifier, e.g. ``a5d2_1_A2``, encodes everything the selection
+API needs:
 
 ===============  ===========================================  ==================
 Part             Meaning                                      Example
@@ -12,10 +20,14 @@ first two chars  broad group (first-level ``LEVEL_``           ``a5`` (Pronomes)
                  ``DESCRIPTIONS`` key)
 up to first "_"  category (second-level key)                  ``a5d2``
                                                               (Demonstrativos)
-last two chars   CEFR level at which it is taught             ``A2``
+after the last   CEFR level at which it is taught             ``A2``
+underscore
 before the last  matcher function name                        ``a5d2_1``
 underscore
 ===============  ===========================================  ==================
+
+A suffix that is not one of the six CEFR levels (``b2d4_1_MWE``) marks a
+structure that is not tied to a level; its level is reported as ``NA``.
 """
 
 import importlib
@@ -29,16 +41,53 @@ from typing import Callable, Iterable, Sequence, Union
 from unidecode import unidecode
 
 from saber import _compat
-from saber.label_translation import LABEL_TRANSLATIONS, LEVEL_DESCRIPTIONS
+from saber.label_translation import LABEL_TRANSLATIONS as _UPSTREAM_LABELS
+from saber.label_translation import LEVEL_DESCRIPTIONS as _UPSTREAM_DESCRIPTIONS
+from saber.label_translation_mwe import LABEL_TRANSLATIONS_MWE, LEVEL_DESCRIPTIONS_MWE
 
 logger = logging.getLogger(__name__)
 
 #: Matcher functions are named after their structure minus the CEFR suffix.
 MATCHER_NAME_RE = re.compile(r"^[ab]\d+d\d+_\d+$")
 
-MATCHERS_DIR = Path(__file__).resolve().parent / "matchers"
+_PACKAGE_DIR = Path(__file__).resolve().parent
+
+#: The upstream matchers, replaced wholesale on every update.
+MATCHERS_DIR = _PACKAGE_DIR / "matchers"
+
+#: Every sub-package matcher functions are discovered in, in load order.
+MATCHER_PACKAGES = ("matchers", "matchers_mwe")
 
 CEFR_LEVELS = ("A1", "A2", "B1", "B2", "C1", "C2")
+
+#: Level reported for a structure whose id does not end in a CEFR level.
+NO_LEVEL = "NA"
+
+
+def _merge(upstream, extra, kind):
+    """``upstream`` followed by ``extra``; upstream wins if a key is in both."""
+    merged = dict(upstream)
+    for key, value in extra.items():
+        if key in merged:
+            logger.warning(
+                "%s %s is defined both upstream and in label_translation_mwe; "
+                "using the upstream definition", kind, key,
+            )
+            continue
+        merged[key] = value
+    return merged
+
+
+#: Every label, upstream ones first. Shadows the upstream names on purpose so
+#: the rest of this module sees one combined taxonomy.
+LABEL_TRANSLATIONS = _merge(_UPSTREAM_LABELS, LABEL_TRANSLATIONS_MWE, "Label")
+LEVEL_DESCRIPTIONS = _merge(_UPSTREAM_DESCRIPTIONS, LEVEL_DESCRIPTIONS_MWE, "Description")
+
+
+def level_of(label):
+    """The CEFR level a structure id ends in, or ``"NA"`` if it has none."""
+    suffix = label.rsplit("_", 1)[-1]
+    return suffix if suffix in CEFR_LEVELS else NO_LEVEL
 
 Selector = Union[str, Iterable[str], None]
 
@@ -57,7 +106,7 @@ class Structure:
     """The matcher function itself."""
 
     level: str
-    """CEFR level, one of ``A1``-``C2``."""
+    """CEFR level, one of ``A1``-``C2``, or ``NA`` if the structure has none."""
 
     group: str
     """Broad group key, e.g. ``a5``."""
@@ -84,7 +133,9 @@ class Structure:
 
 @lru_cache(maxsize=1)
 def load_matchers():
-    """Import every module in ``saber/matchers`` and return ``{name: function}``.
+    """Import every matcher module and return ``{name: function}``.
+
+    Modules are read from each folder in :data:`MATCHER_PACKAGES`.
 
     Loading the matchers also loads the NLP pipelines, because most matcher
     modules import them at module level. This is cached, so it happens once per
@@ -96,10 +147,16 @@ def load_matchers():
 
     functions = {}
     origins = {}
-    for path in sorted(MATCHERS_DIR.glob("*.py")):
+    paths = [
+        (package, path)
+        for package in MATCHER_PACKAGES
+        for path in sorted((_PACKAGE_DIR / package).glob("*.py"))
+    ]
+    for package, path in paths:
         if path.name.startswith("__"):
             continue
-        module_name = f"saber.matchers.{path.stem}"
+        module_name = f"saber.{package}.{path.stem}"
+        origin = f"{package}/{path.stem}"
         try:
             module = importlib.import_module(module_name)
         except Exception:
@@ -111,17 +168,18 @@ def load_matchers():
             attr = getattr(module, attr_name)
             if not callable(attr):
                 continue
-            if attr_name in functions and origins[attr_name] != path.stem:
+            if attr_name in functions and origins[attr_name] != origin:
                 logger.warning(
                     "Matcher %s is defined in both %s and %s; using %s",
-                    attr_name, origins[attr_name], path.stem, path.stem,
+                    attr_name, origins[attr_name], origin, origin,
                 )
             functions[attr_name] = attr
-            origins[attr_name] = path.stem
+            origins[attr_name] = origin
 
     if not functions:
         raise RuntimeError(
-            f"No matcher functions found in {MATCHERS_DIR}. Expected modules "
+            f"No matcher functions found in {_PACKAGE_DIR} under "
+            f"{', '.join(MATCHER_PACKAGES)}. Expected modules "
             "defining functions named like 'a5d2_1'."
         )
     return functions
@@ -133,9 +191,10 @@ def all_structures():
 
     Structures are returned in the order they are declared in
     ``LABEL_TRANSLATIONS``, which is curated taxonomically (nouns, adjectives,
-    verbs, ...). That order also determines the column order of the feature
-    table. Labels commented out in :mod:`saber.label_translation` are absent, so
-    that file is the switch for enabling and disabling structures.
+    verbs, ...), followed by those of ``LABEL_TRANSLATIONS_MWE``. That order
+    also determines the column order of the feature table. Labels commented out
+    in :mod:`saber.label_translation` or :mod:`saber.label_translation_mwe` are
+    absent, so those files are the switch for enabling and disabling structures.
     """
     functions = load_matchers()
     resolved = []
@@ -153,7 +212,7 @@ def all_structures():
                 structure=label,
                 matcher=matcher_name,
                 func=func,
-                level=label.rsplit("_", 1)[-1],
+                level=level_of(label),
                 group=group,
                 group_name=LEVEL_DESCRIPTIONS.get(group, group),
                 category=category,
@@ -172,7 +231,7 @@ def all_structures():
 
 
 def missing_labels():
-    """Labels declared in ``LABEL_TRANSLATIONS`` with no matcher function."""
+    """Declared labels (upstream or MWE) with no matcher function."""
     available = {s.structure for s in all_structures()}
     return tuple(label for label in LABEL_TRANSLATIONS if label not in available)
 
@@ -272,14 +331,15 @@ def resolve(
         categories: Categories, as second-level keys (``"a5d2"``) or names
             (``"Demonstrativos"``). A name that several categories share
             selects all of them.
-        levels: CEFR levels, ``"A1"`` to ``"C2"``.
+        levels: CEFR levels, ``"A1"`` to ``"C2"``, or ``"NA"`` for the
+            structures that are not tied to a level.
         structures: Individual structures, by id (``"a5d2_1_A2"``) or matcher
             name (``"a5d2_1"``).
         exclude: Structures to drop, accepted in the same forms as
             ``structures``. Applied last.
 
     Returns:
-        The matching structures, in ``LABEL_TRANSLATIONS`` declaration order.
+        The matching structures, in label declaration order.
 
     Raises:
         ValueError: If a value matches nothing, or if the combination of filters
